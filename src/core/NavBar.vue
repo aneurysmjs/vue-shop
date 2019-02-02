@@ -15,11 +15,15 @@
     <button
       class="navbar-toggler"
       type="button"
+      @click="handleToggleMenu"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse">
+    <div
+      class="collapse navbar-collapse"
+      :class="{ show: isMenuToggled }"
+    >
       <ul class="navbar-nav ml-auto">
         <li
           v-for="link in links"
@@ -40,6 +44,7 @@
     data() {
       return {
         isActive: false,
+        isMenuToggled: false,
         links: [
           {
             id: 'Home',
@@ -75,6 +80,9 @@
     methods: {
       applyScroll(pa) {
         console.log('scroll', pa);
+      },
+      handleToggleMenu() {
+        this.isMenuToggled = !this.isMenuToggled
       }
     }
   }

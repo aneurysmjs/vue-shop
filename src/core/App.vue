@@ -1,17 +1,14 @@
 <template>
-  <div class="app">
-    <Header></Header>
-    <router-view></router-view>
-  </div>
+  <Layout></Layout>
 </template>
 
 <script>
-  import Header from 'core/Header';
+  import Layout from 'core/Layout';
 
   export default {
     name: 'app',
     components: {
-      Header
+      Layout
     }
   }
 
@@ -24,9 +21,5 @@
 
   // import bootstrap.scss file
   @import '~bootstrap/scss/bootstrap.scss';
-
-  .app {
-    padding-top: 4rem;
-  }
 
 </style>

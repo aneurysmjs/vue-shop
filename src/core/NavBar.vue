@@ -30,7 +30,12 @@
           :key="link.id"
           class="nav-item active"
         >
-          <a class="nav-link" href="#">{{link.name}}</a>
+          <router-link
+            class="nav-link active"
+            :to="link.to"
+          >
+            {{ link.name }}
+          </router-link>
         </li>
       </ul>
     </div>
@@ -49,14 +54,17 @@
           {
             id: 'Home',
             name: 'Home',
+            to: '/'
           },
           {
             id: 'About',
             name: 'About',
+            to: '/'
           },
           {
             id: 'Shop',
             name: 'Shop',
+            to: '/shop'
           }
         ]
       }

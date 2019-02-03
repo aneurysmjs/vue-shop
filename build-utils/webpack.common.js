@@ -22,11 +22,12 @@ module.exports = (mode) => {
       alias: {
         'vue$': 'vue/dist/vue.esm.js',
         'api$': `${paths.src}/api/api.js`,
+        'assets': `${paths.src}/assets`,
         'components': `${paths.src}/components`,
         'core': `${paths.src}/core`,
         'pages': `${paths.src}/pages`,
       },
-      extensions: ['.js', '.vue', 'json']
+      extensions: ['.js', '.vue', '.json']
     },
 
     module: {
@@ -50,7 +51,7 @@ module.exports = (mode) => {
           use: [
             {
               loader: prodMode ? MiniCssExtractPlugin.loader : 'vue-style-loader',
-            },
+            }, 
             {
               loader: 'css-loader'
             },

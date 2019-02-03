@@ -11,6 +11,7 @@
       class="img-fluid productCard__image"
       :src="image"
       :alt="product.name"
+      @click="handleClick"
       @mouseover="handleMouseover"
       @mouseleave="handleMouseleave"
     >
@@ -51,6 +52,10 @@
       }
     },
     methods: {
+      handleClick() {
+        const { id } = this.product;
+        this.$router.push(`/product/${id}`);
+      },
       handleMouseover($event) {
         if (this.hasHover) {
           this.image = this.product.imgHovered;
@@ -81,6 +86,10 @@
         opacity: 1;
       }
     }
+  }
+
+  .productCard__image {
+    cursor: pointer;
   }
 
   .productCard__overlay {

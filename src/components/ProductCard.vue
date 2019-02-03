@@ -8,9 +8,11 @@
   >
     <div v-if="hasOverlay" class="productCard__overlay"></div>
     <img 
-      class="img-fluid"
-      :src="product.img"
+      class="img-fluid productCard__image"
+      :src="image"
       :alt="product.name"
+      @mouseover="handleMouseover"
+      @mouseleave="handleMouseleave"
     >
     <figcaption 
       :class="[hasOverlay ? 'productCard__description--overlay' : 'productCard__description']" 
@@ -37,8 +39,29 @@
         name: String,
         img: String,
         imgHovered: String,
+      },
+      hasHover: {
+        default: false,
+        type: Boolean,
       }
     },
+    data() {
+      return {
+        image: this.product.img,
+      }
+    },
+    methods: {
+      handleMouseover($event) {
+        if (this.hasHover) {
+          this.image = this.product.imgHovered;
+        }
+      },
+      handleMouseleave() {
+        if (this.hasHover) {
+          this.image = this.product.img;
+        }
+      },
+    }
   }
 </script>
 

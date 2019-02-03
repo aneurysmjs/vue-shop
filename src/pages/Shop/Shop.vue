@@ -7,6 +7,7 @@
           :key="product.id"
           :width="gridValue"
           :product="product"
+          :hasHover="true"
         >
         </ProductCard>
     </div>

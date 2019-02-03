@@ -1,16 +1,11 @@
 <template>
   <section class="shop">
-    <nav class="shop__toolbar">
-      <div class="shop__toolbar__filters">
-        <Icon name="grid-4" />
-        <Icon name="grid-6" />
-      </div>
-    </nav>
+    <Toolbar @on-click="handleToolbarClick"></Toolbar>
     <div class="row">
        <ProductCard
           v-for="product in products"
           :key="product.id"
-          :width="'22%'"
+          :width="gridValue"
         >
         </ProductCard>
     </div>
@@ -18,17 +13,17 @@
 </template>
 
 <script>
-  import Icon from 'components/Icon';
   import ProductCard from 'components/ProductCard';
+  import Toolbar from 'components/Toolbar';
 
   export default {
     components: {
       ProductCard,
-      Icon,
+      Toolbar,
     },
     data() {
       return {
-        heading: 'Vue Shop',
+        gridValue: '44%',
         products: [
           {
             id: 'a'
@@ -45,23 +40,20 @@
         ]
       }
     },
+    methods: {
+      handleToolbarClick($event) {
+        this.gridValue = `${$event}%`;
+      }
+    }
   }
 </script>
 
 <style lang="scss">
-  @import '../../assets/scss/mixins/flex';
 
   .shop {
     position: relative;
   }
-  .shop__toolbar {
-    display: flex;
-    justify-content: flex-end;
-  }
-  .shop__toolbar__filters {
-    @include flex($justify-content: space-evenly);
-    width: 5rem;
-  }
+  
 </style>
 
 

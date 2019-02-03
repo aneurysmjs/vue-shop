@@ -2,13 +2,13 @@
   <section>
     <h1 class="display-3 text-center mt-3">{{heading}}</h1>
     <div class="row">
-      <div
+      <ProductCard
         v-for="product in products"
         :key="product.id"
-        class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
+        :width="'45%'"
+        :product="product"
       >
-        <ProductCard :width="'60%'"></ProductCard>
-      </div>
+      </ProductCard>
     </div>
   </section>
 </template>
@@ -25,16 +25,28 @@
         heading: 'Vue Shop',
         products: [
           {
-            id: 'a'
+            id: 'a',
+            name: 'Nike Air Jordan',
+            img: 'assets/img/nike-air-jordan-left.jpg',
+            imgHovered: 'assets/img/nike-air-jordan-sideways.jpg'
           },
           {
-            id: 'b'
+            id: 'b',
+            name: 'Nike Air Jordan',
+            img: 'assets/img/nike-air-jordan-left.jpg',
+            imgHovered: 'assets/img/nike-air-jordan-sideways.jpg'
           },
           {
-            id: 'c'
+            id: 'c',
+            name: 'Nike Air Jordan',
+            img: 'assets/img/nike-air-jordan-left.jpg',
+            imgHovered: 'assets/img/nike-air-jordan-sideways.jpg'
           },
           {
-            id: 'd'
+            id: 'd',
+            name: 'Nike Air Jordan',
+            img: 'assets/img/nike-air-jordan-left.jpg',
+            imgHovered: 'assets/img/nike-air-jordan-sideways.jpg'
           }
         ]
       }

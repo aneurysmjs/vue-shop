@@ -9,13 +9,13 @@
     <div v-if="hasOverlay" class="productCard__overlay"></div>
     <img 
       class="img-fluid"
-      src="https://street-beat.ru/upload/iblock/a85/a850121f372640b7f7e1c5d88d04a79f.jpg" 
-      alt=""
+      :src="product.img"
+      :alt="product.name"
     >
     <figcaption 
       :class="[hasOverlay ? 'productCard__description--overlay' : 'productCard__description']" 
     >
-      Nike Air Jordan
+      {{ product.name }}
     </figcaption>
   </figure>
 </template>
@@ -31,6 +31,12 @@
       hasOverlay: {
         default: false,
         type: Boolean,
+      },
+      product: {
+        id: String,
+        name: String,
+        img: String,
+        imgHovered: String,
       }
     },
   }

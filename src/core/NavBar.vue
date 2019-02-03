@@ -3,7 +3,7 @@
     class="navbar navbar-expand-lg navbar-light bg-light"
      v-bind:class="{ active: isActive }"
     >
-    <a class="navbar-brand" href="#">
+    <router-link class="navbar-brand" to="/">
       <img
         width="30"
         height="30"
@@ -11,7 +11,7 @@
         src="assets/logo.png"
         alt="logo"
       >
-    </a>
+    </router-link>
     <button
       class="navbar-toggler"
       type="button"

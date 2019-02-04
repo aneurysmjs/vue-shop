@@ -4,7 +4,9 @@
     "sourceType": "module",
     "parser": "babel-eslint"
   },
-  
+  "settings": {
+    "import/resolver": "webpack"
+  },
   "extends": [
     "airbnb-base",
     "plugin:vue/recommended"

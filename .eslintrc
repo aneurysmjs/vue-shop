@@ -12,6 +12,7 @@
     "plugin:vue/recommended"
   ],
   "plugins": [
+    "vue-a11y",
     "vue"
   ],
   "rules": {

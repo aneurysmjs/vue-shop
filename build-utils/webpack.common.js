@@ -34,11 +34,17 @@ module.exports = (mode) => {
       // rules for modules (configure loaders, parser options, etc.)
       rules: [
         {
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /node_modules/
+        },
+        {
           test: /\.vue$/,
           loader: 'vue-loader'
         },
         {
-          test: /\.jsx?$/,
+          test: /\.js?$/,
           exclude: [/node_modules/],
           use: [
             {

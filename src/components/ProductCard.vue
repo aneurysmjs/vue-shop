@@ -6,7 +6,10 @@
       margin: '0 auto',
     }"
   >
-    <div v-if="hasOverlay" class="productCard__overlay"></div>
+    <div
+      v-if="hasOverlay" 
+      class="productCard__overlay" 
+    />
     <img 
       class="img-fluid productCard__image"
       :src="image"
@@ -24,50 +27,55 @@
 </template>
 
 <script>
-  export default {
-    name: 'ProductCard',
-    props: {
-      width: {
-        default: '29rem',
-        type: String
-      },
-      hasOverlay: {
-        default: false,
-        type: Boolean,
-      },
-      product: {
-        id: String,
-        name: String,
-        img: String,
-        imgHovered: String,
-      },
-      hasHover: {
-        default: false,
-        type: Boolean,
-      }
+export default {
+  name: 'ProductCard',
+  props: {
+    width: {
+      default: '29rem',
+      type: String
     },
-    data() {
-      return {
-        image: this.product.img,
-      }
+    hasOverlay: {
+      default: false,
+      type: Boolean,
     },
-    methods: {
-      handleClick() {
-        const { id } = this.product;
-        this.$router.push(`/product/${id}`);
+    product: {
+      type: Object,
+      default() {
+        return {
+          id: '0',
+          name: 'default name',
+          img: '',
+          imgHovered: '',
+        };
       },
-      handleMouseover($event) {
-        if (this.hasHover) {
-          this.image = this.product.imgHovered;
-        }
-      },
-      handleMouseleave() {
-        if (this.hasHover) {
-          this.image = this.product.img;
-        }
-      },
+    },
+    hasHover: {
+      default: false,
+      type: Boolean,
     }
+  },
+  data() {
+    return {
+      image: this.product.img,
+    };
+  },
+  methods: {
+    handleClick() {
+      const { id } = this.product;
+      this.$router.push(`/product/${id}`);
+    },
+    handleMouseover($event) {
+      if (this.hasHover) {
+        this.image = this.product.imgHovered;
+      }
+    },
+    handleMouseleave() {
+      if (this.hasHover) {
+        this.image = this.product.img;
+      }
+    },
   }
+};
 </script>
 
 <style lang="scss">

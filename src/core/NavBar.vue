@@ -1,9 +1,12 @@
 <template>
   <nav
     class="navbar navbar-expand-lg navbar-light bg-light"
-     v-bind:class="{ active: isActive }"
+    :class="{ active: isActive }"
+  >
+    <router-link 
+      class="navbar-brand"
+      to="/" 
     >
-    <router-link class="navbar-brand" to="/">
       <img
         width="30"
         height="30"
@@ -17,7 +20,7 @@
       type="button"
       @click="handleToggleMenu"
     >
-      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon" />
     </button>
 
     <div
@@ -44,56 +47,55 @@
 
 <script>
 
-  export default {
-    name: 'NavBar',
-    data() {
-      return {
-        isActive: false,
-        isMenuToggled: false,
-        links: [
-          {
-            id: 'Home',
-            name: 'Home',
-            to: '/'
-          },
-          {
-            id: 'About',
-            name: 'About',
-            to: '/'
-          },
-          {
-            id: 'Shop',
-            name: 'Shop',
-            to: '/shop'
-          }
-        ]
-      }
-    },
-    mounted() {
-      // When the user scrolls down 50px from the top of the document, resize the header's font size
-      window.onscroll = function () {
-        scrollFunction()
-      };
-
-      const scrollFunction = () => {
-        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-          this.applyScroll('aha');
-        } else {
-          this.applyScroll('no');
+export default {
+  name: 'NavBar',
+  data() {
+    return {
+      isActive: false,
+      isMenuToggled: false,
+      links: [
+        {
+          id: 'Home',
+          name: 'Home',
+          to: '/'
+        },
+        {
+          id: 'About',
+          name: 'About',
+          to: '/'
+        },
+        {
+          id: 'Shop',
+          name: 'Shop',
+          to: '/shop'
         }
-        
-      }
+      ]
+    };
+  },
+  mounted() {
+    // When the user scrolls down 50px from the top of the document, resize the header's font size
+    window.onscroll = function () {
+      scrollFunction();
+    };
 
+    const scrollFunction = () => {
+      if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        this.applyScroll('aha');
+      } else {
+        this.applyScroll('no');
+      }      
+    };
+
+  },
+  methods: {
+    applyScroll(pa) {
+      console.log('scroll', pa);
     },
-    methods: {
-      applyScroll(pa) {
-        console.log('scroll', pa);
-      },
-      handleToggleMenu() {
-        this.isMenuToggled = !this.isMenuToggled
-      }
+    handleToggleMenu() {
+      this.isMenuToggled = !this.isMenuToggled;
     }
   }
+};
 
 </script>
 

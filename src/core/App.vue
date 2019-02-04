@@ -1,17 +1,16 @@
 <template>
-  <Layout></Layout>
+  <Layout />
 </template>
 
 <script>
-  import Layout from 'core/Layout';
+import Layout from 'core/Layout';
 
-  export default {
-    name: 'app',
-    components: {
-      Layout
-    }
+export default {
+  name: 'App',
+  components: {
+    Layout
   }
-
+};
 </script>
 
 <style lang="scss">

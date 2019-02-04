@@ -9,7 +9,9 @@
       <div class="col-12 col-sm-12 col-md-12 col-md-9 col-xl-9">
         <img 
           class="img-fluid"
-          :src="product.img" alt="">
+          :src="product.img" 
+          alt=""
+        >
       </div>
       <div class="col-12 col-sm-12 col-md-12 col-md-3 col-xl-3">
         img
@@ -19,34 +21,35 @@
 </template>
 
 <script>
-  import products from 'assets/json/products';
-  export default {
-    props: {
-      id: {
-        type: String,
-      }
-    },
-    data() {
-      return {
-        product: {
+import products from 'assets/json/products';
+export default {
+  props: {
+    id: {
+      default: '0',
+      type: String,
+    }
+  },
+  data() {
+    return {
+      product: {
 
-        },
-      }
-    },
-    mounted() {
-      const product = products.find(p => p.id === this.id);
-      this.setProduct(product);
-    },
-    methods: {
-      setProduct(product) {
-        this.product = product;
-      }
+      },
+    };
+  },
+  mounted() {
+    const product = products.find(p => p.id === this.id);
+    this.setProduct(product);
+  },
+  methods: {
+    setProduct(product) {
+      this.product = product;
     }
   }
+};
 </script>
 
 <style lang="scss">
   .product {
-    
+    position: relative;
   }
 </style>

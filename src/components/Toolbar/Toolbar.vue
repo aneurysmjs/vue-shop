@@ -7,43 +7,46 @@
         class="toolbar__button"
         @click="handleFilterClick(filter)"
       >
-        <Icon :name="filter.icon" :selected="filter.id === selected" />
+        <Icon
+          :name="filter.icon"
+          :selected="filter.id === selected"
+        />
       </button>
     </div>
   </nav>
 </template>
 
 <script>
-  import Icon from 'components/Icon';
+import Icon from 'components/Icon';
 
-  export default {
-    data() {
-      return {
-        selected: 0,
-        filters: [
-          {
-            id: 0,
-            icon: 'grid-4',
-            value: '44'
-          },
-          {
-            id: 1,
-            icon: 'grid-6',
-            value: '22'
-          }
-        ]
-      }
-    },
-    components: {
-      Icon,
-    },
-    methods: {
-      handleFilterClick(filter) {
-        this.selected = filter.id;
-        this.$emit('on-click', filter.value);
-      }
+export default {
+  components: {
+    Icon,
+  },
+  data() {
+    return {
+      selected: 0,
+      filters: [
+        {
+          id: 0,
+          icon: 'grid-4',
+          value: '44'
+        },
+        {
+          id: 1,
+          icon: 'grid-6',
+          value: '22'
+        }
+      ]
+    };
+  },
+  methods: {
+    handleFilterClick(filter) {
+      this.selected = filter.id;
+      this.$emit('on-click', filter.value);
     }
   }
+};
 </script>
 
 <style lang="scss">

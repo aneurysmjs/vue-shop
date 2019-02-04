@@ -1,5 +1,5 @@
-import Vue from 'vue'
-import App from 'core/App'
+import Vue from 'vue';
+import App from 'core/App';
 import router from './routing/App.routes';
 
 new Vue({

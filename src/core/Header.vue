@@ -1,19 +1,18 @@
 <template>
   <header class="header">
-    <NavBar></NavBar>
+    <NavBar />
   </header>
 </template>
 
 <script>
-  import NavBar from 'core/NavBar';
+import NavBar from 'core/NavBar';
 
-  export default {
-    name: 'Header',
-    components: {
-      NavBar
-    }
+export default {
+  name: 'Header',
+  components: {
+    NavBar
   }
-
+};
 </script>
 
 <style lang="scss">

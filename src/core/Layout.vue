@@ -1,25 +1,24 @@
 <template>
   <main class="layout">
-    <Header></Header>
+    <Header />
     <div class="layout__content">
-      <router-view></router-view>
+      <router-view />
     </div>
-    <Footer></Footer>
+    <Footer />
   </main>
 </template>
 
 
 <script>
-  import Header from 'core/Header';
-  import Footer from 'core/Footer';
+import Header from 'core/Header';
+import Footer from 'core/Footer';
 
-  export default {
-    components: {
-      Header,
-      Footer,
-    }
+export default {
+  components: {
+    Header,
+    Footer,
   }
-
+};
 </script>
 <style lang="scss">
 

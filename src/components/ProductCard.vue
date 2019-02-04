@@ -1,25 +1,25 @@
 <template>
   <figure
-    :class="[hasOverlay ? 'productCard--overlay' : 'productCard']" 
+    :class="[hasOverlay ? 'product-card--overlay' : 'product-card']"
     :style="{
       width,
       margin: '0 auto',
     }"
   >
     <div
-      v-if="hasOverlay" 
-      class="productCard__overlay" 
+      v-if="hasOverlay"
+      class="product-card__overlay"
     />
-    <img 
-      class="img-fluid productCard__image"
+    <img
+      class="img-fluid product-card__image"
       :src="image"
       :alt="product.name"
       @click="handleClick"
       @mouseover="handleMouseover"
       @mouseleave="handleMouseleave"
     >
-    <figcaption 
-      :class="[hasOverlay ? 'productCard__description--overlay' : 'productCard__description']" 
+    <figcaption
+      :class="[hasOverlay ? 'product-card__description--overlay' : 'product-card__description']"
     >
       {{ product.name }}
     </figcaption>
@@ -27,12 +27,13 @@
 </template>
 
 <script>
+
 export default {
   name: 'ProductCard',
   props: {
     width: {
       default: '29rem',
-      type: String
+      type: String,
     },
     hasOverlay: {
       default: false,
@@ -52,11 +53,12 @@ export default {
     hasHover: {
       default: false,
       type: Boolean,
-    }
+    },
   },
   data() {
     return {
       image: this.product.img,
+
     };
   },
   methods: {
@@ -64,7 +66,7 @@ export default {
       const { id } = this.product;
       this.$router.push(`/product/${id}`);
     },
-    handleMouseover($event) {
+    handleMouseover() {
       if (this.hasHover) {
         this.image = this.product.imgHovered;
       }
@@ -74,33 +76,33 @@ export default {
         this.image = this.product.img;
       }
     },
-  }
+  },
 };
 </script>
 
 <style lang="scss">
 
-  .productCard {
+  .product-card {
     position: relative;
   }
 
-  .productCard--overlay {
+  .product-card--overlay {
     &:hover {
-      .productCard__overlay {
+      .product-card__overlay {
         opacity: .4;
       }
 
-      .productCard__description {
+      .product-card__description {
         opacity: 1;
       }
     }
   }
 
-  .productCard__image {
+  .product-card__image {
     cursor: pointer;
   }
 
-  .productCard__overlay {
+  .product-card__overlay {
     background: #000000;
     opacity: 0;
     height: 100%;
@@ -111,13 +113,13 @@ export default {
     width: 100%;
   }
 
-  .productCard__description {
+  .product-card__description {
     color: #505050;
     text-align: center;
     font-size: 18px;
   }
 
-  .productCard__description--overlay {
+  .product-card__description--overlay {
     align-items: center;
     color: #ffffff;
     display: flex;
@@ -131,5 +133,4 @@ export default {
     transition: bottom .3s ease;
     width: 100%;
   }
-  
 </style>

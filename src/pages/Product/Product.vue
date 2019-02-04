@@ -1,5 +1,5 @@
 <template>
-  <aside class="product"> 
+  <aside class="product">
     <header>
       <h2>
         NIKE
@@ -7,9 +7,9 @@
     </header>
     <div class="row">
       <div class="col-12 col-sm-12 col-md-12 col-md-9 col-xl-9">
-        <img 
+        <img
           class="img-fluid"
-          :src="product.img" 
+          :src="product.img"
           alt=""
         >
       </div>
@@ -22,12 +22,13 @@
 
 <script>
 import products from 'assets/json/products';
+
 export default {
   props: {
     id: {
       default: '0',
       type: String,
-    }
+    },
   },
   data() {
     return {
@@ -43,8 +44,8 @@ export default {
   methods: {
     setProduct(product) {
       this.product = product;
-    }
-  }
+    },
+  },
 };
 </script>
 

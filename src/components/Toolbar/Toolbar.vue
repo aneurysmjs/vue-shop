@@ -1,7 +1,7 @@
 <template>
   <nav class="toolbar">
     <div class="toolbar__filters">
-      <button 
+      <button
         v-for="filter in filters"
         :key="filter.id"
         class="toolbar__button"
@@ -30,22 +30,22 @@ export default {
         {
           id: 0,
           icon: 'grid-4',
-          value: '44'
+          value: '44',
         },
         {
           id: 1,
           icon: 'grid-6',
-          value: '22'
-        }
-      ]
+          value: '22',
+        },
+      ],
     };
   },
   methods: {
     handleFilterClick(filter) {
       this.selected = filter.id;
       this.$emit('on-click', filter.value);
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -75,4 +75,3 @@ export default {
   }
 
 </style>
-

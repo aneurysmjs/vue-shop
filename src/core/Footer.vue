@@ -2,7 +2,7 @@
   <footer class="footer">
     <p class="text-center">
       Copyright
-    </p> 
+    </p>
   </footer>
 </template>
 
@@ -12,4 +12,3 @@
     border-top: 1px solid #dddddd;
   }
 </style>
-

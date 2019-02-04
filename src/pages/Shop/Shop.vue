@@ -32,8 +32,8 @@ export default {
   methods: {
     handleToolbarClick($event) {
       this.gridValue = `${$event}%`;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -42,7 +42,4 @@ export default {
   .shop {
     position: relative;
   }
-  
 </style>
-
-

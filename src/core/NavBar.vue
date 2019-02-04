@@ -3,9 +3,9 @@
     class="navbar navbar-expand-lg navbar-light bg-light"
     :class="{ active: isActive }"
   >
-    <router-link 
+    <router-link
       class="navbar-brand"
-      to="/" 
+      to="/"
     >
       <img
         width="30"
@@ -57,45 +57,41 @@ export default {
         {
           id: 'Home',
           name: 'Home',
-          to: '/'
+          to: '/',
         },
         {
           id: 'About',
           name: 'About',
-          to: '/'
+          to: '/',
         },
         {
           id: 'Shop',
           name: 'Shop',
-          to: '/shop'
-        }
-      ]
+          to: '/shop',
+        },
+      ],
     };
   },
   mounted() {
-    // When the user scrolls down 50px from the top of the document, resize the header's font size
-    window.onscroll = function () {
-      scrollFunction();
-    };
-
     const scrollFunction = () => {
       if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
         this.applyScroll('aha');
       } else {
         this.applyScroll('no');
-      }      
+      }
     };
-
+    // When the user scrolls down 50px from the top of the document, resize the header's font size
+    window.onscroll = function onscroll() {
+      scrollFunction();
+    };
   },
   methods: {
-    applyScroll(pa) {
-      console.log('scroll', pa);
+    applyScroll() {
     },
     handleToggleMenu() {
       this.isMenuToggled = !this.isMenuToggled;
-    }
-  }
+    },
+  },
 };
 
 </script>
-

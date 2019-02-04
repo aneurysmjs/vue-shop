@@ -1,6 +1,6 @@
 <template functional>
   <img
-    class="icon" 
+    class="icon"
     :src="`assets/svg/icons/${props.name}${props.selected ? '-selected' : ''}.svg`"
     :alt="props.name"
   >
@@ -13,4 +13,3 @@
     width: 1.5rem;
   }
 </style>
-

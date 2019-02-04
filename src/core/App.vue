@@ -8,8 +8,8 @@ import Layout from 'core/Layout';
 export default {
   name: 'App',
   components: {
-    Layout
-  }
+    Layout,
+  },
 };
 </script>
 

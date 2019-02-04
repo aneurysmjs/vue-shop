@@ -10,8 +10,8 @@ import NavBar from 'core/NavBar';
 export default {
   name: 'Header',
   components: {
-    NavBar
-  }
+    NavBar,
+  },
 };
 </script>
 

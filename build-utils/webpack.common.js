@@ -1,14 +1,14 @@
 const webpack = require('webpack');
-const { setupPath } = require('./helpers');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
+const { setupPath } = require('./helpers');
 const paths = require('./paths');
 
 const progressHandler = (percentage, message, ...args) => {
-  // e.g. Output each progress message directly to the console:
+  // eslint-disable-next-line no-console
   console.info(percentage, message, ...args);
 };
 
@@ -20,14 +20,14 @@ module.exports = (mode) => {
 
     resolve: {
       alias: {
-        'vue$': 'vue/dist/vue.esm.js',
-        'api$': `${paths.src}/api/api.js`,
-        'assets': `${paths.src}/assets`,
-        'components': `${paths.src}/components`,
-        'core': `${paths.src}/core`,
-        'pages': `${paths.src}/pages`,
+        vue$: 'vue/dist/vue.esm.js',
+        api$: `${paths.src}/api/api.js`,
+        assets: `${paths.src}/assets`,
+        components: `${paths.src}/components`,
+        core: `${paths.src}/core`,
+        pages: `${paths.src}/pages`,
       },
-      extensions: ['.js', '.vue', '.json']
+      extensions: ['.js', '.vue', '.json'],
     },
 
     module: {
@@ -37,53 +37,53 @@ module.exports = (mode) => {
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
-          exclude: /node_modules/
+          exclude: /node_modules/,
         },
         {
           test: /\.vue$/,
-          loader: 'vue-loader'
+          loader: 'vue-loader',
         },
         {
           test: /\.js?$/,
           exclude: [/node_modules/],
           use: [
             {
-              loader: 'babel-loader'
-            }
-          ]
+              loader: 'babel-loader',
+            },
+          ],
         },
         {
           test: /\.(sa|sc|c)ss$/,
           use: [
             {
               loader: prodMode ? MiniCssExtractPlugin.loader : 'vue-style-loader',
-            }, 
-            {
-              loader: 'css-loader'
             },
-            // {
-            //   loader: 'postcss-loader', // Run post css actions
-            //   options: {
-            //     plugins() { // post css plugins, can be exported to postcss.config.js
-            //       return [
-            //         require('precss'),
-            //         require('autoprefixer')
-            //       ];
-            //     }
-            //   }
-            // },
             {
-              loader: 'sass-loader'
-            }
+              loader: 'css-loader',
+            },
+            {
+              loader: 'postcss-loader', // Run post css actions
+              options: {
+                plugins() { // post css plugins, can be exported to postcss.config.js
+                  return [
+                    require('precss'),
+                    require('autoprefixer')
+                  ];
+                },
+              },
+            },
+            {
+              loader: 'sass-loader',
+            },
           ],
         },
         {
           test: /\.(png|jpe?g|gif)$/,
           use: [
             {
-              loader: 'file-loader?name=assets/img/[name].[ext]'
-            }
-          ]
+              loader: 'file-loader?name=assets/img/[name].[ext]',
+            },
+          ],
         },
         {
           test: /.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
@@ -92,10 +92,10 @@ module.exports = (mode) => {
             options: {
               name: '[name].[ext]',
               outputPath: 'fonts/', // where the fonts will go
-            }
-          }]
+            },
+          }],
         },
-      ]
+      ],
     },
     plugins: [
       new VueLoaderPlugin(),
@@ -116,9 +116,9 @@ module.exports = (mode) => {
         to: 'assets',
         ignore: [
           // Doesn't copy any files with a scss extension
-          '*.scss'
+          '*.scss',
         ],
-      }])
-    ]
+      }]),
+    ],
   };
 };

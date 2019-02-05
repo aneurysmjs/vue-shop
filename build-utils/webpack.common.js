@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const postcssPresetEnv = require('postcss-preset-env');
 
 const { setupPath } = require('./helpers');
 const paths = require('./paths');
@@ -66,8 +67,11 @@ module.exports = (mode) => {
               options: {
                 plugins() { // post css plugins, can be exported to postcss.config.js
                   return [
+                    // eslint-disable-next-line global-require
                     require('precss'),
-                    require('autoprefixer')
+                    // eslint-disable-next-line global-require
+                    require('autoprefixer'),
+                    postcssPresetEnv(),
                   ];
                 },
               },

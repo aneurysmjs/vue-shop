@@ -59,5 +59,6 @@ export default {
 
   .product-image {
     @include flex($justify-content: center);
+
   }
 </style>

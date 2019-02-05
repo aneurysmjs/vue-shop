@@ -24,6 +24,7 @@ module.exports = (mode) => {
         vue$: 'vue/dist/vue.esm.js',
         api$: `${paths.src}/api/api.js`,
         assets: `${paths.src}/assets`,
+        styles: `${paths.src}/assets/scss`,
         components: `${paths.src}/components`,
         core: `${paths.src}/core`,
         pages: `${paths.src}/pages`,

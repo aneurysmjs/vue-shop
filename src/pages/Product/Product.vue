@@ -51,9 +51,9 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '../../assets/scss/variables';
-  @import '../../assets/scss/mixins/flex';
-  @import '../../assets/scss/mixins/media';
+  @import '~styles/variables';
+  @import '~styles/mixins/flex';
+  @import '~styles/mixins/media';
 
   .product {
     padding-top: 4rem;

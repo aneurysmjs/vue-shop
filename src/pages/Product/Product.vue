@@ -51,7 +51,9 @@ export default {
 </script>
 
 <style lang="scss">
+  @import '../../assets/scss/variables';
   @import '../../assets/scss/mixins/flex';
+  @import '../../assets/scss/mixins/media';
 
   .product {
     padding-top: 4rem;
@@ -60,5 +62,8 @@ export default {
   .product-image {
     @include flex($justify-content: center);
 
+    @include media($lg) {
+      justify-content: flex-start;
+    }
   }
 </style>

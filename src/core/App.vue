@@ -14,11 +14,5 @@ export default {
 </script>
 
 <style lang="scss">
-  // import Font-awesome's icons
-  $fa-font-path: "~font-awesome/fonts";
-  @import '~font-awesome/scss/font-awesome.scss';
-
-  // import bootstrap.scss file
-  @import '~bootstrap/scss/bootstrap.scss';
-
+  @import '../assets/scss/styles.scss';
 </style>

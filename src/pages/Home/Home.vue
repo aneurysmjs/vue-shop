@@ -9,6 +9,7 @@
         :key="product.id"
         :width="'45%'"
         :product="product"
+        hasverlay
       />
     </div>
   </section>

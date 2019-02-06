@@ -68,13 +68,16 @@ export default {
     },
     handleMouseover() {
       if (this.hasHover) {
-        this.image = this.product.imgHovered;
+        this.setProductImage('imgHovered');
       }
     },
     handleMouseleave() {
       if (this.hasHover) {
-        this.image = this.product.img;
+        this.setProductImage('img');
       }
+    },
+    setProductImage(propName) {
+      this.image = this.product[propName];
     },
   },
 };

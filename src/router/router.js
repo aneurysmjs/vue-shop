@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
+import adminRoutes from 'pages/Admin/adminRoutes';
+
 const Home = () => import('pages/Home/Home');
 const Shop = () => import('pages/Shop/Shop');
 const Product = () => import('pages/Product');
@@ -25,5 +27,6 @@ export default new Router({
       component: Product,
       props: true,
     },
+    adminRoutes,
   ],
 });

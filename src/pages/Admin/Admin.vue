@@ -1,19 +1,26 @@
 <template>
-  <section class="admin">
-    <h2>{{ title }}</h2>
+  <section class="container-fluid admin">
     <div class="row">
       <div class="col-3">
-        sidebar
+        <Sidebar />
       </div>
       <div class="col-9">
-        content
+        <Dashboard />
       </div>
     </div>
   </section>
 </template>
 
 <script>
+import Sidebar from 'core/Sidebar/Sidebar';
+
+import Dashboard from 'pages/Admin/Dashboard';
+
 export default {
+  components: {
+    Sidebar,
+    Dashboard,
+  },
   data() {
     return {
       title: 'Admin',

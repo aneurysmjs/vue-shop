@@ -12,7 +12,7 @@ export default {
     return {
       productsCount: 0,
     };
-  },
+  }
 };
 </script>
 

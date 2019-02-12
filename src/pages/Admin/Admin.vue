@@ -1,12 +1,11 @@
 <template>
   <section class="container-fluid admin">
     <div class="row">
-      <div class="col-3">
+      <div class="col-2">
         <Sidebar />
       </div>
-      <div class="col-9">
-        <Dashboard />
-      </div>
+      <div class="col-10">
+        <router-view />
     </div>
   </section>
 </template>

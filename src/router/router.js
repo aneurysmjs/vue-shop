@@ -1,6 +1,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
+import adminRoutes from 'pages/Admin/adminRoutes';
+import pageLayout from 'core/pageLayout';
+
 const Home = () => import('pages/Home/Home');
 const Shop = () => import('pages/Shop/Shop');
 const Product = () => import('pages/Product');
@@ -12,18 +15,19 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home,
+      component: pageLayout(Home),
     },
     {
       path: '/shop',
       name: 'shop',
-      component: Shop,
+      component: pageLayout(Shop),
     },
     {
       path: '/product/:id',
       name: 'product',
-      component: Product,
+      component: pageLayout(Product),
       props: true,
     },
+    adminRoutes,
   ],
 });

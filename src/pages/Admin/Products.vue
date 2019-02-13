@@ -6,9 +6,8 @@
 export default {
   data() {
     return {
-      title: 'Products!!!'
+      title: 'Products!!!',
     };
-  }
-}
+  },
+};
 </script>
-

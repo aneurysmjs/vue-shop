@@ -9,6 +9,7 @@ export default {
   children: [
     {
       path: '',
+      name: 'dashboard',
       component: Dashboard,
     },
     {

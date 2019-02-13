@@ -1,11 +1,13 @@
 <template>
   <section class="container-fluid admin">
-    <div class="row">
-      <div class="col-2">
-        <Sidebar />
-      </div>
-      <div class="col-10">
+    <div class="admin__wrapper">
+      <Sidebar
+        :title="'Dashboard'"
+        :links="links"
+      />
+      <div class="admin__content">
         <router-view />
+      </div>
     </div>
   </section>
 </template>
@@ -13,23 +15,40 @@
 <script>
 import Sidebar from 'core/Sidebar/Sidebar';
 
-import Dashboard from 'pages/Admin/Dashboard';
-
 export default {
   components: {
     Sidebar,
-    Dashboard,
   },
   data() {
     return {
-      title: 'Admin',
+      links: [
+        {
+          path: '/admin',
+          text: 'Admin',
+        },
+        {
+          path: '/admin/products',
+          text: 'Products',
+        },
+      ],
     };
   },
 };
 </script>
 
 <style lang="scss">
+  @import '~styles/mixins';
   .admin {
-
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    @include element(wrapper) {
+      flex-grow: 1;
+    }
+    @include element(content) {
+      padding-left: 15rem;
+      width: 100%;
+    }
   }
+
 </style>

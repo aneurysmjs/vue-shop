@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import products from 'assets/json/products';
+import api from 'api';
 import ProductCard from 'components/ProductCard';
 import Toolbar from 'components/Toolbar';
 
@@ -26,8 +26,14 @@ export default {
   data() {
     return {
       gridValue: '44%',
-      products,
+      products: [],
     };
+  },
+  created() {
+    api.get('/products')
+      .then((response) => {
+        this.products = response.data;
+      });
   },
   methods: {
     handleToolbarClick($event) {

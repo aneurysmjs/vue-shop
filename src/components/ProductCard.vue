@@ -58,7 +58,6 @@ export default {
   data() {
     return {
       image: this.product.img,
-
     };
   },
   methods: {

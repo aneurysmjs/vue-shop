@@ -2,23 +2,26 @@
   <article class="product-description">
     <header>
       <h2>
-        <strong>Title</strong>
+        <strong>{{ product.name }}</strong>
       </h2>
     </header>
     <h4>
-      subtitle
+      {{ product.shop }}
     </h4>
     <p class="product-price">
-      € 250,00
+      {{ product.price }}
     </p>
     <p class="product-text">
-      lorem ipsum dolor it samet neque porro
+      {{ product.description }}
     </p>
   </article>
 </template>
 
 <script>
 export default {
+  props: {
+    product: {},
+  },
   name: 'ProductDescription',
 };
 

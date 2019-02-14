@@ -11,42 +11,32 @@
         </figure>
       </div>
       <div class="col-12 col-sm-12 col-md-12 col-md-3 col-xl-3">
-        <ProductDescription />
+        <ProductDescription :product="product" />
       </div>
     </div>
   </aside>
 </template>
 
 <script>
-import products from 'assets/json/products';
+import api from 'api';
 import ProductDescription from './ProductDescription';
 
 export default {
   components: {
     ProductDescription,
   },
-  props: {
-    id: {
-      default: '0',
-      type: String,
-    },
-  },
   data() {
     return {
-      product: {
-
-      },
+      product: {},
     };
   },
-  mounted() {
-    const product = products.find(p => p.id === this.id);
-    this.setProduct(product);
-  },
-  methods: {
-    setProduct(product) {
-      this.product = product;
-    },
-  },
+  created() {
+    const { id } = this.$route.params;
+    api.get(`/products/${id}`)
+      .then((response) => {
+        this.product = response.data;
+      });
+  }
 };
 </script>
 

@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import products from 'assets/json/products';
+import api from 'api';
 import ProductCard from 'components/ProductCard';
 
 export default {
@@ -26,8 +26,14 @@ export default {
   data() {
     return {
       heading: 'Vue Shop',
-      products,
+      products: [],
     };
+  },
+  created() {
+    api.get('/products')
+      .then((response) => {
+        this.products = response.data;
+      });
   },
 };
 </script>

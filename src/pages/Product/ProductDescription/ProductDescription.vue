@@ -19,10 +19,15 @@
 
 <script>
 export default {
-  props: {
-    product: {},
-  },
   name: 'ProductDescription',
+  props: {
+    product: {
+      type: Object,
+      default() {
+        return {};
+      },
+    },
+  },
 };
 
 </script>

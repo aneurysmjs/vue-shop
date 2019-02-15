@@ -42,13 +42,14 @@
         </li>
       </ul>
     </div>
-    <span class="navigation__cart">
+    <div class="navigation__cart">
       <Icon
         name="cart"
         height="1.2rem"
         width="1.2rem"
       />
-    </span>
+      <span />
+    </div>
   </nav>
 </template>
 
@@ -110,6 +111,7 @@ export default {
 <style lang="scss">
  @import '~styles/mixins';
  .navigation {
+  @include flex();
   @include element(cart) {
    position: relative;
   }

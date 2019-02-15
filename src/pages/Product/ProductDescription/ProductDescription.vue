@@ -42,7 +42,9 @@ export default {
     },
   },
   methods: {
-    handleAddToCart() {},
+    handleAddToCart() {
+      this.$store.commit('INCREMENT_CART', 1);
+    },
   },
 };
 

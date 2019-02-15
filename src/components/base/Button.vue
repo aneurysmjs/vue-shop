@@ -37,8 +37,8 @@ export default {
   methods: {
     handleClick() {
       this.$emit('click');
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -42,13 +42,24 @@
         </li>
       </ul>
     </div>
+    <span class="navigation__cart">
+      <Icon
+        name="cart"
+        height="1.2rem"
+        width="1.2rem"
+      />
+    </span>
   </nav>
 </template>
 
 <script>
+import Icon from 'components/Icon';
 
 export default {
-  name: 'NavBar',
+  name: 'Navigation',
+  components: {
+    Icon,
+  },
   data() {
     return {
       isActive: false,
@@ -95,3 +106,12 @@ export default {
 };
 
 </script>
+
+<style lang="scss">
+ @import '~styles/mixins';
+ .navigation {
+  @include element(cart) {
+   position: relative;
+  }
+ }
+</style>

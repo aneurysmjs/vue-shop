@@ -1,16 +1,16 @@
 <template>
   <header class="header">
-    <NavBar />
+    <Navigation />
   </header>
 </template>
 
 <script>
-import NavBar from 'core/NavBar';
+import Navigation from 'core/Navigation';
 
 export default {
   name: 'Header',
   components: {
-    NavBar,
+    Navigation,
   },
 };
 </script>

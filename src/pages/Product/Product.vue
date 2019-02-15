@@ -36,7 +36,7 @@ export default {
       .then((response) => {
         this.product = response.data;
       });
-  }
+  },
 };
 </script>
 

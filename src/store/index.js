@@ -10,6 +10,7 @@ export default new Vuex.Store({
   state: {
     cart: {
       count: 0,
+      products: [],
     },
   },
   actions,

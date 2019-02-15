@@ -43,7 +43,8 @@ export default {
   },
   methods: {
     handleAddToCart() {
-      this.$store.commit('INCREMENT_CART', 1);
+      const { product } = this.$props;
+      this.$store.dispatch('addToCart', product);
     },
   },
 };

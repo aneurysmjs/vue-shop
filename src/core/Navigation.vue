@@ -48,12 +48,16 @@
         height="1.2rem"
         width="1.2rem"
       />
-      <span />
+      <span>
+        ( {{ cart.count }} )
+      </span>
     </div>
   </nav>
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 import Icon from 'components/Icon';
 
 export default {
@@ -104,6 +108,9 @@ export default {
       this.isMenuToggled = !this.isMenuToggled;
     },
   },
+  computed: {
+    ...mapState(['cart'])
+  }
 };
 
 </script>
@@ -113,7 +120,8 @@ export default {
  .navigation {
   @include flex();
   @include element(cart) {
-   position: relative;
+    margin-left: 0.5rem;
+    position: relative;
   }
  }
 </style>

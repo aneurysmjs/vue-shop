@@ -58,7 +58,7 @@
 <script>
 import { mapState } from 'vuex';
 
-import Icon from 'components/Icon';
+import Icon from 'components/base/Icon';
 
 export default {
   name: 'Navigation',
@@ -88,6 +88,9 @@ export default {
       ],
     };
   },
+  computed: {
+    ...mapState(['cart']),
+  },
   mounted() {
     const scrollFunction = () => {
       if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
@@ -108,9 +111,6 @@ export default {
       this.isMenuToggled = !this.isMenuToggled;
     },
   },
-  computed: {
-    ...mapState(['cart'])
-  }
 };
 
 </script>

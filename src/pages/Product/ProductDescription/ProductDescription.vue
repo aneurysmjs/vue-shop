@@ -14,12 +14,25 @@
     <p class="product-text">
       {{ product.description }}
     </p>
+    <div>
+      <Button
+        primary
+        @click="handleAddToCart"
+      >
+        Add To Cart
+      </Button>
+    </div>
   </article>
 </template>
 
 <script>
+import Button from 'components/base/Button';
+
 export default {
   name: 'ProductDescription',
+  components: {
+    Button,
+  },
   props: {
     product: {
       type: Object,
@@ -27,6 +40,9 @@ export default {
         return {};
       },
     },
+  },
+  methods: {
+    handleAddToCart() {},
   },
 };
 

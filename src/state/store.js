@@ -6,7 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     cart: {
-      count: 1,
+      count: 0,
     },
   },
   actions: {},

@@ -1,4 +1,8 @@
-import { INCREMENT_CART, ADD_TO_CART } from './actionTypes';
+import {
+  INCREMENT_CART,
+  ADD_TO_CART,
+  SET_PRODUCTS,
+} from './actionTypes';
 
 export default {
   [INCREMENT_CART](state, count) {
@@ -11,5 +15,9 @@ export default {
       ...state.cart.products,
       product,
     ];
+  },
+  [SET_PRODUCTS](state, products) {
+    // eslint-disable-next-line no-param-reassign
+    state.products = products;
   },
 };

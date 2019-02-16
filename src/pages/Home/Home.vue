@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import api from 'api';
+import { mapState } from 'vuex';
 import ProductCard from 'components/ProductCard';
 
 export default {
@@ -25,15 +25,12 @@ export default {
   },
   data() {
     return {
-      heading: 'Vue Shop',
-      products: [],
+      heading: 'Shop',
     };
   },
   created() {
-    api.get('/products')
-      .then((response) => {
-        this.products = response.data;
-      });
+    this.$store.dispatch('fetchProducts');
   },
+  computed: mapState(['products']),
 };
 </script>

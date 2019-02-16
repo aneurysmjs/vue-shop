@@ -28,6 +28,7 @@ module.exports = (mode) => {
         components: `${paths.src}/components`,
         core: `${paths.src}/core`,
         pages: `${paths.src}/pages`,
+        store: `${paths.src}/store`,
       },
       extensions: ['.js', '.vue', '.json'],
     },

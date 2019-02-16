@@ -1,5 +1,7 @@
 import Vue from 'vue';
 import App from 'core/App';
+
+import store from 'store';
 import { router } from './router';
 
 // eslint-disable-next-line no-new
@@ -10,4 +12,5 @@ new Vue({
   },
   template: `<App />`,
   router,
+  store,
 });

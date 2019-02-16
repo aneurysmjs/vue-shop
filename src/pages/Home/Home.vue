@@ -16,8 +16,11 @@
 </template>
 
 <script>
-import api from 'api';
+import { createNamespacedHelpers } from 'vuex';
+
 import ProductCard from 'components/ProductCard';
+
+const { mapState, mapActions } = createNamespacedHelpers('products');
 
 export default {
   components: {
@@ -25,15 +28,13 @@ export default {
   },
   data() {
     return {
-      heading: 'Vue Shop',
-      products: [],
+      heading: 'Shop',
     };
   },
+  computed: mapState(['products']),
   created() {
-    api.get('/products')
-      .then((response) => {
-        this.products = response.data;
-      });
+    this.fetchProducts();
   },
+  methods: mapActions(['fetchProducts']),
 };
 </script>

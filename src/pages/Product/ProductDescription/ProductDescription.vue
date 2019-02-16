@@ -14,15 +14,44 @@
     <p class="product-text">
       {{ product.description }}
     </p>
+    <div>
+      <Button
+        primary
+        @click="handleAddToCart"
+      >
+        Add To Cart
+      </Button>
+    </div>
   </article>
 </template>
 
 <script>
+import { createNamespacedHelpers } from 'vuex';
+
+import Button from 'components/base/Button';
+
+const { mapActions } = createNamespacedHelpers('cart');
+
 export default {
-  props: {
-    product: {},
-  },
   name: 'ProductDescription',
+  components: {
+    Button,
+  },
+  props: {
+    product: {
+      type: Object,
+      default() {
+        return {};
+      },
+    },
+  },
+  methods: {
+    handleAddToCart() {
+      const { product } = this.$props;
+      this.addToCart(product);
+    },
+    ...mapActions(['addToCart']),
+  },
 };
 
 </script>

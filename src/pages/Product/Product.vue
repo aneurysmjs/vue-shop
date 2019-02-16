@@ -18,25 +18,22 @@
 </template>
 
 <script>
-import api from 'api';
+import { createNamespacedHelpers } from 'vuex';
+
 import ProductDescription from './ProductDescription';
+
+const { mapState, mapActions } = createNamespacedHelpers('products');
 
 export default {
   components: {
     ProductDescription,
   },
-  data() {
-    return {
-      product: {},
-    };
-  },
+  computed: mapState(['product']),
   created() {
     const { id } = this.$route.params;
-    api.get(`/products/${id}`)
-      .then((response) => {
-        this.product = response.data;
-      });
-  }
+    this.fetchProduct(id);
+  },
+  methods: mapActions(['fetchProduct']),
 };
 </script>
 

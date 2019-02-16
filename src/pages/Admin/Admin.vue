@@ -30,6 +30,10 @@ export default {
           path: '/admin/products',
           text: 'Products',
         },
+        {
+          path: '/admin/users',
+          text: 'Users',
+        },
       ],
     };
   },

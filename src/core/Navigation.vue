@@ -42,13 +42,31 @@
         </li>
       </ul>
     </div>
+    <div class="navigation__cart">
+      <Icon
+        name="cart"
+        height="1.2rem"
+        width="1.2rem"
+      />
+      <span>
+        ( {{ count }} )
+      </span>
+    </div>
   </nav>
 </template>
 
 <script>
+import { createNamespacedHelpers } from 'vuex';
+
+import Icon from 'components/base/Icon';
+
+const { mapState } = createNamespacedHelpers('cart');
 
 export default {
-  name: 'NavBar',
+  name: 'Navigation',
+  components: {
+    Icon,
+  },
   data() {
     return {
       isActive: false,
@@ -71,6 +89,9 @@ export default {
         },
       ],
     };
+  },
+  computed: {
+    ...mapState(['count']),
   },
   mounted() {
     const scrollFunction = () => {
@@ -95,3 +116,14 @@ export default {
 };
 
 </script>
+
+<style lang="scss">
+ @import '~styles/mixins';
+ .navigation {
+  @include flex();
+  @include element(cart) {
+    margin-left: 0.5rem;
+    position: relative;
+  }
+ }
+</style>

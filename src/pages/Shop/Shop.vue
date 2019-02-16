@@ -14,9 +14,12 @@
 </template>
 
 <script>
-import api from 'api';
+import { createNamespacedHelpers } from 'vuex';
+
 import ProductCard from 'components/ProductCard';
 import Toolbar from 'components/Toolbar';
+
+const { mapState, mapActions } = createNamespacedHelpers('products');
 
 export default {
   components: {
@@ -26,19 +29,17 @@ export default {
   data() {
     return {
       gridValue: '44%',
-      products: [],
     };
   },
+  computed: mapState(['products']),
   created() {
-    api.get('/products')
-      .then((response) => {
-        this.products = response.data;
-      });
+    this.fetchProducts();
   },
   methods: {
     handleToolbarClick($event) {
       this.gridValue = `${$event}%`;
     },
+    ...mapActions(['fetchProducts']),
   },
 };
 </script>

@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 import ProductDescription from './ProductDescription';
 
 export default {
@@ -28,8 +28,9 @@ export default {
   computed: mapState(['product']),
   created() {
     const { id } = this.$route.params;
-    this.$store.dispatch('fetchProduct', id);
+    this.fetchProduct(id);
   },
+  methods: mapActions(['fetchProduct']),
 };
 </script>
 

@@ -28,9 +28,9 @@ export default {
       heading: 'Shop',
     };
   },
+  computed: mapState(['products']),
   created() {
     this.$store.dispatch('fetchProducts');
   },
-  computed: mapState(['products']),
 };
 </script>

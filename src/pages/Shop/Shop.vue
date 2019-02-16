@@ -14,7 +14,8 @@
 </template>
 
 <script>
-import api from 'api';
+import { mapState } from 'vuex';
+
 import ProductCard from 'components/ProductCard';
 import Toolbar from 'components/Toolbar';
 
@@ -26,14 +27,11 @@ export default {
   data() {
     return {
       gridValue: '44%',
-      products: [],
     };
   },
+  computed: mapState(['products']),
   created() {
-    api.get('/products')
-      .then((response) => {
-        this.products = response.data;
-      });
+    this.$store.dispatch('fetchProducts');
   },
   methods: {
     handleToolbarClick($event) {

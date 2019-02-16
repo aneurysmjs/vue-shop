@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 
 import adminRoutes from 'pages/Admin/adminRoutes';
-import pageLayout from 'core/pageLayout';
+import pageLayout from 'components/hocs/pageLayout';
 
 const Home = () => import('pages/Home/Home');
 const Shop = () => import('pages/Shop/Shop');

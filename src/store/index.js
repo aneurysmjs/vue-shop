@@ -12,6 +12,7 @@ export default new Vuex.Store({
       count: 0,
       products: [],
     },
+    product: {},
     products: [],
   },
   actions,

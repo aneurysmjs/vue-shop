@@ -18,24 +18,17 @@
 </template>
 
 <script>
-import api from 'api';
+import { mapState } from 'vuex';
 import ProductDescription from './ProductDescription';
 
 export default {
   components: {
     ProductDescription,
   },
-  data() {
-    return {
-      product: {},
-    };
-  },
+  computed: mapState(['product']),
   created() {
     const { id } = this.$route.params;
-    api.get(`/products/${id}`)
-      .then((response) => {
-        this.product = response.data;
-      });
+    this.$store.dispatch('fetchProduct', id);
   },
 };
 </script>

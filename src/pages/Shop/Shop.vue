@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 import ProductCard from 'components/ProductCard';
 import Toolbar from 'components/Toolbar';
@@ -31,12 +31,13 @@ export default {
   },
   computed: mapState(['products']),
   created() {
-    this.$store.dispatch('fetchProducts');
+    this.fetchProducts();
   },
   methods: {
     handleToolbarClick($event) {
       this.gridValue = `${$event}%`;
     },
+    ...mapActions(['fetchProducts']),
   },
 };
 </script>

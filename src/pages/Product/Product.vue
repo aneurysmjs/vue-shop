@@ -18,8 +18,11 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { createNamespacedHelpers } from 'vuex';
+
 import ProductDescription from './ProductDescription';
+
+const { mapState, mapActions } = createNamespacedHelpers('products');
 
 export default {
   components: {

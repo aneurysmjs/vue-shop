@@ -6,7 +6,9 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { createNamespacedHelpers } from 'vuex';
+
+const { mapState, mapActions } = createNamespacedHelpers('products');
 
 export default {
   data() {

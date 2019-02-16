@@ -1,10 +1,8 @@
+import * as productsActionTypes from './modules/products/actionTypes';
 /**
  * Cart
  */
 export const INCREMENT_CART = 'INCREMENT_CART';
 export const ADD_TO_CART = 'ADD_TO_CART';
-/**
- * Products
- */
-export const SET_PRODUCT = 'SET_PRODUCT';
-export const SET_PRODUCTS = 'SET_PRODUCTS';
+
+export { productsActionTypes };

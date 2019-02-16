@@ -49,16 +49,18 @@
         width="1.2rem"
       />
       <span>
-        ( {{ cart.count }} )
+        ( {{ count }} )
       </span>
     </div>
   </nav>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { createNamespacedHelpers } from 'vuex';
 
 import Icon from 'components/base/Icon';
+
+const { mapState } = createNamespacedHelpers('cart');
 
 export default {
   name: 'Navigation',
@@ -89,7 +91,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(['cart']),
+    ...mapState(['count']),
   },
   mounted() {
     const scrollFunction = () => {

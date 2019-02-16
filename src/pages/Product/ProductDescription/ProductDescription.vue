@@ -26,7 +26,11 @@
 </template>
 
 <script>
+import { createNamespacedHelpers } from 'vuex';
+
 import Button from 'components/base/Button';
+
+const { mapActions } = createNamespacedHelpers('cart');
 
 export default {
   name: 'ProductDescription',
@@ -44,8 +48,9 @@ export default {
   methods: {
     handleAddToCart() {
       const { product } = this.$props;
-      this.$store.dispatch('addToCart', product);
+      this.addToCart(product);
     },
+    ...mapActions(['addToCart']),
   },
 };
 

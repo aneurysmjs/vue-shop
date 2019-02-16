@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 import ProductCard from 'components/ProductCard';
 
 export default {
@@ -30,7 +30,8 @@ export default {
   },
   computed: mapState(['products']),
   created() {
-    this.$store.dispatch('fetchProducts');
+    this.fetchProducts();
   },
+  methods: mapActions(['fetchProducts']),
 };
 </script>

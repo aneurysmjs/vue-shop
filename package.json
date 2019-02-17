@@ -9,7 +9,7 @@
     "commit": "git-cz",
     "dev": "yarn webpack-dev-server --env.mode development",
     "prod": "rimraf dist && yarn webpack --env.mode production",
-    "prod:analyze": "yarn prod --env.presets analyze",
+    "analyze": "yarn prod --env.presets analyze",
     "webpack": "node_modules/.bin/webpack",
     "api": "node_modules/.bin/json-server --watch ./src/assets/json/db.json"
   },

@@ -1,7 +1,7 @@
-const Admin = () => import('pages/Admin/Admin');
-const Dashboard = () => import('pages/Admin/Dashboard');
-const Products = () => import('pages/Admin/Products');
-const Users = () => import('pages/Admin/Users');
+const Admin = () => import('Admin/Admin');
+const Dashboard = () => import('Admin/Dashboard');
+const Products = () => import('Admin/Products');
+const Users = () => import('Admin/Users');
 
 export default {
   path: '/admin',

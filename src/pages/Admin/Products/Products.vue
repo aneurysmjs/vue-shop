@@ -1,16 +1,21 @@
 <template>
   <section>
     <h3>{{ title }}</h3>
-    {{ products }}
+    <ProductsTable :products="products" />
   </section>
 </template>
 
 <script>
 import { createNamespacedHelpers } from 'vuex';
 
+import ProductsTable from './ProductsTable';
+
 const { mapState, mapActions } = createNamespacedHelpers('products');
 
 export default {
+  components: {
+    ProductsTable,
+  },
   data() {
     return {
       title: 'Products!!!',

@@ -1,15 +1,16 @@
 <template>
   <input
+    class="input"
     :value="value"
     @input="$emit('input', $event.target.value)"
-  />
+  >
 </template>
 
 <script>
 export default {
   props: {
     value: {
-      type :[String | Number],
+      type: [String, Number],
       default: '',
     },
   },
@@ -18,6 +19,6 @@ export default {
 
 <style lang="scss">
   .input {
-    
+    position: relative;
   }
 </style>

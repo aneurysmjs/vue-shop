@@ -16,4 +16,18 @@ export default {
       }
     }
   },
+  async createUser({ commit, getters }, user) {
+    const users = getters.getUsers(user.email);
+    if (!users) {
+      commit(types.CREATE_USERS_SUCCESS);
+    } else {
+      commit(types.CREATE_USERS_REQUEST);
+      try {
+        const createdUser = await api.post('/users', user);
+        commit(types.CREATE_USERS_SUCCESS, createdUser);
+      } catch (error) {
+        commit(types.CREATE_USERS_FAILURE, error);
+      }
+    }
+  },
 };

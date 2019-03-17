@@ -2,6 +2,9 @@ import {
   USERS_REQUEST,
   USERS_SUCCESS,
   USERS_FAILURE,
+  CREATE_USERS_REQUEST,
+  CREATE_USERS_SUCCESS,
+  CREATE_USERS_FAILURE,
 } from './actionTypes';
 
 export default {
@@ -15,6 +18,21 @@ export default {
     usersState.isLoading = false;
   },
   [USERS_FAILURE](state, error) {
+    const usersState = state;
+    usersState.error = error;
+    usersState.isLoading = false;
+  },
+  // create
+  [CREATE_USERS_REQUEST](state) {
+    const usersState = state;
+    usersState.isLoading = true;
+  },
+  [CREATE_USERS_SUCCESS](state, user) {
+    const usersState = state;
+    usersState.user = user;
+    usersState.isLoading = false;
+  },
+  [CREATE_USERS_FAILURE](state, error) {
     const usersState = state;
     usersState.error = error;
     usersState.isLoading = false;

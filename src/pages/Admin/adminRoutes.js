@@ -9,12 +9,12 @@ const UsersTable = () => import('Admin/Users/UsersTable');
 
 export default {
   path: '/admin',
-  name: 'admin',
+  // name: 'admin',
   component: Admin,
   children: [
     {
       path: '',
-      name: 'dashboard',
+      name: 'admin',
       component: Dashboard,
     },
     {

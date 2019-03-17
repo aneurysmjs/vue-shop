@@ -1,32 +1,42 @@
 <template>
   <div>
-    <nav>
+    <nav
+      v-if="!isLoading"
+      class="animated"
+      :class="{'fadeIn': !isLoading}"
+    >
       <Button @click="handleCreateUser">
         Create User
       </Button>
     </nav>
     <div class="users-table__spinner">
-      <Spinner v-if="!isLoading" />
+      <Spinner v-if="isLoading" />
     </div>
-    <Table v-if="!isLoading">
-      <Thead slot="thead">
-        <Tr>
-          <Th>First Name</Th>
-          <Th>Last Name</Th>
-          <Th>Shop</Th>
-        </Tr>
-      </Thead>
-      <Tbody slot="tbody">
-        <Tr
-          v-for="user in users"
-          :key="user.id"
-        >
-          <Th>{{ user.firstName }}</Th>
-          <Td>{{ user.lastName }}</Td>
-          <Td>{{ user.shop }}</Td>
-        </Tr>
-      </Tbody>
-    </Table>
+    <div
+      v-if="!isLoading"
+      class="animated"
+      :class="{'fadeIn': !isLoading}"
+    >
+      <Table>
+        <Thead slot="thead">
+          <Tr>
+            <Th>First Name</Th>
+            <Th>Last Name</Th>
+            <Th>Shop</Th>
+          </Tr>
+        </Thead>
+        <Tbody slot="tbody">
+          <Tr
+            v-for="user in users"
+            :key="user.id"
+          >
+            <Th>{{ user.firstName }}</Th>
+            <Td>{{ user.lastName }}</Td>
+            <Td>{{ user.shop }}</Td>
+          </Tr>
+        </Tbody>
+      </Table>
+    </div>
   </div>
 </template>
 

@@ -5,6 +5,7 @@
         Create User
       </Button>
     </nav>
+    <Spinner v-if="isLoading" />
     <Table v-if="!isLoading">
       <Thead slot="thead">
         <Tr>
@@ -31,6 +32,7 @@
 import { createNamespacedHelpers } from 'vuex';
 
 import Button from 'components/base/Button';
+import Spinner from 'components/base/Spinner';
 
 import Table, {
   Thead,
@@ -52,6 +54,7 @@ export default {
     Tr,
     Td,
     Button,
+    Spinner,
   },
   computed: mapState(['users', 'isLoading']),
   created() {

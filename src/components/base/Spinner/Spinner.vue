@@ -1,32 +1,50 @@
 <template>
-  <div class="spinner">
-    <div />
-    <div />
+  <div
+    :style="{
+      height,
+      width,
+    }"
+    class="spinner"
+  >
+    <div class="spinner__outer-circle" />
+    <div class="spinner__inner-circle" />
   </div>
 </template>
 
 <script>
 export default {
   name: 'Spinner',
+  props: {
+    height: {
+      type: [String, Number],
+      default: '64px',
+    },
+    width: {
+      type: [String, Number],
+      default: '64px',
+    },
+  },
 };
 </script>
 
 <style lang="scss">
+  @import '~styles/functions/px-to-rem';
+  @import '~styles/mixins';
+
   .spinner {
     display: inline-block;
-    height: 64px;
     position: relative;
-    width: 64px;
-    div {
+
+    @include element(outer-circle) {
       animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
       border-radius: 50%;
-      border: 4px solid var(--primary
-      );
+      border: 4px solid var(--primary);
       opacity: 1;
       position: absolute;
-      &:nth-child(2) {
-        animation-delay: -0.5s;
-      }
+    }
+
+    @include element(inner-circle) {
+      animation-delay: -0.5s;
     }
   }
 

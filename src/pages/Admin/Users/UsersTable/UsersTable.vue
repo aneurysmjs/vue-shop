@@ -5,7 +5,7 @@
         Create User
       </Button>
     </nav>
-    <Spinner v-if="isLoading" />
+    <Spinner v-if="!isLoading" />
     <Table v-if="!isLoading">
       <Thead slot="thead">
         <Tr>

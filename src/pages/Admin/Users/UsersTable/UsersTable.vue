@@ -5,7 +5,9 @@
         Create User
       </Button>
     </nav>
-    <Spinner v-if="!isLoading" />
+    <div class="users-table__spinner">
+      <Spinner v-if="!isLoading" />
+    </div>
     <Table v-if="!isLoading">
       <Thead slot="thead">
         <Tr>
@@ -69,6 +71,14 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+  @import '~styles/functions/px-to-rem';
+  @import '~styles/mixins';
+
+  .users-table {
+    @include element(spinner) {
+      text-align: center;
+    }
+  }
 
 </style>

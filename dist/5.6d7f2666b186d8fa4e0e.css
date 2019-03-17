@@ -1,1 +1,0 @@
-.sidebar{border-right:1px solid #ddd;height:100%;left:0;padding:0 1rem;position:fixed;top:0;width:15rem}.sidebar__links{justify-content:space-around}.admin,.sidebar__links{display:flex;flex-direction:column}.admin{height:100vh}.admin__wrapper{flex-grow:1}.admin__content{padding-left:15rem;width:100%}

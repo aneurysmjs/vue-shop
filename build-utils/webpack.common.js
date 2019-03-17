@@ -29,7 +29,7 @@ module.exports = (mode) => {
         constants: `${paths.src}/constants`,
         core: `${paths.src}/core`,
         pages: `${paths.src}/pages`,
-        store: `${paths.src}/store`,
+        '@store': `${paths.src}/store`,
         Admin: `${paths.src}/pages/Admin`,
         utils: `${paths.src}/utils`,
       },

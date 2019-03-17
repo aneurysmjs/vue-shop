@@ -6,6 +6,7 @@ const Product = () => import('Admin/Products/Product');
 
 const Users = () => import('Admin/Users');
 const UsersTable = () => import('Admin/Users/UsersTable');
+const UsersForm = () => import('Admin/Users/UsersForm');
 
 export default {
   path: '/admin',
@@ -38,6 +39,10 @@ export default {
         {
           path: '',
           component: UsersTable,
+        },
+        {
+          path: 'new',
+          component: UsersForm,
         },
       ],
     },

@@ -38,7 +38,7 @@ export default {
     @include element(outer-circle) {
       animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
       border-radius: 50%;
-      border: 4px solid var(--primary);
+      border: px-to-rem(4) solid var(--primary);
       opacity: 1;
       position: absolute;
     }
@@ -50,8 +50,8 @@ export default {
 
   @keyframes lds-ripple {
     0% {
-      top: 28px;
-      left: 28px;
+      top: px-to-rem(28);
+      left: px-to-rem(28);
       width: 0;
       height: 0;
       opacity: 1;
@@ -60,8 +60,8 @@ export default {
     100% {
       top: -1px;
       left: -1px;
-      width: 58px;
-      height: 58px;
+      width: px-to-rem(58);
+      height: px-to-rem(58);
       opacity: 0;
     }
   }

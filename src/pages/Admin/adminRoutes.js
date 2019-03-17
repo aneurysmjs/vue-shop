@@ -1,9 +1,11 @@
 const Admin = () => import('Admin/Admin');
 const Dashboard = () => import('Admin/Dashboard');
-const Users = () => import('Admin/Users');
 const Products = () => import('Admin/Products');
 const ProductsTable = () => import('Admin/Products/ProductsTable');
 const Product = () => import('Admin/Products/Product');
+
+const Users = () => import('Admin/Users');
+const UsersTable = () => import('Admin/Users/UsersTable');
 
 export default {
   path: '/admin',
@@ -31,8 +33,13 @@ export default {
     },
     {
       path: 'users',
-      name: 'users',
       component: Users,
+      children: [
+        {
+          path: '',
+          component: UsersTable,
+        },
+      ],
     },
   ],
 };

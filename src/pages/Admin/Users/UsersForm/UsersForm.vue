@@ -34,14 +34,22 @@
           @change="handleChange"
         >
       </div>
+      <div class="form-group">
+        <Select
+          :items="[{ id: 0, text: 'Item' }]"
+          @on-select="handleSelect"
+        />
+      </div>
       <Button
         type="submit"
         @click="handleSubmit"
       >
         Create User
       </Button>
-       <div class="users-table__spinner">
-          <Spinner v-if="isLoading" />
+      <div class="users-table__spinner">
+        <Spinner
+          v-if="isLoading"
+        />
       </div>
     </div>
   </form>
@@ -52,6 +60,7 @@ import { createNamespacedHelpers } from 'vuex';
 
 import Button from 'components/base/Button';
 import Spinner from 'components/base/Spinner';
+import Select from 'components/base/Select';
 
 const { mapState, mapActions } = createNamespacedHelpers('users');
 
@@ -60,6 +69,7 @@ export default {
   components: {
     Button,
     Spinner,
+    Select,
   },
   data() {
     return {
@@ -85,6 +95,9 @@ export default {
         ...this.user,
         [name]: value,
       };
+    },
+    handleSelect(shop) {
+      console.log('shop', shop);
     },
     ...mapActions(['createUser']),
   },

@@ -10,6 +10,7 @@
     "moduleResolution": "node",
     "baseUrl": "./",
     "paths": {
+      "api": ["./src/api/api.ts"],
       "@store": ["./src/store"]
     },
     "lib": [ "dom","es2015" ]

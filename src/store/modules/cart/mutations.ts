@@ -1,9 +1,13 @@
+import { MutationTree } from 'vuex';
+
 import {
   INCREMENT_CART,
   ADD_TO_CART,
 } from './actionTypes';
 
-export default {
+import { ICartState } from './cart.types';
+
+const cartMutations: MutationTree<ICartState> = {
   [INCREMENT_CART](state, count) {
     // eslint-disable-next-line no-param-reassign
     state.count += count;
@@ -16,3 +20,5 @@ export default {
     ];
   },
 };
+
+export default cartMutations;

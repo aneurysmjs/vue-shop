@@ -1,7 +1,11 @@
+import { ActionTree } from 'vuex';
 import api from 'api';
 import * as types from './actionTypes';
 
-export default {
+import { IRootState } from '../../store.types';
+import { IUsersState } from './users.type';
+
+const usersActions: ActionTree<IUsersState, IRootState> = {
   async fetchUsers({ commit, getters }) {
     const users = getters.getUsers();
     if (users.length > 0) {
@@ -31,3 +35,5 @@ export default {
     }
   },
 };
+
+export default usersActions;

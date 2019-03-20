@@ -1,7 +1,12 @@
+import { ActionTree } from 'vuex';
+
 import api from 'api';
 import * as types from './actionTypes';
 
-export default {
+import { IRootState } from '../../store.types';
+import { IProductsState } from './products.types';
+
+const productsActions: ActionTree<IProductsState, IRootState> = {
   fetchProduct({ commit }, id) {
     api.get(`/products/${id}`)
       .then((response) => {
@@ -15,3 +20,5 @@ export default {
       });
   },
 };
+
+export default productsActions;

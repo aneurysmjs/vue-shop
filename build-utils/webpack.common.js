@@ -33,7 +33,7 @@ module.exports = (mode) => {
         Admin: `${paths.src}/pages/Admin`,
         utils: `${paths.src}/utils`,
       },
-      extensions: ['.js', '.vue', '.json'],
+      extensions: ['.js', '.vue', '.json', '.ts'],
     },
 
     module: {

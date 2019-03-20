@@ -28,6 +28,7 @@ module.exports = (mode) => {
         components: `${paths.src}/components`,
         constants: `${paths.src}/constants`,
         core: `${paths.src}/components/core`,
+        '@core': `${paths.src}/components/core`,
         pages: `${paths.src}/pages`,
         '@store': `${paths.src}/store`,
         Admin: `${paths.src}/pages/Admin`,

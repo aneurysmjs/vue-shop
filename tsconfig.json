@@ -11,6 +11,7 @@
     "baseUrl": "./",
     "paths": {
       "api": ["./src/api/api.ts"],
+      "@core/*": ["./src/components/core/*"],
       "@store": ["./src/store"]
     },
     "lib": [ "dom","es2015" ]

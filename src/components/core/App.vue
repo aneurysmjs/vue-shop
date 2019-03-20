@@ -2,15 +2,16 @@
   <Layout />
 </template>
 
-<script>
-import Layout from 'core/Layout';
+<script lang="ts">
+import Vue from 'vue';
+import Layout from '@core/Layout';
 
-export default {
+export default Vue.extend({
   name: 'App',
   components: {
     Layout,
   },
-};
+});
 </script>
 
 <style lang="scss">

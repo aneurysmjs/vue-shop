@@ -1,16 +1,20 @@
 import Vue from 'vue';
-import Vuex from 'vuex';
+import Vuex, { StoreOptions }  from 'vuex';
 
 import cart from './modules/cart';
 import products from './modules/products';
 import users from './modules/users';
 
+import { IRootState } from './store.types';
+
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+const store: StoreOptions<IRootState> = {
   modules: {
     cart,
     products,
     users,
   },
-});
+}
+
+export default new Vuex.Store<IRootState>(store);

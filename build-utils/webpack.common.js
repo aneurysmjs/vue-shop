@@ -17,7 +17,7 @@ module.exports = (mode) => {
   const prodMode = mode === 'production';
   return {
 
-    entry: ['./src/main.js'],
+    entry: ['./src/main.ts'],
 
     resolve: {
       alias: {
@@ -49,14 +49,22 @@ module.exports = (mode) => {
           test: /\.vue$/,
           loader: 'vue-loader',
         },
+        // {
+        //   test: /\.js?$/,
+        //   exclude: [/node_modules/],
+        //   use: [
+        //     {
+        //       loader: 'babel-loader',
+        //     },
+        //   ],
+        // },
         {
-          test: /\.js?$/,
-          exclude: [/node_modules/],
-          use: [
-            {
-              loader: 'babel-loader',
-            },
-          ],
+          test: /\.ts$/,
+          loader: 'ts-loader',
+          exclude: /node_modules/,
+          options: {
+            appendTsSuffixTo: [/\.vue$/],
+          },
         },
         {
           test: /\.(sa|sc|c)ss$/,

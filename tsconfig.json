@@ -11,6 +11,7 @@
     "baseUrl": "./",
     "paths": {
       "@store": ["./src/store"]
-    }
+    },
+    "lib": [ "dom","es2015" ]
   }
 }

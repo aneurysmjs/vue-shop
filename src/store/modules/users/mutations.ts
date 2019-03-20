@@ -1,3 +1,5 @@
+import { MutationTree } from 'vuex';
+
 import {
   USERS_REQUEST,
   USERS_SUCCESS,
@@ -7,12 +9,14 @@ import {
   CREATE_USERS_FAILURE,
 } from './actionTypes';
 
-export default {
+import { IUsersState, IUser } from './users.type';
+
+const usersMutations: MutationTree<IUsersState> = {
   [USERS_REQUEST](state) {
     const usersState = state;
     usersState.isLoading = true;
   },
-  [USERS_SUCCESS](state, users) {
+  [USERS_SUCCESS](state, users: Array<IUser>) {
     const usersState = state;
     usersState.users = users;
     usersState.isLoading = false;
@@ -27,7 +31,7 @@ export default {
     const usersState = state;
     usersState.isLoading = true;
   },
-  [CREATE_USERS_SUCCESS](state, user) {
+  [CREATE_USERS_SUCCESS](state, user: IUser) {
     const usersState = state;
     usersState.user = user;
     usersState.isLoading = false;
@@ -38,3 +42,5 @@ export default {
     usersState.isLoading = false;
   },
 };
+
+export default usersMutations;

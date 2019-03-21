@@ -1,9 +1,9 @@
-import Vue from 'vue';
-import Header from 'core/Header';
-import Footer from 'core/Footer';
+import Vue, { CreateElement, Component, AsyncComponent } from 'vue';
+import Header from 'core/Header.vue';
+import Footer from 'core/Footer.vue';
 
-export default function pageLayout(Component) {
-  const content = h => h('div', {
+export default function pageLayout(Component: Component | AsyncComponent) {
+  const content = (h: CreateElement) => h('div', {
     class: 'layout__content',
   },
   [

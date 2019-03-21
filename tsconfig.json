@@ -13,7 +13,7 @@
       "api": ["./src/api/api.ts"],
       "@core/*": ["./src/components/core/*"],
       "@store": ["./src/store"],
-      "components": ["./src/components/*"],
+      "components/*": ["./src/components/*"],
       "pages/*": ["./src/pages/*"]
     },
     "lib": [ "dom","es2015" ]

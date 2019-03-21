@@ -12,7 +12,9 @@
     "paths": {
       "api": ["./src/api/api.ts"],
       "@core/*": ["./src/components/core/*"],
-      "@store": ["./src/store"]
+      "@store": ["./src/store"],
+      "components": ["./src/components/*"],
+      "pages/*": ["./src/pages/*"]
     },
     "lib": [ "dom","es2015" ]
   }

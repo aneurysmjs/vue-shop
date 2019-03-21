@@ -4,9 +4,9 @@ import Router from 'vue-router';
 import adminRoutes from 'pages/Admin/adminRoutes';
 import pageLayout from 'components/hocs/pageLayout';
 
-const Home = () => import('pages/Home/Home');
-const Shop = () => import('pages/Shop/Shop');
-const Product = () => import('pages/Product');
+const Home = () => import('pages/Home/Home.vue');
+const Shop = () => import('pages/Shop/Shop.vue');
+const Product = () => import('pages/Product/Product.vue');
 
 Vue.use(Router);
 

@@ -1,12 +1,12 @@
 const Admin = () => import('Admin/Admin.vue');
 const Dashboard = () => import('Admin/Dashboard.vue');
-const Products = () => import('Admin/Products.vue');
-const ProductsTable = () => import('Admin/Products/ProductsTable.vue');
-const Product = () => import('Admin/Products/Product.vue');
+const Products = () => import('Admin/Products/Products.vue');
+const ProductsTable = () => import('Admin/Products/ProductsTable/ProductsTable.vue');
+const Product = () => import('Admin/Products/Product/Product.vue');
 
-const Users = () => import('Admin/Users.vue');
-const UsersTable = () => import('Admin/Users/UsersTable.vue');
-const UsersForm = () => import('Admin/Users/UsersForm.vue');
+const Users = () => import('Admin/Users/Users.vue');
+const UsersTable = () => import('Admin/Users/UsersTable/UsersTable.vue');
+const UsersForm = () => import('Admin/Users/UsersForm/UsersForm.vue');
 
 export default {
   path: '/admin',

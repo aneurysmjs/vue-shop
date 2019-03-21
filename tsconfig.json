@@ -14,8 +14,10 @@
       "@core/*": ["./src/components/core/*"],
       "@store": ["./src/store"],
       "components/*": ["./src/components/*"],
-      "pages/*": ["./src/pages/*"]
+      "pages/*": ["./src/pages/*"],
+      "Admin/*": ["./src/pages/Admin*"]
     },
     "lib": [ "dom","es2015" ]
-  }
+  },
+  "include": ["./src/**/*"]
 }

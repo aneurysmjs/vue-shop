@@ -16,14 +16,17 @@
   </nav>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import Icon from 'components/base/Icon';
 
-export default {
+import { IDataToolbar, Filter } from './toolbar.types';
+
+export default Vue.extend({
   components: {
     Icon,
   },
-  data() {
+  data(): IDataToolbar {
     return {
       selected: 0,
       filters: [
@@ -41,12 +44,12 @@ export default {
     };
   },
   methods: {
-    handleFilterClick(filter) {
+    handleFilterClick(filter: Filter): void {
       this.selected = filter.id;
       this.$emit('on-click', filter.value);
     },
   },
-};
+});
 </script>
 
 <style lang="scss">

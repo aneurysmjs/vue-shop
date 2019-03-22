@@ -25,14 +25,12 @@
   </article>
 </template>
 
-<script>
-import { createNamespacedHelpers } from 'vuex';
+<script lang="ts">
+import Vue from 'vue';
 
-import Button from 'components/base/Button';
+import Button from 'components/base/Button/index.vue';
 
-const { mapActions } = createNamespacedHelpers('cart');
-
-export default {
+export default Vue.extend({
   name: 'ProductDescription',
   components: {
     Button,
@@ -45,14 +43,7 @@ export default {
       },
     },
   },
-  methods: {
-    handleAddToCart() {
-      const { product } = this.$props;
-      this.addToCart(product);
-    },
-    ...mapActions(['addToCart']),
-  },
-};
+});
 
 </script>
 

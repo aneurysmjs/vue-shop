@@ -17,24 +17,26 @@
   </aside>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
+
 import { createNamespacedHelpers } from 'vuex';
 
 import ProductDescription from './ProductDescription';
 
 const { mapState, mapActions } = createNamespacedHelpers('products');
 
-export default {
+export default Vue.extend({
   components: {
     ProductDescription,
   },
   computed: mapState(['product']),
-  created() {
+  created(): void {
     const { id } = this.$route.params;
     this.fetchProduct(id);
   },
   methods: mapActions(['fetchProduct']),
-};
+});
 </script>
 
 <style lang="scss">

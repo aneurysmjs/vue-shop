@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "noImplicitThis": true,
     "allowSyntheticDefaultImports": true,
     // this aligns with Vue's browser support
     "target": "es5",

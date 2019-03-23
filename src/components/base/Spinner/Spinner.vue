@@ -11,8 +11,10 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
   name: 'Spinner',
   props: {
     height: {
@@ -24,7 +26,7 @@ export default {
       default: '64px',
     },
   },
-};
+});
 </script>
 
 <style lang="scss">

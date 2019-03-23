@@ -26,9 +26,13 @@
   </figure>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
+import { Prop } from 'vue/types/options';
 
-export default {
+import { IProduct } from '@store/modules/products/products.types';
+
+export default Vue.extend({
   name: 'ProductCard',
   props: {
     width: {
@@ -40,15 +44,7 @@ export default {
       type: Boolean,
     },
     product: {
-      type: Object,
-      default() {
-        return {
-          id: '0',
-          name: 'default name',
-          img: '',
-          imgHovered: '',
-        };
-      },
+      type: Object as Prop<IProduct>
     },
     hasHover: {
       default: false,
@@ -65,21 +61,21 @@ export default {
       const { id } = this.product;
       this.$router.push(`/product/${id}`);
     },
-    handleMouseover() {
+    handleMouseover(): void {
       if (this.hasHover) {
         this.setProductImage('imgHovered');
       }
     },
-    handleMouseleave() {
+    handleMouseleave(): void {
       if (this.hasHover) {
         this.setProductImage('img');
       }
     },
-    setProductImage(propName) {
+    setProductImage(propName: string): void {
       this.image = this.product[propName];
     },
   },
-};
+});
 </script>
 
 <style lang="scss">

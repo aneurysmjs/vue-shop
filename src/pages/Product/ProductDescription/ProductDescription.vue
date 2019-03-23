@@ -28,7 +28,7 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import Button from 'components/base/Button/index.vue';
+import Button from 'components/base/Button';
 
 export default Vue.extend({
   name: 'ProductDescription',

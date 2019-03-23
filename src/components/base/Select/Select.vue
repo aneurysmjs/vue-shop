@@ -30,13 +30,14 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+
+import { ISelectItem } from './select.types';
+
+export default Vue.extend({
   name: 'Select',
   props: {
-    /**
-     * @type <Array<{ id: String | Number, text: String, *}>>
-     */
     items: {
       type: Array,
       default() {
@@ -54,19 +55,20 @@ export default {
     };
   },
   methods: {
-    handleClick() {
+    handleClick(): void {
       this.isOpen = !this.isOpen;
     },
-    handleSelect(item) {
+    handleSelect(item: ISelectItem): void {
       this.$emit('on-select', item);
     },
   },
-};
+});
 </script>
 
 <style lang="scss" scope>
   @import '~styles/functions/px-to-rem';
   @import '~styles/mixins';
+
   .select {
     @include element(item) {
       background: var(--white);

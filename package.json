@@ -19,6 +19,7 @@
     }
   },
   "dependencies": {
+    "@types/classnames": "2.2.7",
     "animate.css": "3.7.0",
     "axios": "0.18.0",
     "bootstrap": "4.3.1",

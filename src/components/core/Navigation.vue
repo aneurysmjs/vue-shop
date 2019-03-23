@@ -55,14 +55,16 @@
   </nav>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
+
 import { createNamespacedHelpers } from 'vuex';
 
 import Icon from 'components/base/Icon';
 
 const { mapState } = createNamespacedHelpers('cart');
 
-export default {
+export default Vue.extend({
   name: 'Navigation',
   components: {
     Icon,
@@ -96,9 +98,9 @@ export default {
   mounted() {
     const scrollFunction = () => {
       if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-        this.applyScroll('aha');
+        this.applyScroll();
       } else {
-        this.applyScroll('no');
+        this.applyScroll();
       }
     };
     // When the user scrolls down 50px from the top of the document, resize the header's font size
@@ -113,7 +115,7 @@ export default {
       this.isMenuToggled = !this.isMenuToggled;
     },
   },
-};
+});
 
 </script>
 

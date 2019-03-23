@@ -4,15 +4,17 @@
   </header>
 </template>
 
-<script>
-import Navigation from 'core/Navigation';
+<script lang="ts">
+import Vue from 'vue';
 
-export default {
+import Navigation from './Navigation.vue';
+
+export default Vue.extend({
   name: 'Header',
   components: {
     Navigation,
   },
-};
+});
 </script>
 
 <style lang="scss">

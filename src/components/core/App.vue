@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import Layout from '@core/Layout';
+import Layout from './Layout.vue';
 
 export default Vue.extend({
   name: 'App',

@@ -9,16 +9,36 @@
     // if using webpack 2+ or rollup, to leverage tree shaking:
     "module": "esNext",
     "moduleResolution": "node",
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
-      "api": ["./src/api/api.ts"],
-      "@core/*": ["./src/components/core/*"],
-      "@store": ["./src/store"],
-      "components/*": ["./src/components/*"],
-      "pages/*": ["./src/pages/*"],
-      "Admin/*": ["./src/pages/Admin*"]
+      "@/*": [
+        "./src/*"
+      ],
+      "api": [
+        "./src/api/api.ts"
+      ],
+      "@core/*": [
+        "./src/components/core/*"
+      ],
+      "@store": [
+        "./src/store"
+      ],
+      "components/*": [
+        "./src/components/*"
+      ],
+      "pages/*": [
+        "./src/pages/*"
+      ],
+      "Admin/*": [
+        "./src/pages/Admin*"
+      ]
     },
-    "lib": [ "dom","es2015" ]
+    "lib": [
+      "dom",
+      "es2015"
+    ]
   },
-  "include": ["./src/**/*"]
+  "include": [
+    "./src/**/*"
+  ]
 }

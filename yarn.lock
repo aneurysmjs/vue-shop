@@ -767,6 +767,16 @@
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.1.tgz#48fd98c1561fe718b61733daed46ff115b496e18"
 
+"@typescript-eslint/eslint-plugin@1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-1.5.0.tgz#85c509bcfc2eb35f37958fa677379c80b7a8f66f"
+  integrity sha512-TZ5HRDFz6CswqBUviPX8EfS+iOoGbclYroZKT3GWGYiGScX0qo6QjHc5uuM7JN920voP2zgCkHgF5SDEVlCtjQ==
+  dependencies:
+    "@typescript-eslint/parser" "1.5.0"
+    "@typescript-eslint/typescript-estree" "1.5.0"
+    requireindex "^1.2.0"
+    tsutils "^3.7.0"
+
 "@typescript-eslint/parser@1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-1.5.0.tgz#a96114d195dff2a49534e4c4850fb676f905a072"
@@ -6883,6 +6893,11 @@ require-main-filename@^2.0.0:
   resolved "https://registry.yarnpkg.com/require-main-filename/-/require-main-filename-2.0.0.tgz#d0b329ecc7cc0f61649f62215be69af54aa8989b"
   integrity sha512-NKN5kMDylKuldxYLSUfrbo5Tuzh4hd+2E8NPPX02mZtn1VuREQToYe/ZdlJy+J3uCpfaiGF05e7B8W0iXbQHmg==
 
+requireindex@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/requireindex/-/requireindex-1.2.0.tgz#3463cdb22ee151902635aa6c9535d4de9c2ef1ef"
+  integrity sha512-L9jEkOi3ASd9PYit2cwRfyppc9NoABujTP8/5gFcbERmo5jUoAKovIC3fsF17pkTnGsrByysqX+Kxd2OTNI1ww==
+
 requires-port@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
@@ -7770,9 +7785,16 @@ ts-loader@5.3.3:
     micromatch "^3.1.4"
     semver "^5.0.1"
 
-tslib@^1.9.0:
+tslib@^1.8.1, tslib@^1.9.0:
   version "1.9.3"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.3.tgz#d7e4dd79245d85428c4d7e4822a79917954ca286"
+
+tsutils@^3.7.0:
+  version "3.9.1"
+  resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-3.9.1.tgz#2a40dc742943c71eca6d5c1994fcf999956be387"
+  integrity sha512-hrxVtLtPqQr//p8/msPT1X1UYXUjizqSit5d9AQ5k38TcV38NyecL5xODNxa73cLe/5sdiJ+w1FqzDhRBA/anA==
+  dependencies:
+    tslib "^1.8.1"
 
 tty-browserify@0.0.0:
   version "0.0.0"

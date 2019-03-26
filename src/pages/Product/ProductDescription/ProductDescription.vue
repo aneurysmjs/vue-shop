@@ -16,8 +16,8 @@
     </p>
     <div>
       <Button
-        primary
         @click="handleAddToCart"
+        primary
       >
         Add To Cart
       </Button>

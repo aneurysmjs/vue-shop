@@ -1,18 +1,19 @@
 <template>
   <button
     :type="type"
-    class="button"
     :class="skins"
     @click="handleClick"
+    class="button"
   >
     <slot />
   </button>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import classNames from 'classnames';
 
-export default {
+export default Vue.extend({
   name: 'Button',
   props: {
     type: {
@@ -39,7 +40,7 @@ export default {
       this.$emit('click');
     },
   },
-};
+});
 </script>
 
 <style lang="scss">

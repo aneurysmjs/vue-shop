@@ -17,22 +17,25 @@ module.exports = (mode) => {
   const prodMode = mode === 'production';
   return {
 
-    entry: ['./src/main.js'],
+    entry: ['./src/main.ts'],
 
     resolve: {
       alias: {
         vue$: 'vue/dist/vue.esm.js',
-        api$: `${paths.src}/api/api.js`,
+        api$: `${paths.src}/api/api.ts`,
+        '@': `${paths.src}`,
         assets: `${paths.src}/assets`,
         styles: `${paths.src}/assets/scss`,
         components: `${paths.src}/components`,
         constants: `${paths.src}/constants`,
-        core: `${paths.src}/core`,
+        core: `${paths.src}/components/core`,
+        '@core': `${paths.src}/components/core`,
         pages: `${paths.src}/pages`,
-        store: `${paths.src}/store`,
+        '@store': `${paths.src}/store`,
+        Admin: `${paths.src}/pages/Admin`,
         utils: `${paths.src}/utils`,
       },
-      extensions: ['.js', '.vue', '.json'],
+      extensions: ['.js', '.vue', '.json', '.ts'],
     },
 
     module: {
@@ -48,14 +51,22 @@ module.exports = (mode) => {
           test: /\.vue$/,
           loader: 'vue-loader',
         },
+        // {
+        //   test: /\.js?$/,
+        //   exclude: [/node_modules/],
+        //   use: [
+        //     {
+        //       loader: 'babel-loader',
+        //     },
+        //   ],
+        // },
         {
-          test: /\.js?$/,
-          exclude: [/node_modules/],
-          use: [
-            {
-              loader: 'babel-loader',
-            },
-          ],
+          test: /\.ts$/,
+          loader: 'ts-loader',
+          exclude: /node_modules/,
+          options: {
+            appendTsSuffixTo: [/\.vue$/],
+          },
         },
         {
           test: /\.(sa|sc|c)ss$/,

@@ -11,12 +11,12 @@
       class="product-card__overlay"
     />
     <img
-      class="img-fluid product-card__image"
       :src="image"
       :alt="product.name"
       @click="handleClick"
       @mouseover="handleMouseover"
       @mouseleave="handleMouseleave"
+      class="img-fluid product-card__image"
     >
     <figcaption
       :class="[hasOverlay ? 'product-card__description--overlay' : 'product-card__description']"
@@ -26,9 +26,12 @@
   </figure>
 </template>
 
-<script>
+<script lang="ts">
+import Vue, { PropOptions } from 'vue';
 
-export default {
+import { IProduct } from '@/store/modules/products/products.types';
+
+export default Vue.extend({
   name: 'ProductCard',
   props: {
     width: {
@@ -43,13 +46,12 @@ export default {
       type: Object,
       default() {
         return {
-          id: '0',
-          name: 'default name',
+          id: '',
+          name: '',
           img: '',
-          imgHovered: '',
         };
       },
-    },
+    } as PropOptions<IProduct>,
     hasHover: {
       default: false,
       type: Boolean,
@@ -65,74 +67,73 @@ export default {
       const { id } = this.product;
       this.$router.push(`/product/${id}`);
     },
-    handleMouseover() {
+    handleMouseover(): void {
       if (this.hasHover) {
         this.setProductImage('imgHovered');
       }
     },
-    handleMouseleave() {
+    handleMouseleave(): void {
       if (this.hasHover) {
         this.setProductImage('img');
       }
     },
-    setProductImage(propName) {
+    setProductImage(propName: string): void {
       this.image = this.product[propName];
     },
   },
-};
+});
 </script>
 
 <style lang="scss">
+.product-card {
+  position: relative;
+}
 
-  .product-card {
-    position: relative;
-  }
+.product-card--overlay {
+  &:hover {
+    .product-card__overlay {
+      opacity: 0.4;
+    }
 
-  .product-card--overlay {
-    &:hover {
-      .product-card__overlay {
-        opacity: .4;
-      }
-
-      .product-card__description {
-        opacity: 1;
-      }
+    .product-card__description {
+      opacity: 1;
     }
   }
+}
 
-  .product-card__image {
-    cursor: pointer;
-  }
+.product-card__image {
+  cursor: pointer;
+}
 
-  .product-card__overlay {
-    background: #000000;
-    opacity: 0;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    transition: opacity .3s ease;
-    width: 100%;
-  }
+.product-card__overlay {
+  background: #000000;
+  opacity: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: opacity 0.3s ease;
+  width: 100%;
+}
 
-  .product-card__description {
-    color: #505050;
-    text-align: center;
-    font-size: 18px;
-  }
+.product-card__description {
+  color: #505050;
+  text-align: center;
+  font-size: 18px;
+}
 
-  .product-card__description--overlay {
-    align-items: center;
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: center;
-    opacity: 0;
-    position: absolute;
-    text-align: center;
-    top: 0;
-    transition: bottom .3s ease;
-    width: 100%;
-  }
+.product-card__description--overlay {
+  align-items: center;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  transition: bottom 0.3s ease;
+  width: 100%;
+}
 </style>

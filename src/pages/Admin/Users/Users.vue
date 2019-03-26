@@ -1,8 +1,12 @@
 <template>
-  <h2>Users</h2>
+  <section>
+    <h2>Users</h2>
+    <router-view />
+  </section>
 </template>
 
 <script>
+
 export default {
   name: 'Users',
 };

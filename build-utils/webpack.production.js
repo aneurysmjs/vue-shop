@@ -9,10 +9,8 @@ const { setupPath } = require('./helpers');
 const paths = require('./paths');
 
 module.exports = ({ mode }) => {
-
+  // eslint-disable-next-line global-require
   const commonConfig = require('./webpack.common.js')(mode);
-
-  const ENV = process.env.NODE_ENV = mode;
 
   return webpackMerge(commonConfig, {
     mode: 'production',
@@ -29,25 +27,26 @@ module.exports = ({ mode }) => {
       hints: 'warning', // enum
       maxAssetSize: 200000, // int (in bytes),
       maxEntrypointSize: 400000, // int (in bytes)
-      assetFilter: (assetFilename) => {
+      assetFilter: assetFilename => (
         // Function predicate that provides asset filenames
-        return assetFilename.endsWith('.css') || assetFilename.endsWith('.js');
-      }
+        assetFilename.endsWith('.css') || assetFilename.endsWith('.js')
+      ),
     },
 
     plugins: [
       new OptimizeCssAssetsPlugin({
         assetNameRegExp: /\.css$/g,
+        // eslint-disable-next-line
         cssProcessor: require('cssnano'),
         cssProcessorPluginOptions: {
           preset: [
             'default', {
               discardComments: {
-                removeAll: true
-              }
+                removeAll: true,
+              },
             }],
         },
-        canPrint: true
+        canPrint: true,
       }),
       new HtmlWebpackPlugin({
         template: setupPath('./templates/index.html'),
@@ -65,15 +64,14 @@ module.exports = ({ mode }) => {
         },
       }),
       new ScriptExtHtmlWebpackPlugin({
-        defaultAttribute: 'defer'
+        defaultAttribute: 'defer',
       }),
       new Webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify(ENV)
+        'process.env.NODE_ENV': JSON.stringify(mode),
       }),
       new CompressionPlugin({
         test: /\.(png|jpe?g|gif)$/,
       }),
     ],
   });
-
 };

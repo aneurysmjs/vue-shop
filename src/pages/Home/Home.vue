@@ -15,14 +15,15 @@
   </section>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import { createNamespacedHelpers } from 'vuex';
 
-import ProductCard from 'components/ProductCard';
+import ProductCard from 'components/ProductCard.vue';
 
 const { mapState, mapActions } = createNamespacedHelpers('products');
 
-export default {
+export default Vue.extend({
   components: {
     ProductCard,
   },
@@ -32,9 +33,9 @@ export default {
     };
   },
   computed: mapState(['products']),
-  created() {
+  created(): void {
     this.fetchProducts();
   },
   methods: mapActions(['fetchProducts']),
-};
+});
 </script>

@@ -13,15 +13,17 @@
   </section>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
+
 import { createNamespacedHelpers } from 'vuex';
 
-import ProductCard from 'components/ProductCard';
+import ProductCard from 'components/ProductCard.vue';
 import Toolbar from 'components/Toolbar';
 
 const { mapState, mapActions } = createNamespacedHelpers('products');
 
-export default {
+export default Vue.extend({
   components: {
     ProductCard,
     Toolbar,
@@ -32,16 +34,16 @@ export default {
     };
   },
   computed: mapState(['products']),
-  created() {
+  created(): void {
     this.fetchProducts();
   },
   methods: {
-    handleToolbarClick($event) {
-      this.gridValue = `${$event}%`;
+    handleToolbarClick(filterValue: string): void {
+      this.gridValue = `${filterValue}%`;
     },
     ...mapActions(['fetchProducts']),
   },
-};
+});
 </script>
 
 <style lang="scss">

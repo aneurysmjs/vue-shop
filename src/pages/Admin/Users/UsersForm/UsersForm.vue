@@ -96,9 +96,8 @@ export default {
         [name]: value,
       };
     },
-    handleSelect(shop) {
-      console.log('shop', shop);
-    },
+    // eslint-disable-next-line
+    handleSelect(shop) {},
     ...mapActions(['createUser']),
   },
 };

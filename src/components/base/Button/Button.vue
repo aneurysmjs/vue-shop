@@ -1,9 +1,9 @@
 <template>
   <button
     :type="type"
-    class="button"
     :class="skins"
     @click="handleClick"
+    class="button"
   >
     <slot />
   </button>

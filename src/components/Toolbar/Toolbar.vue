@@ -4,8 +4,8 @@
       <button
         v-for="filter in filters"
         :key="filter.id"
-        class="toolbar__button"
         @click="handleFilterClick(filter)"
+        class="toolbar__button"
       >
         <Icon
           :name="filter.icon"

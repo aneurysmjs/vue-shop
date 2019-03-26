@@ -4,9 +4,9 @@
     class="select"
   >
     <div
+      @click="handleClick"
       role="button"
       class="custom-select"
-      @click="handleClick"
     >
       {{ buttonText }}
     </div>
@@ -19,9 +19,9 @@
         class="select__items"
       >
         <div
+          @click="handleSelect"
           role="option"
           class="select__item"
-          @click="handleSelect"
         >
           {{ item.text }}
         </div>

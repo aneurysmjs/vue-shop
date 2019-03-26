@@ -2,8 +2,8 @@
   <div>
     <nav
       v-if="!isLoading"
-      class="animated"
       :class="{'fadeIn': !isLoading}"
+      class="animated"
     >
       <Button @click="handleCreateUser">
         Create User
@@ -14,8 +14,8 @@
     </div>
     <div
       v-if="!isLoading"
-      class="animated"
       :class="{'fadeIn': !isLoading}"
+      class="animated"
     >
       <Table>
         <Thead slot="thead">

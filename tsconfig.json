@@ -31,6 +31,9 @@
       ],
       "Admin/*": [
         "./src/pages/Admin*"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
       ]
     },
     "lib": [

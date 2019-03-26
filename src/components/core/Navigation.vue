@@ -1,7 +1,7 @@
 <template>
   <nav
-    class="navbar navbar-expand-lg navbar-light bg-light"
     :class="{ active: isActive }"
+    class="navbar navbar-expand-lg navbar-light bg-light"
   >
     <router-link
       class="navbar-brand"
@@ -16,16 +16,16 @@
       >
     </router-link>
     <button
+      @click="handleToggleMenu"
       class="navbar-toggler"
       type="button"
-      @click="handleToggleMenu"
     >
       <span class="navbar-toggler-icon" />
     </button>
 
     <div
-      class="collapse navbar-collapse"
       :class="{ show: isMenuToggled }"
+      class="collapse navbar-collapse"
     >
       <ul class="navbar-nav ml-auto">
         <li
@@ -34,8 +34,8 @@
           class="nav-item active"
         >
           <router-link
-            class="nav-link active"
             :to="link.to"
+            class="nav-link active"
           >
             {{ link.name }}
           </router-link>

@@ -1,37 +1,37 @@
 <template>
   <form
-    class="users-form"
     @submit.prevent="handleSubmit"
+    class="users-form"
   >
     <div>
       <div class="form-group">
         <input
+          :value="user.firstName"
+          @change="handleChange"
           type="text"
           name="firstName"
           class="form-control"
           placeholder="First name"
-          :value="user.firstName"
-          @change="handleChange"
         >
       </div>
       <div class="form-group">
         <input
+          :value="user.lastName"
+          @change="handleChange"
           type="text"
           name="lastName"
           class="form-control"
           placeholder="Last name"
-          :value="user.lastName"
-          @change="handleChange"
         >
       </div>
       <div class="form-group">
         <input
+          :value="user.email"
+          @change="handleChange"
           type="email"
           name="email"
           class="form-control"
           placeholder="Email"
-          :value="user.email"
-          @change="handleChange"
         >
       </div>
       <div class="form-group">
@@ -41,8 +41,8 @@
         />
       </div>
       <Button
-        type="submit"
         @click="handleSubmit"
+        type="submit"
       >
         Create User
       </Button>

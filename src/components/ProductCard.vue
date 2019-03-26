@@ -27,8 +27,7 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import { Prop } from 'vue/types/options';
+import Vue, { PropOptions } from 'vue';
 
 import { IProduct } from '@store/modules/products/products.types';
 
@@ -44,8 +43,15 @@ export default Vue.extend({
       type: Boolean,
     },
     product: {
-      type: Object as Prop<IProduct>
-    },
+      type: Object,
+      default() {
+        return {
+          id: '',
+          name: '',
+          img: '',
+        };
+      },
+    } as PropOptions<IProduct>,
     hasHover: {
       default: false,
       type: Boolean,

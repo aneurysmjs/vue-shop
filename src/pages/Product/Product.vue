@@ -4,9 +4,9 @@
       <div class="col-12 col-sm-12 col-md-12 col-md-9 col-xl-9">
         <figure class="product-image">
           <img
-            class="img-fluid"
             :src="product.img"
             :alt="product.name"
+            class="img-fluid"
           >
         </figure>
       </div>
@@ -27,6 +27,7 @@ import ProductDescription from './ProductDescription';
 const { mapState, mapActions } = createNamespacedHelpers('products');
 
 export default Vue.extend({
+  name: 'Product',
   components: {
     ProductDescription,
   },

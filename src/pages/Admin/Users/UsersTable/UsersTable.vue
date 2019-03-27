@@ -40,7 +40,8 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import { createNamespacedHelpers } from 'vuex';
 
 import Button from 'components/base/Button';
@@ -56,7 +57,7 @@ import Table, {
 
 const { mapState, mapActions } = createNamespacedHelpers('users');
 
-export default {
+export default Vue.extend({
   name: 'UsersTable',
   components: {
     Table,
@@ -78,7 +79,7 @@ export default {
     },
     ...mapActions(['fetchUsers']),
   },
-};
+});
 </script>
 
 <style lang="scss">

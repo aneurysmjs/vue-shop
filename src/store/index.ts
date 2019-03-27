@@ -4,6 +4,7 @@ import Vuex, { StoreOptions }  from 'vuex';
 import cart from './modules/cart';
 import products from './modules/products';
 import users from './modules/users';
+import notifications from './modules/notifications';
 
 import { IRootState } from './store.types';
 
@@ -14,6 +15,7 @@ const store: StoreOptions<IRootState> = {
     cart,
     products,
     users,
+    notifications,
   },
 }
 

@@ -2,7 +2,9 @@ import { INotificationsState } from './notifications.types';
 
 const productsState: INotificationsState = {
   notification: {
-    name: '',
+    id: 0,
+    type: '',
+    message: '',
   },
   notifications: [],
 };

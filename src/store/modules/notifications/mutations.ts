@@ -7,7 +7,7 @@ import {
 
 import { INotificationsState, INotification } from './notifications.types';
 
-let nextId: 1;
+let nextId = 0;
 
 const productsMutations: MutationTree<INotificationsState> = {
   [PUSH_NOTIFICATION](state, notification: INotification) {

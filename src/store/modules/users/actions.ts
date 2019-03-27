@@ -6,7 +6,7 @@ import { IRootState } from '@/store/store.types';
 import { IUsersState } from './users.type';
 
 const usersActions: ActionTree<IUsersState, IRootState> = {
-  async fetchUsers({ commit, getters }) {
+  async fetchUsers({ commit, getters, dispatch }) {
     const users = getters.getUsers();
     if (users.length > 0) {
       commit(types.USERS_SUCCESS, users);
@@ -16,7 +16,16 @@ const usersActions: ActionTree<IUsersState, IRootState> = {
         const response = await api.get('/users');
         commit(types.USERS_SUCCESS, response.data);
       } catch (error) {
-        commit(types.USERS_FAILURE, error);
+        const notification = {
+          type: 'error',
+          message: error.message,
+        };
+        dispatch(
+          'notifications/pushNotification',
+          notification,
+          { root: true },
+        );
+        commit(types.USERS_FAILURE, error.message);
       }
     }
   },

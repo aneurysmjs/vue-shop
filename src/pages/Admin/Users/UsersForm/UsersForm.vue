@@ -93,7 +93,7 @@ export default Vue.extend({
     ...mapState(['isLoading', 'error']),
   },
   methods: {
-    handleSubmit() {
+    handleSubmit(): void {
       this.createUser(this.user);
       this.user = {
         firstName: '',

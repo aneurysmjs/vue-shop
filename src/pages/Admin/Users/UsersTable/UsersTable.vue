@@ -70,11 +70,11 @@ export default Vue.extend({
     Spinner,
   },
   computed: mapState(['users', 'isLoading']),
-  created() {
+  created(): void {
     this.fetchUsers();
   },
   methods: {
-    handleCreateUser() {
+    handleCreateUser(): void {
       this.$router.push('/admin/users/new');
     },
     ...mapActions(['fetchUsers']),

@@ -7,8 +7,10 @@
   >
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
   props: {
     value: {
       type: [String, Number],
@@ -19,7 +21,7 @@ export default {
       default: '',
     },
   },
-};
+});
 </script>
 
 <style lang="scss">

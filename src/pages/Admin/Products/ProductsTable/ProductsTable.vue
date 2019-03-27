@@ -29,7 +29,9 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
+
 import { createNamespacedHelpers } from 'vuex';
 
 import Button from 'components/base/Button';
@@ -44,7 +46,7 @@ import Table, {
 
 const { mapState, mapActions } = createNamespacedHelpers('products');
 
-export default {
+export default Vue.extend({
   components: {
     Table,
     Thead,
@@ -55,16 +57,16 @@ export default {
     Button,
   },
   computed: mapState(['products']),
-  created() {
+  created(): void {
     this.fetchProducts();
   },
   methods: {
-    handleCreateProduct() {
+    handleCreateProduct(): void {
       this.$router.push('/admin/products/new');
     },
     ...mapActions(['fetchProducts']),
   },
-};
+});
 </script>
 
 <style>

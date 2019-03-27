@@ -4,12 +4,14 @@
   </section>
 </template>
 
-<script>
-import ProductForm from 'Admin/Products/ProductForm';
+<script lang="ts">
+import Vue from 'vue';
 
-export default {
+import ProductForm from '@/pages/Admin/Products/ProductForm';
+
+export default Vue.extend({
   components: {
     ProductForm,
   },
-};
+});
 </script>

@@ -12,10 +12,12 @@
   </section>
 </template>
 
-<script>
-import Sidebar from 'core/Sidebar/Sidebar';
+<script lang="ts">
+import Vue from 'vue';
 
-export default {
+import Sidebar from '@/components/core/Sidebar';
+
+export default Vue.extend({
   components: {
     Sidebar,
   },
@@ -37,7 +39,7 @@ export default {
       ],
     };
   },
-};
+});
 </script>
 
 <style lang="scss">

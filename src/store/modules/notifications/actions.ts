@@ -2,7 +2,7 @@ import { ActionTree } from 'vuex';
 
 import * as types from './actionTypes';
 
-import { IRootState } from '../../store.types';
+import { IRootState } from '@/store/store.types';
 import { INotificationsState } from './notifications.types';
 
 const productsActions: ActionTree<INotificationsState, IRootState> = {

@@ -1,6 +1,6 @@
 import { GetterTree } from 'vuex';
 
-import { IRootState } from '../../store.types';
+import { IRootState } from '@/store/store.types'; 
 import { IUsersState } from './users.type';
 
 const usersGetters: GetterTree<IUsersState, IRootState> = {

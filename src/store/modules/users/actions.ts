@@ -2,7 +2,7 @@ import { ActionTree } from 'vuex';
 import api from 'api';
 import * as types from './actionTypes';
 
-import { IRootState } from '../../store.types';
+import { IRootState } from '@/store/store.types'; 
 import { IUsersState } from './users.type';
 
 const usersActions: ActionTree<IUsersState, IRootState> = {

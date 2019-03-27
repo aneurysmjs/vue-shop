@@ -10,9 +10,9 @@
       <img
         width="30"
         height="30"
-        class="d-inline-block align-top"
         src="assets/logo.png"
         alt="logo"
+        class="d-inline-block align-top"
       >
     </router-link>
     <button

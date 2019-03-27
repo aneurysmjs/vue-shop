@@ -55,8 +55,13 @@
   </form>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
+import isNil from 'lodash.isnil';
+
 import { createNamespacedHelpers } from 'vuex';
+
+import { IUser } from '@/store/modules/users/users.type';
 
 import Button from 'components/base/Button';
 import Spinner from 'components/base/Spinner';
@@ -64,19 +69,23 @@ import Select from 'components/base/Select';
 
 const { mapState, mapActions } = createNamespacedHelpers('users');
 
-export default {
+interface IUsersFormData {
+  user: IUser;
+}
+
+export default Vue.extend({
   name: 'UsersForm',
   components: {
     Button,
     Spinner,
     Select,
   },
-  data() {
+  data(): IUsersFormData {
     return {
       user: {
         firstName: '',
         lastName: '',
-        email: '',
+        shop: '',
       },
     };
   },
@@ -86,21 +95,28 @@ export default {
   methods: {
     handleSubmit() {
       this.createUser(this.user);
-      this.user = {};
-    },
-    handleChange($event) {
-      const { target } = $event;
-      const { name, value } = target;
       this.user = {
-        ...this.user,
-        [name]: value,
+        firstName: '',
+        lastName: '',
+        shop: '',
       };
     },
+    handleChange($event: Event): void {
+      const { target } = $event;
+      // @ts-ignore
+      const { name, value } = target;
+      if (!isNil(value)) {
+        this.user = {
+          ...this.user,
+          [name]: value,
+        };
+      }
+    },
     // eslint-disable-next-line
-    handleSelect(shop) {},
+    handleSelect(shop: { name: string }): void {},
     ...mapActions(['createUser']),
   },
-};
+});
 </script>
 
 <style lang="scss">

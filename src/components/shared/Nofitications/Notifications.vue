@@ -1,5 +1,8 @@
 <template>
-  <div class="notifications">
+  <div
+    :class="[notifications.length ? 'fadeInRight' : 'fadeInLeft']"
+    class="notifications animated"
+  >
     <NotificationItem
       v-for="notification in notifications"
       :key="notification.id"
@@ -26,10 +29,13 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-.notifications {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  padding-right: 40px;
-}
+  @import '~styles/functions/px-to-rem';
+  @import '~styles/mixins';
+
+  .notifications {
+    padding-right: px-to-rem(40);
+    position: fixed;
+    right: 0;
+    top: 0;
+  }
 </style>

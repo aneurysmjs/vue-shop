@@ -1,11 +1,10 @@
 <template>
   <div
-    :class="notificationTypeClass"
-    class="notificationItem"
+    :class="notificationType"
+    role="alert"
+    class="notificationItem fadeInRight"
   >
-    <p>
-      {{ notification.message }}
-    </p>
+    {{ notification.message }}
   </div>
 </template>
 
@@ -17,6 +16,7 @@ const { mapActions } = createNamespacedHelpers('notifications');
 
 interface INofiticationItem {
   timeout: number | null;
+  isEntry: boolean;
 }
 
 export default Vue.extend({
@@ -30,10 +30,11 @@ export default Vue.extend({
   data(): INofiticationItem {
     return {
       timeout: null,
+      isEntry: false,
     };
   },
   computed: {
-    notificationTypeClass(): string {
+    notificationType(): string {
       const { type } = this.notification;
       return `notificationItem--${type}`;
     },
@@ -57,10 +58,17 @@ export default Vue.extend({
   @import '~styles/mixins';
 
   .notificationItem {
+    border-radius: px-to-rem(2);
     margin: 1em 0 1em;
+    padding: 0.5rem;
 
-    @include modifier(type) {
-
+    @include modifier(success) {
+      background: var(--green);
+      color: var(--white);
+    }
+    @include modifier(error) {
+      background: var(--red);
+      color: var(--white);
     }
   }
 </style>

@@ -13,7 +13,7 @@ const usersActions: ActionTree<IUsersState, IRootState> = {
     } else {
       commit(types.USERS_REQUEST);
       try {
-        const response = await api.get('/users');
+        const response = await api.get('/users2');
         commit(types.USERS_SUCCESS, response.data);
       } catch (error) {
         const notification = {

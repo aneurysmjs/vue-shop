@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Nofitications />
     <nav
       v-if="!isLoading"
       :class="{'fadeIn': !isLoading}"
@@ -46,6 +47,7 @@ import { createNamespacedHelpers } from 'vuex';
 
 import Button from 'components/base/Button';
 import Spinner from 'components/base/Spinner';
+import Nofitications from 'components/shared/Nofitications';
 
 import Table, {
   Thead,
@@ -68,6 +70,7 @@ export default Vue.extend({
     Td,
     Button,
     Spinner,
+    Nofitications,
   },
   computed: mapState(['users', 'isLoading']),
   created(): void {

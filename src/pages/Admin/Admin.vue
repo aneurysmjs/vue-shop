@@ -44,17 +44,26 @@ export default Vue.extend({
 
 <style lang="scss">
   @import '~styles/mixins';
+  @import '~styles/variables';
+
   .admin {
     height: 100vh;
     display: flex;
     flex-direction: column;
+
     @include element(wrapper) {
       flex-grow: 1;
     }
+
     @include element(content) {
-      padding-left: 15rem;
+      padding-left: 0;
       width: 100%;
+
+      @include media($md){
+        padding-left: 15rem;
+      }
     }
+
   }
 
 </style>

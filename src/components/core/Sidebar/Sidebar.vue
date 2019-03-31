@@ -55,14 +55,21 @@ export default Vue.extend({
 
 <style lang="scss">
   @import '~styles/mixins';
+  @import '~styles/variables';
+
   .sidebar {
     border-right: 1px solid #ddd;
     height: 100%;
-    left: 0;
+    left: -15rem;
     padding: 0 1rem;
     position: fixed;
     top: 0;
     width: 15rem;
+
+    @include media($md) {
+      left: 0;
+      width: 15rem;
+    }
     @include element(links) {
       @include flex($flex-direction: column);
     }

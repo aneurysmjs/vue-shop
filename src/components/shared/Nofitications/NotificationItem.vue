@@ -2,7 +2,7 @@
   <div
     :class="notificationType"
     role="alert"
-    class="notificationItem fadeInRight"
+    class="notificationItem"
   >
     {{ notification.message }}
   </div>
@@ -59,16 +59,16 @@ export default Vue.extend({
 
   .notificationItem {
     border-radius: px-to-rem(2);
+    color: var(--white);
     margin: 1em 0 1em;
     padding: 0.5rem;
 
     @include modifier(success) {
       background: var(--green);
-      color: var(--white);
     }
+
     @include modifier(error) {
       background: var(--red);
-      color: var(--white);
     }
   }
 </style>

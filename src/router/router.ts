@@ -1,12 +1,12 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import adminRoutes from 'pages/Admin/adminRoutes';
+import adminRoutes from '@/pages/Admin/adminRoutes';
 import pageLayout from 'components/hocs/pageLayout';
 
-const Home = () => import('pages/Home/Home.vue');
-const Shop = () => import('pages/Shop/Shop.vue');
-const Product = () => import('pages/Product/Product.vue');
+const Home = () => import('@/pages/Home/Home.vue');
+const Shop = () => import('@/pages/Shop/Shop.vue');
+const Product = () => import('@/pages/Product/Product.vue');
 
 Vue.use(Router);
 

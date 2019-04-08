@@ -19,7 +19,7 @@
 import Vue from 'vue';
 import { createNamespacedHelpers } from 'vuex';
 
-import ProductCard from 'components/ProductCard.vue';
+import ProductCard from '@/components/ProductCard.vue';
 
 const { mapState, mapActions } = createNamespacedHelpers('products');
 

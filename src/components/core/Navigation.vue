@@ -60,7 +60,7 @@ import Vue from 'vue';
 
 import { createNamespacedHelpers } from 'vuex';
 
-import Icon from 'components/base/Icon';
+import Icon from '@/components/base/Icon';
 
 const { mapState } = createNamespacedHelpers('cart');
 

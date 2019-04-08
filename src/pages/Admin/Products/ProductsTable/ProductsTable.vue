@@ -34,7 +34,7 @@ import Vue from 'vue';
 
 import { createNamespacedHelpers } from 'vuex';
 
-import Button from 'components/base/Button';
+import Button from '@/components/base/Button';
 
 import Table, {
   Thead,
@@ -42,7 +42,7 @@ import Table, {
   Tr,
   Th,
   Td,
-} from 'components/base/Table';
+} from '@/components/base/Table';
 
 const { mapState, mapActions } = createNamespacedHelpers('products');
 

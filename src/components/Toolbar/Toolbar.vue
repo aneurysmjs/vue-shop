@@ -18,7 +18,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import Icon from 'components/base/Icon';
+import Icon from '@/components/base/Icon';
 
 import { IDataToolbar, Filter } from './toolbar.types';
 

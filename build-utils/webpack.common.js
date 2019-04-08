@@ -26,7 +26,6 @@ module.exports = (mode) => {
         '@': `${paths.src}`,
         assets: `${paths.src}/assets`,
         styles: `${paths.src}/assets/scss`,
-        components: `${paths.src}/components`,
         constants: `${paths.src}/constants`,
         core: `${paths.src}/components/core`,
         '@core': `${paths.src}/components/core`,

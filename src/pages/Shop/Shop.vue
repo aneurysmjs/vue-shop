@@ -18,8 +18,8 @@ import Vue from 'vue';
 
 import { createNamespacedHelpers } from 'vuex';
 
-import ProductCard from 'components/ProductCard.vue';
-import Toolbar from 'components/Toolbar';
+import ProductCard from '@/components/ProductCard.vue';
+import Toolbar from '@/components/Toolbar';
 
 const { mapState, mapActions } = createNamespacedHelpers('products');
 

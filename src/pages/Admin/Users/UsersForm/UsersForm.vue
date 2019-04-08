@@ -63,9 +63,9 @@ import { createNamespacedHelpers } from 'vuex';
 
 import { IUser } from '@/store/modules/users/users.type';
 
-import Button from 'components/base/Button';
-import Spinner from 'components/base/Spinner';
-import Select from 'components/base/Select';
+import Button from '@/components/base/Button';
+import Spinner from '@/components/base/Spinner';
+import Select from '@/components/base/Select';
 
 const { mapState, mapActions } = createNamespacedHelpers('users');
 

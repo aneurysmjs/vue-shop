@@ -1,3 +1,4 @@
+
 import { createApp } from 'vue';
 import App from '@/components/core/App.vue';
 

@@ -1,4 +1,4 @@
 export interface ISelectItem {
-  id: String | Number;
-  text: String;
+  id: string | number;
+  text: string;
 }

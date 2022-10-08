@@ -1,41 +1,28 @@
 <template>
   <section>
-    <h1 class="display-3 text-center mt-3">
-      {{ heading }}
-    </h1>
+    <h1 class="display-3 text-center mt-3">Shop</h1>
+
     <div class="row">
       <ProductCard
         v-for="product in products"
         :key="product.id"
-        :width="'45%'"
         :product="product"
-        hasverlay
+        has-hover
+        width="45%"
       />
     </div>
   </section>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-import { createNamespacedHelpers } from 'vuex';
-
+<script setup lang="ts">
+import { createNamespacedHelpers } from 'vuex-composition-helpers';
 import ProductCard from '@/components/ProductCard.vue';
 
-const { mapState, mapActions } = createNamespacedHelpers('products');
+const { useState, useActions } = createNamespacedHelpers('products');
+const { fetchProducts } = useActions(['fetchProducts']);
+const { products } = useState(['products']);
 
-export default Vue.extend({
-  components: {
-    ProductCard,
-  },
-  data() {
-    return {
-      heading: 'Shop',
-    };
-  },
-  computed: mapState(['products']),
-  created(): void {
-    this.fetchProducts();
-  },
-  methods: mapActions(['fetchProducts']),
-});
+if (products.value.length === 0) {
+  fetchProducts();
+}
 </script>

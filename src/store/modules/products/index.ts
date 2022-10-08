@@ -4,7 +4,7 @@ import state from './state';
 import actions from './actions';
 import mutations from './mutations';
 
-import { IRootState } from '@/store/store.types'; 
+import { IRootState } from '../../store.types';
 import { IProductsState } from './products.types';
 
 const productsModule: Module<IProductsState, IRootState> = {

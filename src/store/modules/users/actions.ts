@@ -2,11 +2,11 @@ import { ActionTree } from 'vuex';
 import api from 'api';
 import * as types from './actionTypes';
 
-import { IRootState } from '@/store/store.types'; 
+import { IRootState } from '../../store.types';
 import { IUsersState } from './users.type';
 
 const usersActions: ActionTree<IUsersState, IRootState> = {
-  async fetchUsers({ commit, getters, dispatch }) {
+  async fetchUsers({ commit, getters }) {
     const users = getters.getUsers();
     if (users.length > 0) {
       commit(types.USERS_SUCCESS, users);
@@ -16,16 +16,7 @@ const usersActions: ActionTree<IUsersState, IRootState> = {
         const response = await api.get('/users');
         commit(types.USERS_SUCCESS, response.data);
       } catch (error) {
-        const notification = {
-          type: 'error',
-          message: error.message,
-        };
-        dispatch(
-          'notifications/pushNotification',
-          notification,
-          { root: true },
-        );
-        commit(types.USERS_FAILURE, error.message);
+        commit(types.USERS_FAILURE, error);
       }
     }
   },

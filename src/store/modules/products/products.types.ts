@@ -1,11 +1,11 @@
 export interface IProduct {
-  id: string,
-  name: string,
-  img: string,
-  [key: string]: string,
+  id: string;
+  name: string;
+  img: string;
+  imgHovered: string;
 }
 
 export interface IProductsState {
-  product: IProduct,
-  products: Array<IProduct>,
+  product: IProduct;
+  products: Array<IProduct>;
 }

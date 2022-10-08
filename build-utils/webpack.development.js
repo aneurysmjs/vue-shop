@@ -1,5 +1,4 @@
-const webpackMerge = require('webpack-merge');
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+const { merge: webpackMerge } = require('webpack-merge');
 
 const paths = require('./paths');
 
@@ -9,7 +8,6 @@ module.exports = (env) => {
 
   return webpackMerge(commonConfig, {
     mode: 'development',
-    devtool: 'source-map',
 
     output: {
       path: paths.src,
@@ -19,9 +17,7 @@ module.exports = (env) => {
     },
 
     devServer: {
-      // By default it will use your current working directory to serve content,
-      // but you can modify this to another directory
-      contentBase: paths.src,
+      static: paths.src,
       compress: true,
       port: 9000,
       /**
@@ -29,11 +25,13 @@ module.exports = (env) => {
        * the browser probable would know what to do with it"
        */
       historyApiFallback: true,
+      open: true,
+      client: {
+        overlay: {
+          warnings: false,
+          errors: false,
+        },
+      },
     },
-
-    plugins: [
-      new HardSourceWebpackPlugin(),
-    ],
-
   });
 };

@@ -10,9 +10,9 @@
         v-for="link in links"
         :key="link.path"
         :to="link.path"
-        @click="handleClick(link)"
         tag="button"
         class="btn btn-link"
+        @click="handleClick(link)"
       >
         {{ link.text }}
       </router-link>
@@ -21,9 +21,9 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'Sidebar',
   props: {
     title: {
@@ -54,24 +54,17 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-  @import '~styles/mixins';
-  @import '~styles/variables';
-
-  .sidebar {
-    border-right: 1px solid #ddd;
-    height: 100%;
-    left: -15rem;
-    padding: 0 1rem;
-    position: fixed;
-    top: 0;
-    width: 15rem;
-
-    @include media($md) {
-      left: 0;
-      width: 15rem;
-    }
-    @include element(links) {
-      @include flex($flex-direction: column);
-    }
+@import '~styles/mixins';
+.sidebar {
+  border-right: 1px solid #ddd;
+  height: 100%;
+  left: 0;
+  padding: 0 1rem;
+  position: fixed;
+  top: 0;
+  width: 15rem;
+  @include element(links) {
+    @include flex($flex-direction: column);
   }
+}
 </style>

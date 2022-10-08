@@ -1,33 +1,33 @@
-import Vue from 'vue';
-import Router from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 
-import adminRoutes from '@/pages/Admin/adminRoutes';
-import pageLayout from '@/components/hocs/pageLayout';
+// import adminRoutes from '@/pages/Admin/adminRoutes';
 
 const Home = () => import('@/pages/Home/Home.vue');
-const Shop = () => import('@/pages/Shop/Shop.vue');
-const Product = () => import('@/pages/Product/Product.vue');
 
-Vue.use(Router);
+// const Shop = () => import('@/pages/Shop/Shop.vue');
+// const Product = () => import('@/pages/Product/Product.vue');
 
-export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: pageLayout(Home),
-    },
-    {
-      path: '/shop',
-      name: 'shop',
-      component: pageLayout(Shop),
-    },
-    {
-      path: '/product/:id',
-      name: 'product',
-      component: pageLayout(Product),
-      props: true,
-    },
-    adminRoutes,
-  ],
+const routes = [
+  {
+    path: '/',
+    name: 'home',
+    component: Home,
+  },
+  // {
+  //   path: '/shop',
+  //   name: 'shop',
+  //   component: pageLayout(Shop),
+  // },
+  // {
+  //   path: '/product/:id',
+  //   name: 'product',
+  //   component: pageLayout(Product),
+  //   props: true,
+  // },
+  // adminRoutes,
+];
+
+export default createRouter({
+  history: createWebHashHistory(),
+  routes,
 });

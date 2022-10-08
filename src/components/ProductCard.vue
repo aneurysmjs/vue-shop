@@ -6,18 +6,15 @@
       margin: '0 auto',
     }"
   >
-    <div
-      v-if="hasOverlay"
-      class="product-card__overlay"
-    />
+    <div v-if="hasOverlay" class="product-card__overlay"></div>
     <img
       :src="image"
       :alt="product.name"
+      class="img-fluid product-card__image"
       @click="handleClick"
       @mouseover="handleMouseover"
       @mouseleave="handleMouseleave"
-      class="img-fluid product-card__image"
-    >
+    />
     <figcaption
       :class="[hasOverlay ? 'product-card__description--overlay' : 'product-card__description']"
     >
@@ -26,66 +23,48 @@
   </figure>
 </template>
 
-<script lang="ts">
-import Vue, { PropOptions } from 'vue';
+<script setup lang="ts">
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 import { IProduct } from '@/store/modules/products/products.types';
 
-export default Vue.extend({
-  name: 'ProductCard',
-  props: {
-    width: {
-      default: '29rem',
-      type: String,
-    },
-    hasOverlay: {
-      default: false,
-      type: Boolean,
-    },
-    product: {
-      type: Object,
-      default() {
-        return {
-          id: '',
-          name: '',
-          img: '',
-        };
-      },
-    } as PropOptions<IProduct>,
-    hasHover: {
-      default: false,
-      type: Boolean,
-    },
-  },
-  data() {
-    return {
-      image: this.product.img,
-    };
-  },
-  methods: {
-    handleClick() {
-      const { id } = this.product;
-      this.$router.push(`/product/${id}`);
-    },
-    handleMouseover(): void {
-      if (this.hasHover) {
-        this.setProductImage('imgHovered');
-      }
-    },
-    handleMouseleave(): void {
-      if (this.hasHover) {
-        this.setProductImage('img');
-      }
-    },
-    setProductImage(propName: string): void {
-      this.image = this.product[propName];
-    },
-  },
-});
+const router = useRouter();
+
+const props = defineProps<{
+  hasHover?: boolean;
+  hasOverlay?: boolean;
+  product: IProduct;
+  width: string;
+}>();
+
+const image = ref(props.product.img);
+
+const setProductImageType = (propName: keyof IProduct): void => {
+  image.value = props.product[propName];
+};
+
+const handleClick = () => {
+  const { id } = props.product;
+  router.push(`/product/${id}`);
+};
+
+const handleMouseover = (): void => {
+  if (props.hasHover) {
+    setProductImageType('imgHovered');
+  }
+};
+
+const handleMouseleave = (): void => {
+  if (props.hasHover) {
+    setProductImageType('img');
+  }
+};
 </script>
 
 <style lang="scss">
 .product-card {
+  text-align: center;
   position: relative;
 }
 
@@ -107,9 +86,9 @@ export default Vue.extend({
 
 .product-card__overlay {
   background: #000000;
-  opacity: 0;
   height: 100%;
   left: 0;
+  opacity: 0;
   position: absolute;
   top: 0;
   transition: opacity 0.3s ease;

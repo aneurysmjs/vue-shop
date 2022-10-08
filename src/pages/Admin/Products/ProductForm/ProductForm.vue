@@ -4,11 +4,10 @@
   </form>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-import Input from '@/components/base/Input';
+<script>
+import Input from 'components/base/Input';
 
-export default Vue.extend({
+export default {
   components: {
     Input,
   },
@@ -24,9 +23,7 @@ export default Vue.extend({
       },
     };
   },
-});
+};
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>

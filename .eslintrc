@@ -45,7 +45,6 @@
       }
     ],
     "@typescript-eslint/indent": ["error", 2],
-    "@typescript-eslint/no-object-literal-type-assertion": "off",
-    "@typescript-eslint/interface-name-prefix": "always"
+    "@typescript-eslint/no-object-literal-type-assertion": "off"
   }
 }

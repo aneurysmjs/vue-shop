@@ -1,16 +1,7 @@
-import Vue from 'vue';
-import App from '@core/App.vue';
+import { createApp } from 'vue';
+import App from '@/components/core/App.vue';
 
-import store from '@store';
+import store from '@/store';
 import { router } from './router';
 
-// eslint-disable-next-line no-new
-new Vue({
-  el: '#app',
-  components: {
-    App,
-  },
-  template: `<App />`,
-  router,
-  store,
-});
+createApp(App).use(router).use(store).mount('#app');

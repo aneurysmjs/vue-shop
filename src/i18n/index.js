@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 
-import { LANG } from '@/constants';
+import { LANG } from 'constants';
 
 Vue.use(VueI18n);
 

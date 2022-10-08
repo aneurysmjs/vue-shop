@@ -1,8 +1,5 @@
 <template>
-  <form
-    @submit.prevent="handleSubmit"
-    class="users-form"
-  >
+  <form @submit.prevent="handleSubmit" class="users-form">
     <div>
       <div class="form-group">
         <input
@@ -12,7 +9,7 @@
           name="firstName"
           class="form-control"
           placeholder="First name"
-        >
+        />
       </div>
       <div class="form-group">
         <input
@@ -22,7 +19,7 @@
           name="lastName"
           class="form-control"
           placeholder="Last name"
-        >
+        />
       </div>
       <div class="form-group">
         <input
@@ -32,60 +29,41 @@
           name="email"
           class="form-control"
           placeholder="Email"
-        >
+        />
       </div>
       <div class="form-group">
-        <Select
-          :items="[{ id: 0, text: 'Item' }]"
-          @on-select="handleSelect"
-        />
+        <Select :items="[{ id: 0, text: 'Item' }]" @on-select="handleSelect" />
       </div>
-      <Button
-        @click="handleSubmit"
-        type="submit"
-      >
-        Create User
-      </Button>
+      <Button @click="handleSubmit" type="submit"> Create User </Button>
       <div class="users-table__spinner">
-        <Spinner
-          v-if="isLoading"
-        />
+        <Spinner v-if="isLoading" />
       </div>
     </div>
   </form>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-import isNil from 'lodash.isnil';
-
+<script>
 import { createNamespacedHelpers } from 'vuex';
 
-import { IUser } from '@/store/modules/users/users.type';
-
-import Button from '@/components/base/Button';
-import Spinner from '@/components/base/Spinner';
-import Select from '@/components/base/Select';
+import Button from 'components/base/Button';
+import Spinner from 'components/base/Spinner';
+import Select from 'components/base/Select';
 
 const { mapState, mapActions } = createNamespacedHelpers('users');
 
-interface IUsersFormData {
-  user: IUser;
-}
-
-export default Vue.extend({
+export default {
   name: 'UsersForm',
   components: {
     Button,
     Spinner,
     Select,
   },
-  data(): IUsersFormData {
+  data() {
     return {
       user: {
         firstName: '',
         lastName: '',
-        shop: '',
+        email: '',
       },
     };
   },
@@ -93,34 +71,27 @@ export default Vue.extend({
     ...mapState(['isLoading', 'error']),
   },
   methods: {
-    handleSubmit(): void {
+    handleSubmit() {
       this.createUser(this.user);
+      this.user = {};
+    },
+    handleChange($event) {
+      const { target } = $event;
+      const { name, value } = target;
       this.user = {
-        firstName: '',
-        lastName: '',
-        shop: '',
+        ...this.user,
+        [name]: value,
       };
     },
-    handleChange($event: Event): void {
-      const { target } = $event;
-      // @ts-ignore
-      const { name, value } = target;
-      if (!isNil(value)) {
-        this.user = {
-          ...this.user,
-          [name]: value,
-        };
-      }
-    },
     // eslint-disable-next-line
-    handleSelect(shop: { name: string }): void {},
+    handleSelect(shop) {},
     ...mapActions(['createUser']),
   },
-});
+};
 </script>
 
 <style lang="scss">
-  .users-form {
-    max-width: 30rem;
-  }
+.users-form {
+  max-width: 30rem;
+}
 </style>

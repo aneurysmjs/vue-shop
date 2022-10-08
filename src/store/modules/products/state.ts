@@ -5,6 +5,7 @@ const productsState: IProductsState = {
     id: '0',
     name: '',
     img: '',
+    imgHovered: '',
   },
   products: [],
 };

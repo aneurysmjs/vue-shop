@@ -1,25 +1,12 @@
 <template>
-  <main>
-    <Nofitications />
-    <Layout />
-  </main>
+  <BaseLayout />
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-import Nofitications from '@/components/shared/Nofitications';
-import Layout from './Layout.vue';
-
-export default Vue.extend({
-  name: 'App',
-  components: {
-    Nofitications,
-    Layout,
-  },
-});
+<script setup lang="ts">
+import BaseLayout from './BaseLayout.vue';
 </script>
 
 <style lang="scss">
-  @import '~styles/styles.scss';
-  @import '~animate.css';
+@import '~styles/styles.scss';
+@import '~animate.css';
 </style>

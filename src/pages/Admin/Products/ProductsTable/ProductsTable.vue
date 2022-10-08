@@ -1,9 +1,7 @@
 <template>
   <div>
     <nav>
-      <Button @click="handleCreateProduct">
-        Create Product
-      </Button>
+      <Button @click="handleCreateProduct"> Create Product </Button>
     </nav>
     <Table>
       <Thead slot="thead">
@@ -15,10 +13,7 @@
         </Tr>
       </Thead>
       <Tbody slot="tbody">
-        <Tr
-          v-for="product in products"
-          :key="product.name"
-        >
+        <Tr v-for="product in products" :key="product.name">
           <Th>{{ product.name }}</Th>
           <Td>{{ product.price }}</Td>
           <Td>{{ product.stock }}</Td>
@@ -29,24 +24,16 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-
+<script>
 import { createNamespacedHelpers } from 'vuex';
 
-import Button from '@/components/base/Button';
+import Button from 'components/base/Button';
 
-import Table, {
-  Thead,
-  Tbody,
-  Tr,
-  Th,
-  Td,
-} from '@/components/base/Table';
+import Table, { Thead, Tbody, Tr, Th, Td } from 'components/base/Table';
 
 const { mapState, mapActions } = createNamespacedHelpers('products');
 
-export default Vue.extend({
+export default {
   components: {
     Table,
     Thead,
@@ -57,18 +44,16 @@ export default Vue.extend({
     Button,
   },
   computed: mapState(['products']),
-  created(): void {
+  created() {
     this.fetchProducts();
   },
   methods: {
-    handleCreateProduct(): void {
+    handleCreateProduct() {
       this.$router.push('/admin/products/new');
     },
     ...mapActions(['fetchProducts']),
   },
-});
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

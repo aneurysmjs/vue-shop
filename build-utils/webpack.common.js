@@ -19,7 +19,7 @@ module.exports = (mode) => {
         vue$: 'vue/dist/vue.esm-bundler.js',
         api$: `${paths.src}/api/api.ts`,
         '@': `${paths.src}`,
-        styles: `${paths.src}/assets/scss`,
+        styles: `${paths.src}/assets/css`,
       },
       extensions: ['.js', '.vue', '.json', '.ts'],
     },
@@ -49,15 +49,10 @@ module.exports = (mode) => {
             },
             {
               loader: 'postcss-loader',
-              options: {
-                postcssOptions: {
-                  plugins: [require('precss')],
-                },
-              },
             },
-            {
-              loader: 'sass-loader',
-            },
+            // {
+            //   loader: 'sass-loader',
+            // },
           ],
         },
         {

@@ -6998,7 +6998,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pinia@npm:^2.0.23":
+"pinia@npm:2.0.23":
   version: 2.0.23
   resolution: "pinia@npm:2.0.23"
   dependencies:
@@ -9945,7 +9945,7 @@ __metadata:
     mini-css-extract-plugin: 2.6.1
     node-sass: 7.0.1
     node-uuid: 1.4.8
-    pinia: ^2.0.23
+    pinia: 2.0.23
     postcss-loader: 7.0.0
     precss: 4.0.0
     prettier: ^2.7.1

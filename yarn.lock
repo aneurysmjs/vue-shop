@@ -917,7 +917,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue/devtools-api@npm:^6.0.0, @vue/devtools-api@npm:^6.0.0-beta.11, @vue/devtools-api@npm:^6.0.0-beta.7":
+"@vue/devtools-api@npm:^6.0.0, @vue/devtools-api@npm:^6.0.0-beta.11, @vue/devtools-api@npm:^6.0.0-beta.7, @vue/devtools-api@npm:^6.4.4":
   version: 6.4.4
   resolution: "@vue/devtools-api@npm:6.4.4"
   checksum: d4d1079202579eceb8efb503b695dead39d2da4d693419a4a3f4e1823358726325bc2912e15c580ef94128ed61f42be0ce6a23ac013967e04d971b0a7158a263
@@ -1784,27 +1784,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"body-parser@npm:1.20.0":
-  version: 1.20.0
-  resolution: "body-parser@npm:1.20.0"
-  dependencies:
-    bytes: 3.1.2
-    content-type: ~1.0.4
-    debug: 2.6.9
-    depd: 2.0.0
-    destroy: 1.2.0
-    http-errors: 2.0.0
-    iconv-lite: 0.4.24
-    on-finished: 2.4.1
-    qs: 6.10.3
-    raw-body: 2.5.1
-    type-is: ~1.6.18
-    unpipe: 1.0.0
-  checksum: 12fffdeac82fe20dddcab7074215d5156e7d02a69ae90cbe9fee1ca3efa2f28ef52097cbea76685ee0a1509c71d85abd0056a08e612c09077cad6277a644cf88
-  languageName: node
-  linkType: hard
-
-"body-parser@npm:^1.19.0":
+"body-parser@npm:1.20.1, body-parser@npm:^1.19.0":
   version: 1.20.1
   resolution: "body-parser@npm:1.20.1"
   dependencies:
@@ -3872,12 +3852,12 @@ __metadata:
   linkType: hard
 
 "express@npm:^4.17.1, express@npm:^4.17.3":
-  version: 4.18.1
-  resolution: "express@npm:4.18.1"
+  version: 4.18.2
+  resolution: "express@npm:4.18.2"
   dependencies:
     accepts: ~1.3.8
     array-flatten: 1.1.1
-    body-parser: 1.20.0
+    body-parser: 1.20.1
     content-disposition: 0.5.4
     content-type: ~1.0.4
     cookie: 0.5.0
@@ -3896,7 +3876,7 @@ __metadata:
     parseurl: ~1.3.3
     path-to-regexp: 0.1.7
     proxy-addr: ~2.0.7
-    qs: 6.10.3
+    qs: 6.11.0
     range-parser: ~1.2.1
     safe-buffer: 5.2.1
     send: 0.18.0
@@ -3906,7 +3886,7 @@ __metadata:
     type-is: ~1.6.18
     utils-merge: 1.0.1
     vary: ~1.1.2
-  checksum: c3d44c92e48226ef32ec978becfedb0ecf0ca21316bfd33674b3c5d20459840584f2325726a4f17f33d9c99f769636f728982d1c5433a5b6fe6eb95b8cf0c854
+  checksum: 3c4b9b076879442f6b968fe53d85d9f1eeacbb4f4c41e5f16cc36d77ce39a2b0d81b3f250514982110d815b2f7173f5561367f9110fcc541f9371948e8c8b037
   languageName: node
   linkType: hard
 
@@ -6282,16 +6262,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minipass@npm:^3.0.0, minipass@npm:^3.1.0, minipass@npm:^3.1.1, minipass@npm:^3.1.3":
-  version: 3.3.4
-  resolution: "minipass@npm:3.3.4"
-  dependencies:
-    yallist: ^4.0.0
-  checksum: 5d95a7738c54852ba78d484141e850c792e062666a2d0c681a5ac1021275beb7e1acb077e59f9523ff1defb80901aea4e30fac10ded9a20a25d819a42916ef1b
-  languageName: node
-  linkType: hard
-
-"minipass@npm:^3.1.6":
+"minipass@npm:^3.0.0, minipass@npm:^3.1.0, minipass@npm:^3.1.1, minipass@npm:^3.1.3, minipass@npm:^3.1.6":
   version: 3.3.5
   resolution: "minipass@npm:3.3.5"
   dependencies:
@@ -7024,6 +6995,25 @@ __metadata:
   version: 3.0.0
   resolution: "pify@npm:3.0.0"
   checksum: 6cdcbc3567d5c412450c53261a3f10991665d660961e06605decf4544a61a97a54fefe70a68d5c37080ff9d6f4cf51444c90198d1ba9f9309a6c0d6e9f5c4fde
+  languageName: node
+  linkType: hard
+
+"pinia@npm:^2.0.23":
+  version: 2.0.23
+  resolution: "pinia@npm:2.0.23"
+  dependencies:
+    "@vue/devtools-api": ^6.4.4
+    vue-demi: "*"
+  peerDependencies:
+    "@vue/composition-api": ^1.4.0
+    typescript: ">=4.4.4"
+    vue: ^2.6.14 || ^3.2.0
+  peerDependenciesMeta:
+    "@vue/composition-api":
+      optional: true
+    typescript:
+      optional: true
+  checksum: 004c76d80bc1127a25b26f92616f1243c570c6be90b04be83aa95108274036b64ed0678e537f3213c8b8f3dd7bcffb52e768e7445a1fd9378cb1db15ada92f83
   languageName: node
   linkType: hard
 
@@ -8008,15 +7998,6 @@ __metadata:
   dependencies:
     escape-goat: ^2.0.0
   checksum: 49529e50372ffdb0cccf0efa0f3b3cb0a2c77805d0d9cc2725bd2a0f6bb414631e61c93a38561b26be1259550b7bb6c2cb92315aa09c8bf93f3bdcb49f2b2fb7
-  languageName: node
-  linkType: hard
-
-"qs@npm:6.10.3":
-  version: 6.10.3
-  resolution: "qs@npm:6.10.3"
-  dependencies:
-    side-channel: ^1.0.4
-  checksum: 0fac5e6c7191d0295a96d0e83c851aeb015df7e990e4d3b093897d3ac6c94e555dbd0a599739c84d7fa46d7fee282d94ba76943983935cf33bba6769539b8019
   languageName: node
   linkType: hard
 
@@ -9811,6 +9792,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"vue-demi@npm:*":
+  version: 0.13.11
+  resolution: "vue-demi@npm:0.13.11"
+  peerDependencies:
+    "@vue/composition-api": ^1.0.0-rc.1
+    vue: ^3.0.0-0 || ^2.6.0
+  peerDependenciesMeta:
+    "@vue/composition-api":
+      optional: true
+  bin:
+    vue-demi-fix: bin/vue-demi-fix.js
+    vue-demi-switch: bin/vue-demi-switch.js
+  checksum: 0fbe9bf8ab7fe498ffa2bbd0cfc8f6f43a6bbaa5eda3e20ef1b70dca7c8b0ddb216a7ff2f632b694fe0735805638975abb441c621ec0bd2e6d4656353f316c15
+  languageName: node
+  linkType: hard
+
 "vue-eslint-parser@npm:9.0.2":
   version: 9.0.2
   resolution: "vue-eslint-parser@npm:9.0.2"
@@ -9891,7 +9888,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-vue-loader@next:
+"vue-loader@npm:next":
   version: 17.0.0
   resolution: "vue-loader@npm:17.0.0"
   dependencies:
@@ -9948,6 +9945,7 @@ vue-loader@next:
     mini-css-extract-plugin: 2.6.1
     node-sass: 7.0.1
     node-uuid: 1.4.8
+    pinia: ^2.0.23
     postcss-loader: 7.0.0
     precss: 4.0.0
     prettier: ^2.7.1

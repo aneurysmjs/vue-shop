@@ -1,41 +1,30 @@
 <template>
-  <nav :class="{ active: isActive }" class="navbar navbar-expand-lg navbar-light bg-light">
-    <router-link class="navbar-brand" to="/">
-      <img
-        width="30"
-        height="30"
-        class="d-inline-block align-top"
-        src="assets/logo.png"
-        alt="logo"
-      />
-    </router-link>
-    <button class="navbar-toggler" type="button" @click="handleToggleMenu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <nav class="navbar">
+    <div class="navbar__navigation">
+      <div class="navbar__links">
+        <router-link
+          v-for="link in links"
+          :key="link.id"
+          :to="link.to"
+          class="navbar-link"
+        >
+          {{ link.name }}
+          <span className="navbar-link__bar" />
+        </router-link>
+      </div>
 
-    <div :class="{ show: isMenuToggled }" class="collapse navbar-collapse">
-      <ul class="navbar-nav ml-auto">
-        <li v-for="link in links" :key="link.id" class="nav-item active">
-          <router-link :to="link.to" class="nav-link active">
-            {{ link.name }}
-          </router-link>
-        </li>
-      </ul>
-    </div>
-    <div class="navigation__cart">
-      <Icon name="cart" height="1.2rem" width="1.2rem" />
-      <span> ( {{ count }} ) </span>
+      <div class="navbar__cart">
+        <font-awesome-icon
+          icon="fa-cart-shopping"
+          class="navbar__cart-icon"
+        />
+        <span> (0) </span>
+      </div>
     </div>
   </nav>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import { createNamespacedHelpers } from 'vuex-composition-helpers';
-
-import Icon from '@/components/base/Icon';
-
-const { useState } = createNamespacedHelpers('cart'); // specific module name
 
 const links = [
   {
@@ -55,23 +44,52 @@ const links = [
   },
 ];
 
-const isActive = ref(false);
-const isMenuToggled = ref(false);
-const { count } = useState(['count']);
-
-const handleToggleMenu = () => {
-  isMenuToggled.value = !isMenuToggled.value;
-};
 </script>
 
-<style lang="scss">
-.navigation {
-  display: flex;
-  justify-content: space-around;
+<style>
+.navbar {
+  @apply mx-auto my-4 container;
 }
 
-.navigation__ {
-  margin-left: 0.5rem;
-  position: relative;
+.navbar__navigation {
+  @apply flex justify-end;
+}
+
+.navbar__links {
+  @apply flex mx-1;
+}
+
+.navtext {
+  @apply font-light p-2 rounded text-gray-800;
+  @apply dark:text-white;
+}
+
+.navbar-link {
+  @apply navtext;
+}
+
+.navbar__cart {
+  @apply flex font-light p-2 rounded text-gray-800;
+  @apply dark:text-white;
+}
+
+.navbar__cart-icon {
+  @apply navtext;
+}
+
+.navbar-link.router-link-active {
+  & > span {
+    @apply bg-teal-500;
+    @apply dark:bg-sky-400;
+  }
+}
+
+.navbar-link__bar {
+  transition: background 0.3s ease-in;
+  @apply bg-transparent h-1 block;
+}
+
+.navbar__theme {
+  @apply p-2;
 }
 </style>

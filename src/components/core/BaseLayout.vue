@@ -13,14 +13,12 @@ import BaseHeader from '@/components/core/BaseHeader.vue';
 import BaseFooter from '@/components/core/BaseFooter.vue';
 </script>
 
-<style lang="scss">
+<style>
 .layout {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
+  @apply flex flex-col h-screen
 }
 
 .layout__content {
-  flex-grow: 1;
+  @apply grow
 }
 </style>

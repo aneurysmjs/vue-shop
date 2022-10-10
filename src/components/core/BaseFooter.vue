@@ -1,12 +1,17 @@
 <template>
   <footer class="footer">
-    <p class="text-center">Copyright</p>
+    <p class="footer__copy-right">
+      Vue Shop
+    </p>
   </footer>
 </template>
 
-<style lang="scss">
+<style>
 .footer {
-  padding-top: 1rem;
-  border-top: 1px solid #dddddd;
+  @apply border-t border-t-white pt-4
+}
+
+.footer__copy-right {
+  @apply text-4xl mb-4 text-gray-800 dark:text-white text-center;
 }
 </style>

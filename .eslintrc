@@ -4,7 +4,11 @@
     "parser": "@typescript-eslint/parser"
   },
   "settings": {
-    "import/resolver": "webpack"
+    "import/resolver": {
+      "typescript": {
+        "project": "<root>/tsconfig.json"
+      }
+    }
   },
   "extends": [
     "airbnb-base",

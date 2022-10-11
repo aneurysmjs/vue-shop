@@ -44,7 +44,6 @@
     "eslint-config-airbnb-base": "15.0.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-import-resolver-typescript": "3.5.1",
-    "eslint-import-resolver-webpack": "0.13.2",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-vue": "9.6.0",
     "eslint-plugin-vue-a11y": "0.0.31",

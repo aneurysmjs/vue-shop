@@ -2,7 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router';
 
 // import adminRoutes from '@/pages/Admin/adminRoutes';
 
-const Home = () => import('@/pages/Home/Home.vue');
+const Home = () => import('@/pages/Home/HomePage.vue');
 
 // const Shop = () => import('@/pages/Shop/Shop.vue');
 // const Product = () => import('@/pages/Product/Product.vue');

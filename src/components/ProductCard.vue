@@ -6,7 +6,10 @@
       margin: '0 auto',
     }"
   >
-    <div v-if="hasOverlay" class="product-card__overlay"></div>
+    <div
+      v-if="hasOverlay"
+      class="product-card__overlay"
+    />
     <img
       :src="image"
       :alt="product.name"
@@ -14,7 +17,7 @@
       @click="handleClick"
       @mouseover="handleMouseover"
       @mouseleave="handleMouseleave"
-    />
+    >
     <figcaption
       :class="[hasOverlay ? 'product-card__description--overlay' : 'product-card__description']"
     >
@@ -26,21 +29,20 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-
-import { IProduct } from '@/store/modules/products/products.types';
+import type { Product } from '@/store/products/productsTypes';
 
 const router = useRouter();
 
 const props = defineProps<{
   hasHover?: boolean;
   hasOverlay?: boolean;
-  product: IProduct;
+  product: Product;
   width: string;
 }>();
 
 const image = ref(props.product.img);
 
-const setProductImageType = (propName: keyof IProduct): void => {
+const setProductImageType = (propName: keyof Product): void => {
   image.value = props.product[propName];
 };
 
@@ -62,57 +64,51 @@ const handleMouseleave = (): void => {
 };
 </script>
 
-<style lang="scss">
+<style>
 .product-card {
-  text-align: center;
-  position: relative;
+  @apply text-center relative
 }
 
 .product-card--overlay {
   &:hover {
     .product-card__overlay {
-      opacity: 0.4;
+      @apply opacity-40
     }
 
     .product-card__description {
-      opacity: 1;
+      @apply opacity-100
     }
   }
 }
 
 .product-card__image {
-  cursor: pointer;
+  @apply cursor-pointer
 }
 
 .product-card__overlay {
-  background: #000000;
-  height: 100%;
-  left: 0;
-  opacity: 0;
-  position: absolute;
-  top: 0;
+  @apply absolute bg-black h-full left-0 opacity-0 top-0 w-full;
+
   transition: opacity 0.3s ease;
-  width: 100%;
 }
 
 .product-card__description {
-  color: #505050;
-  text-align: center;
-  font-size: 18px;
+  @apply text-center text-gray-800 dark:text-white text-lg ;
 }
 
 .product-card__description--overlay {
-  align-items: center;
-  color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: center;
-  opacity: 0;
-  position: absolute;
-  text-align: center;
-  top: 0;
   transition: bottom 0.3s ease;
-  width: 100%;
+
+  @apply
+    absolute
+    flex
+    flex-col
+    h-full
+    items-center
+    justify-center
+    opacity-0
+    top-0
+    text-center
+    text-white
+    w-full;
 }
 </style>

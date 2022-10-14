@@ -42,7 +42,9 @@ const props = defineProps<{
 
 const image = ref(props.product.img);
 
-const setProductImageType = (propName: keyof Product): void => {
+type ProductImageKeys = keyof Pick<Product, 'img' | 'imgHovered'>
+
+const setProductImageType = (propName: ProductImageKeys): void => {
   image.value = props.product[propName];
 };
 

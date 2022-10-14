@@ -15,40 +15,39 @@
       {{ product.description }}
     </p>
     <div>
-      <Button @click="handleAddToCart" primary> Add To Cart </Button>
+      <Button
+        primary
+        @click="handleAddToCart"
+      >
+        Add To Cart
+      </Button>
     </div>
   </article>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
+<script setup lang="ts">
+import type { Product } from '@/store/products/productsTypes';
 
-import Button from 'components/base/Button';
+import Button from '@/components/base/Button';
 
-export default defineComponent({
-  name: 'ProductDescription',
-  components: {
-    Button,
-  },
-  props: {
-    product: {
-      type: Object,
-      default() {
-        return {};
-      },
-    },
-  },
-});
+defineProps<{
+  product: Product;
+}>();
+
+const handleAddToCart = () => {};
+
 </script>
 
-<style lang="scss">
+<style>
 .product-description {
-  position: relative;
+  @apply relative
 }
+
 .product-price {
-  margin: 2rem 0;
+  @apply my-8
 }
+
 .product-text {
-  margin: 2rem 0;
+  @apply my-8
 }
 </style>

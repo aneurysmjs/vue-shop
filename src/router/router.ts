@@ -5,7 +5,7 @@ import { createRouter, createWebHashHistory } from 'vue-router';
 const Home = () => import('@/pages/Home/HomePage.vue');
 
 // const Shop = () => import('@/pages/Shop/Shop.vue');
-// const Product = () => import('@/pages/Product/Product.vue');
+const Product = () => import('@/pages/Product/ProductPage.vue');
 
 const routes = [
   {
@@ -18,12 +18,12 @@ const routes = [
   //   name: 'shop',
   //   component: pageLayout(Shop),
   // },
-  // {
-  //   path: '/product/:id',
-  //   name: 'product',
-  //   component: pageLayout(Product),
-  //   props: true,
-  // },
+  {
+    path: '/product/:id',
+    name: 'product',
+    component: Product,
+    props: true,
+  },
   // adminRoutes,
 ];
 

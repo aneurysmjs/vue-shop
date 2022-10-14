@@ -3,19 +3,27 @@
 import { defineStore } from 'pinia';
 
 import api from 'api';
-import type { ProductsState } from './productsTypes';
+import type { Product, ProductsState } from './productsTypes';
+
+const initialProduct: Product = {
+  description: '',
+  id: '0',
+  img: '',
+  imgHovered: '',
+  name: '',
+  price: 0,
+  shop: '',
+};
 
 export const useProductsStore = defineStore('products', {
   state: (): ProductsState => ({
-    product: {
-      id: '0',
-      name: '',
-      img: '',
-      imgHovered: '',
-    },
+    product: initialProduct,
     products: [],
   }),
   getters: {
+    getProduct(state) {
+      return state.product;
+    },
     getProducts(state) {
       return state.products;
     },
@@ -32,6 +40,7 @@ export const useProductsStore = defineStore('products', {
     async fetchProducts() {
       try {
         const response = await api.get('/products');
+
         this.products = response.data;
       } catch (error) {
         return error;

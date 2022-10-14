@@ -1,5 +1,5 @@
 <script lang="ts">
-import Product from './Product.vue';
+import Product from './ProductPage.vue';
 
 export default Product;
 </script>

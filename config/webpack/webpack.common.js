@@ -3,12 +3,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 const webpack = require('webpack');
-const paths = require('./paths');
+
+const paths = require('../paths');
 
 module.exports = (mode) => {
   const prodMode = mode === 'production';
 
   return {
+    name: 'webpack-common-config',
     entry: ['./src/main.ts'],
 
     resolve: {
@@ -50,9 +52,6 @@ module.exports = (mode) => {
             {
               loader: 'postcss-loader',
             },
-            // {
-            //   loader: 'sass-loader',
-            // },
           ],
         },
         {

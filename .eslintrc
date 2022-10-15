@@ -54,5 +54,15 @@
     "import/extensions": 0,
     "@typescript-eslint/indent": ["error", 2],
     "@typescript-eslint/no-object-literal-type-assertion": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["config/**", "scripts/*"], 
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off",
+        "import/no-dynamic-require": "off",
+        "global-require": "off"
+      }
+    }
+  ]
 }

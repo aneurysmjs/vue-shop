@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 
-const paths = require('./paths');
+const paths = require('../paths');
 
 module.exports = ({ mode }) => {
   // eslint-disable-next-line global-require
@@ -18,17 +18,18 @@ module.exports = ({ mode }) => {
     output: {
       path: paths.dist,
       publicPath: '/',
-      filename: '[name].[hash].js',
-      chunkFilename: '[id].[hash].chunk.js',
+      filename: '[name].[fullhash].js',
+      chunkFilename: '[id].[contenthash].chunk.js',
     },
 
     performance: {
       hints: 'warning', // enum
       maxAssetSize: 200000, // int (in bytes),
       maxEntrypointSize: 400000, // int (in bytes)
-      assetFilter: (assetFilename) =>
+      assetFilter(assetFilename) {
         // Function predicate that provides asset filenames
-        assetFilename.endsWith('.css') || assetFilename.endsWith('.js'),
+        return assetFilename.endsWith('.css') || assetFilename.endsWith('.js');
+      },
     },
 
     optimization: {

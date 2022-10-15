@@ -1,17 +1,20 @@
+const webpack = require('webpack');
 const { merge: webpackMerge } = require('webpack-merge');
 
-const paths = require('./paths');
+const { DEVSERVER_HOST, PORT } = require('../const');
+const paths = require('../paths');
 
 module.exports = (env) => {
   // eslint-disable-next-line global-require
   const commonConfig = require('./webpack.common')(env);
 
+  /** @type {import('webpack').Configuration} */
   return webpackMerge(commonConfig, {
     mode: 'development',
 
     output: {
       path: paths.src,
-      publicPath: 'http://localhost:9000/',
+      publicPath: `${DEVSERVER_HOST}:${PORT}`,
       filename: '[name].bundle.js',
       sourceMapFilename: '[name].map',
     },
@@ -33,5 +36,6 @@ module.exports = (env) => {
         },
       },
     },
+    plugins: [new webpack.HotModuleReplacementPlugin()],
   });
 };

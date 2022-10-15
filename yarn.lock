@@ -1661,7 +1661,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ansi-html-community@npm:^0.0.8":
+"ansi-html-community@npm:0.0.8, ansi-html-community@npm:^0.0.8":
   version: 0.0.8
   resolution: "ansi-html-community@npm:0.0.8"
   bin:
@@ -2413,6 +2413,13 @@ __metadata:
     ansi-styles: ^4.1.0
     supports-color: ^7.1.0
   checksum: fe75c9d5c76a7a98d45495b91b2172fa3b7a09e0cc9370e5c8feb1c567b85c4288e2b3fded7cfdd7359ac28d6b3844feb8b82b8686842e93d23c827c417e83fc
+  languageName: node
+  linkType: hard
+
+"chalk@npm:^5.1.2":
+  version: 5.1.2
+  resolution: "chalk@npm:5.1.2"
+  checksum: 804d7485e33531abe45b14e91026ceb5615974a8c04259ab0806f214a7666f6ea03e39ab124f7d5a0c78a83fda89005f236db3c5f10c2abe9ae875f7aa56bcb5
   languageName: node
   linkType: hard
 
@@ -3829,7 +3836,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-import-resolver-typescript@npm:^3.5.1":
+"eslint-import-resolver-typescript@npm:3.5.1":
   version: 3.5.1
   resolution: "eslint-import-resolver-typescript@npm:3.5.1"
   dependencies:
@@ -4212,7 +4219,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"express@npm:^4.17.1, express@npm:^4.17.3":
+"express@npm:^4.17.1, express@npm:^4.17.3, express@npm:^4.18.2":
   version: 4.18.2
   resolution: "express@npm:4.18.2"
   dependencies:
@@ -5162,7 +5169,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html-entities@npm:^2.3.2":
+"html-entities@npm:^2.1.0, html-entities@npm:^2.3.2":
   version: 2.3.3
   resolution: "html-entities@npm:2.3.3"
   checksum: 92521501da8aa5f66fee27f0f022d6e9ceae62667dae93aa6a2f636afa71ad530b7fb24a18d4d6c124c9885970cac5f8a52dbf1731741161002816ae43f98196
@@ -9996,7 +10003,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-node@npm:^10.8.1":
+"ts-node@npm:^10.8.1, ts-node@npm:^10.9.1":
   version: 10.9.1
   resolution: "ts-node@npm:10.9.1"
   dependencies:
@@ -10517,6 +10524,7 @@ __metadata:
     animate.css: 4.1.1
     autoprefixer: 10.4.12
     axios: 1.1.2
+    chalk: ^5.1.2
     classnames: 2.3.2
     commitizen: 4.2.4
     compression-webpack-plugin: 10.0.0
@@ -10526,11 +10534,12 @@ __metadata:
     eslint: 8.25.0
     eslint-config-airbnb-base: 15.0.0
     eslint-config-prettier: 8.5.0
-    eslint-import-resolver-typescript: ^3.5.1
+    eslint-import-resolver-typescript: 3.5.1
     eslint-plugin-import: 2.26.0
     eslint-plugin-vue: 9.6.0
     eslint-plugin-vue-a11y: 0.0.31
     eslint-webpack-plugin: 3.2.0
+    express: ^4.18.2
     file-loader: 6.2.0
     html-webpack-plugin: 5.5.0
     json-server: 0.17.0
@@ -10550,6 +10559,7 @@ __metadata:
     style-loader: 3.3.1
     tailwindcss: 3.1.8
     ts-loader: 9.4.1
+    ts-node: ^10.9.1
     typescript: 4.8.4
     url-loader: 4.1.1
     vue: 3.2.40
@@ -10561,7 +10571,9 @@ __metadata:
     webpack: 5.74.0
     webpack-bundle-analyzer: 4.6.1
     webpack-cli: 4.10.0
+    webpack-dev-middleware: ^5.3.3
     webpack-dev-server: 4.11.1
+    webpack-hot-middleware: ^2.25.2
     webpack-merge: 5.8.0
     yargs: 17.6.0
   languageName: unknown
@@ -10670,7 +10682,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack-dev-middleware@npm:^5.3.1":
+"webpack-dev-middleware@npm:^5.3.1, webpack-dev-middleware@npm:^5.3.3":
   version: 5.3.3
   resolution: "webpack-dev-middleware@npm:5.3.3"
   dependencies:
@@ -10726,6 +10738,17 @@ __metadata:
   bin:
     webpack-dev-server: bin/webpack-dev-server.js
   checksum: b7601a39ee0f413988259e29a36835b0a68522cfaa161de5b7ec99b3399acdd99d44189add4aaf4a5191258bb130f9cf3e68919324a1955c7557f5fe6ab0d96c
+  languageName: node
+  linkType: hard
+
+"webpack-hot-middleware@npm:^2.25.2":
+  version: 2.25.2
+  resolution: "webpack-hot-middleware@npm:2.25.2"
+  dependencies:
+    ansi-html-community: 0.0.8
+    html-entities: ^2.1.0
+    strip-ansi: ^6.0.0
+  checksum: 9bbcb4a3109d5efc3fedc41ab84209745e47770a205897324adff9126196d9cd086237288161d71cd7273a0154e09046d025a3c30c6938bd04e58d3b379fdcca
   languageName: node
   linkType: hard
 

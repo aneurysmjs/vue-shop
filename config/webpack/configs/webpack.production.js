@@ -5,13 +5,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 
-const paths = require('../paths');
+const paths = require('../../paths');
+
+const commonConfig = require('./webpack.common.js');
 
 module.exports = ({ mode }) => {
-  // eslint-disable-next-line global-require
-  const commonConfig = require('./webpack.common.js')(mode);
+  const config = commonConfig(mode);
 
-  return webpackMerge(commonConfig, {
+  /** @type {import('webpack').Configuration} */
+  return webpackMerge(config, {
     mode: 'production',
     devtool: 'source-map',
 

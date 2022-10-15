@@ -4,7 +4,7 @@ const yargs = require('yargs/yargs');
 // const chalk = require('chalk');
 
 const paths = require('../config/paths');
-const webpackConfig = require('../config/webpack/webpack.config');
+const webpackConfig = require('../config/webpack/configs/webpack.config');
 
 const {
   hookCompiler,
@@ -18,11 +18,13 @@ const { presets } = yargs(process.argv.slice(2))
   })
   .help().argv;
 
+process.env.NODE_ENV = 'production';
+
 const build = async () => {
   rimraf.sync(paths.dist);
 
   /** @type {import('webpack').Configuration} */
-  const config = webpackConfig({ mode: 'production', presets });
+  const config = webpackConfig({ mode: process.env.NODE_ENV, presets });
 
   /** @type {import('webpack').Compiler} */
   const compiler = webpack(config);

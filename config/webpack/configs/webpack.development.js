@@ -1,14 +1,15 @@
 const webpack = require('webpack');
 const { merge: webpackMerge } = require('webpack-merge');
 
-const { DEVSERVER_HOST, PORT } = require('../const');
-const paths = require('../paths');
+const { DEVSERVER_HOST, PORT } = require('../../const');
+const paths = require('../../paths');
+const commonConfig = require('./webpack.common.js');
 
-module.exports = (env) => {
-  const commonConfig = require('./webpack.common')(env);
+module.exports = ({ mode }) => {
+  const config = commonConfig(mode);
 
   /** @type {import('webpack').Configuration} */
-  return webpackMerge(commonConfig, {
+  return webpackMerge(config, {
     mode: 'development',
 
     output: {

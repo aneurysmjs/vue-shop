@@ -6,7 +6,7 @@ const express = require('express');
 // const chalk = require('chalk');
 const { DEVSERVER_HOST, PORT, HOST } = require('../config/const');
 const paths = require('../config/paths');
-const webpackConfig = require('../config/webpack/webpack.config');
+const webpackConfig = require('../config/webpack/configs/webpack.config');
 const {
   hookCompiler,
   logMessage,
@@ -17,9 +17,11 @@ const open = checkPlatformForOpenCommand();
 
 const app = express();
 
+process.env.NODE_ENV = 'development';
+
 const start = async () => {
   /** @type {import('webpack').Configuration} */
-  const config = webpackConfig({ mode: 'development' });
+  const config = webpackConfig({ mode: process.env.NODE_ENV });
 
   config.entry = [
     `webpack-hot-middleware/client?path=${DEVSERVER_HOST}:${PORT}/__webpack_hmr`,

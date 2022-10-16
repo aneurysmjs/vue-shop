@@ -7,7 +7,11 @@
         class="toolbar__button"
         @click="handleFilterClick(filter)"
       >
-        <Icon :name="filter.icon" :selected="filter.id === selected" />
+        <!-- <Icon
+          :name="filter.icon"
+          :selected="filter.id === selected"
+        /> -->
+        X
       </button>
     </div>
   </nav>
@@ -15,14 +19,14 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Icon from '@/components/base/Icon';
+// import Icon from '@/components/base/Icon';
 
 import { IDataToolbar, Filter } from './toolbar.types';
 
 export default defineComponent({
   name: 'ToolBar',
   components: {
-    Icon,
+    // Icon,
   },
   data(): IDataToolbar {
     return {
@@ -50,12 +54,10 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss">
-@import '../../assets/scss/mixins/flex';
+<style>
 
 .toolbar {
-  @include flex($justify-content: flex-end);
-  padding: 0.5rem 0;
+  @apply flex justify-end py-2;
 }
 
 .toolbar__button {
@@ -71,7 +73,6 @@ export default defineComponent({
 }
 
 .toolbar__filters {
-  @include flex($justify-content: space-evenly);
-  width: 5rem;
+  @apply flex justify-evenly w-20;
 }
 </style>

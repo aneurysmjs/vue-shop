@@ -17,7 +17,7 @@ export default ({ mode }) => {
       path: paths.dist,
       publicPath: '/',
       filename: '[name].[fullhash].js',
-      chunkFilename: '[id].[contenthash].chunk.js',
+      chunkFilename: '[name].[contenthash].chunk.js',
     },
 
     performance: {

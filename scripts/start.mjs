@@ -8,7 +8,6 @@ import { DEVSERVER_HOST, PORT, HOST } from '../config/const.mjs';
 import paths from '../config/paths.mjs';
 import webpackConfig from '../config/webpack/configs/webpack.config.mjs';
 import {
-  hookCompiler,
   logMessage,
   checkPlatformForOpenCommand,
 } from './utils.mjs';
@@ -50,8 +49,12 @@ const start = async () => {
 
   app.use('*', express.static(paths.src));
 
+  compiler.hooks.compile.tap(compiler.name, () => {
+    logMessage(`[${compiler.name}] Compiling `);
+  });
+
   try {
-    await hookCompiler(compiler);
+    // await hookCompiler(compiler);
 
     app.listen(PORT, () => {
       exec(`${open} ${DEVSERVER_HOST}:${PORT}`);

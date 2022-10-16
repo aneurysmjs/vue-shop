@@ -1,18 +1,14 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 
-// import adminRoutes from '@/pages/Admin/adminRoutes';
+import homeRoutes from '@/modules/home/routes/homeRoutes';
 
-const Home = () => import('@/pages/Home/HomePage.vue');
+// import adminRoutes from '@/pages/Admin/adminRoutes';
 
 // const Shop = () => import('@/pages/Shop/Shop.vue');
 const Product = () => import('@/pages/Product/ProductPage.vue');
 
 const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: Home,
-  },
+  ...homeRoutes,
   // {
   //   path: '/shop',
   //   name: 'shop',

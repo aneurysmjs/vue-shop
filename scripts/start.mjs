@@ -1,17 +1,17 @@
-const { exec } = require('node:child_process');
-const webpack = require('webpack');
-const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpackHotMiddleware = require('webpack-hot-middleware');
-const express = require('express');
-// const chalk = require('chalk');
-const { DEVSERVER_HOST, PORT, HOST } = require('../config/const');
-const paths = require('../config/paths');
-const webpackConfig = require('../config/webpack/configs/webpack.config');
-const {
+import { exec } from 'node:child_process';
+import webpack from 'webpack';
+import webpackDevMiddleware from 'webpack-dev-middleware';
+import webpackHotMiddleware from 'webpack-hot-middleware';
+import express from 'express';
+import chalk from 'chalk';
+import { DEVSERVER_HOST, PORT, HOST } from '../config/const.mjs';
+import paths from '../config/paths.mjs';
+import webpackConfig from '../config/webpack/configs/webpack.config.mjs';
+import {
   hookCompiler,
   logMessage,
   checkPlatformForOpenCommand,
-} = require('./utils');
+} from './utils.mjs';
 
 const open = checkPlatformForOpenCommand();
 
@@ -55,8 +55,8 @@ const start = async () => {
 
     app.listen(PORT, () => {
       exec(`${open} ${DEVSERVER_HOST}:${PORT}`);
-      // eslint-disable-next-line no-console
-      console.log(
+
+      chalk.blue(
         `[${new Date().toISOString()}]`,
         `App is running: ${HOST || DEVSERVER_HOST}:${PORT}`,
       );

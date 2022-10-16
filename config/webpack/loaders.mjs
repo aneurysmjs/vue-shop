@@ -1,4 +1,4 @@
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const vueRegex = /\.vue$/;
 const tsRegex = /\.ts$/;
@@ -57,7 +57,7 @@ const fontsLoader = {
   ],
 };
 
-module.exports = [
+export default [
   vueLoader,
   tsLoader,
   cssLoader,

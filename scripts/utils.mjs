@@ -1,4 +1,4 @@
-// const chalk = require('chalk');
+import chalk from 'chalk';
 
 const NO_COMPILER_NAME = 'NO_COMPILER_NAME';
 
@@ -12,8 +12,7 @@ const logMessage = (message, level = 'info') => {
   // eslint-disable-next-line no-nested-ternary
   const color = level === 'error' ? 'red' : level === 'warning' ? 'yellow' : 'white';
   // eslint-disable-next-line no-console
-  // console.log(`[${new Date().toISOString()}]`, chalk[color](message));
-  console.log(`[${new Date().toISOString()}]`, message);
+  console.log(`[${new Date().toISOString()}]`, chalk[color](message));
 };
 
 /**
@@ -64,7 +63,7 @@ const checkPlatformForOpenCommand = () => {
   return 'xdg-open';
 };
 
-module.exports = {
+export {
   checkPlatformForOpenCommand,
   hookCompiler,
   logMessage,

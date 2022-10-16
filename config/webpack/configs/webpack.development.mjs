@@ -1,15 +1,15 @@
-const webpack = require('webpack');
-const { merge: webpackMerge } = require('webpack-merge');
+import { merge } from 'webpack-merge';
 
-const { DEVSERVER_HOST, PORT } = require('../../const');
-const paths = require('../../paths');
-const commonConfig = require('./webpack.common.js');
+import { DEVSERVER_HOST, PORT } from '../../const.mjs';
+import paths from '../../paths.mjs';
+import commonConfig from './webpack.common.mjs';
+import { pluginsDevelopment } from '../plugins.mjs';
 
-module.exports = ({ mode }) => {
+export default ({ mode }) => {
   const config = commonConfig(mode);
 
   /** @type {import('webpack').Configuration} */
-  return webpackMerge(config, {
+  return merge(config, {
     mode: 'development',
 
     output: {
@@ -21,6 +21,6 @@ module.exports = ({ mode }) => {
 
     // `devServer`is not longer needed since we're using webpack-dev-middleware that
     // has more lower level api
-    plugins: [new webpack.HotModuleReplacementPlugin()],
+    plugins: [...pluginsDevelopment],
   });
 };

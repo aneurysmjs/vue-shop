@@ -1,6 +1,6 @@
-const paths = require('../paths');
+import paths from '../paths.mjs';
 
-module.exports = {
+export default {
   alias: {
     /**
      * @see https://github.com/vuejs/core/tree/main/packages/vue#with-a-bundler

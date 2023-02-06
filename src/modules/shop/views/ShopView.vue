@@ -1,7 +1,7 @@
 <template>
   <section class="shop">
     <Toolbar @on-click="handleToolbarClick" />
-    <div class="row">
+    <div class="shop__products-row">
       <ProductCard
         v-for="product in products"
         :key="product.id"
@@ -33,3 +33,9 @@ const handleToolbarClick = (filterValue: string): void => {
   gridValue.value = `${filterValue}%`;
 };
 </script>
+
+<style>
+  .shop__products-row {
+    @apply flex;
+  }
+</style>

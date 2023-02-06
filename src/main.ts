@@ -1,3 +1,6 @@
+/**
+ * inspired by @link https://voltafootwear.com/
+ */
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 

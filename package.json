@@ -11,7 +11,8 @@
     "start": "node scripts/start.mjs",
     "build": "node scripts/build.mjs",
     "analyze": "yarn build --presets analyze",
-    "api": "node_modules/.bin/json-server --watch ./src/assets/json/db.json"
+    "api": "node_modules/.bin/json-server --watch ./src/assets/json/db.json",
+    "lint": "eslint ./src/**/*.{ts,tsx,vue}"
   },
   "config": {
     "commitizen": {

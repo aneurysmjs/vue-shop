@@ -37,24 +37,32 @@ const cssLoader = {
 
 const imgLoader = {
   test: imgRegex,
-  use: [
-    {
-      loader: 'file-loader?name=assets/img/[name].[ext]',
-    },
-  ],
+  type: 'asset/resource',
+  generator: {
+    filename: 'assets/img/[name].[ext]',
+  },
+  // use: [
+  //   {
+  //     loader: 'file-loader?name=assets/img/[name].[ext]',
+  //   },
+  // ],
 };
 
 const fontsLoader = {
   test: fontRegex,
-  use: [
-    {
-      loader: 'file-loader',
-      options: {
-        name: '[name].[ext]',
-        outputPath: 'fonts/', // where the fonts will go
-      },
-    },
-  ],
+  type: 'asset/resource',
+  generator: {
+    filename: 'assets/fonts/[name].[ext]',
+  },
+  // use: [
+  //   {
+  //     loader: 'file-loader',
+  //     options: {
+  //       name: '[name].[ext]',
+  //       outputPath: 'fonts/', // where the fonts will go
+  //     },
+  //   },
+  // ],
 };
 
 export default [

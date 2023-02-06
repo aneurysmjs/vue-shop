@@ -19,7 +19,7 @@ const { presets } = yargs(process.argv.slice(2))
 
 process.env.NODE_ENV = 'production';
 
-const build = async () => {
+const build = () => {
   rimraf.sync(paths.dist);
 
   /** @type {import('webpack').Configuration} */
@@ -37,27 +37,38 @@ const build = async () => {
     if (err) {
       logMessage(err.stack || err, 'error');
       if (err.details) {
-        logMessage('Error Details: => ', err.details || err, 'error');
+        logMessage(err.details || err, 'error');
       }
       process.exit(1);
     }
 
+    const info = stats.toJson();
+
     if (stats.hasErrors()) {
+      logMessage('stats.errors: ', JSON.stringify(info.errors, null, 2), 'error');
+
+      // eslint-disable-next-line no-console
+      console.error(info.errors);
+      logMessage('Build Failed :(', 'error');
+
       process.on('exit', () => {
         process.exit(2);
       });
+
+      return;
     }
 
     logMessage('Client build done!', 'info');
   };
 
-  try {
-    await hookCompiler(compiler);
+  compiler.run(compilerCallback);
 
-    compiler.run(compilerCallback);
-  } catch (error) {
-    logMessage(error, 'error');
-  }
+  // try {
+  //   //  await hookCompiler(compiler);
+
+  // } catch (error) {
+  //   logMessage(error, 'error');
+  // }
 };
 
 build();

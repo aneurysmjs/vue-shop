@@ -1,11 +1,12 @@
-import ESLintPlugin from 'eslint-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { VueLoaderPlugin } from 'vue-loader';
-import ScriptExtHtmlWebpackPlugin from 'script-ext-html-webpack-plugin';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
-import webpack from 'webpack';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
+import ESLintPlugin from 'eslint-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import ScriptExtHtmlWebpackPlugin from 'script-ext-html-webpack-plugin';
+import webpack from 'webpack';
+import path from 'node:path';
 
 import paths from '../paths.mjs';
 
@@ -36,11 +37,11 @@ export const pluginsCommon = [
     failOnError: false,
   }),
 
-  // new CopyWebpackPlugin({
-  //   patterns: [
-  //     { from: 'assets/img', to: 'dist' },
-  //   ],
-  // }),
+  new CopyWebpackPlugin({
+    patterns: [
+      { from: path.resolve(paths.src, 'assets/img'), to: 'assets/img' },
+    ],
+  }),
 ];
 
 export const pluginsDevelopment = [

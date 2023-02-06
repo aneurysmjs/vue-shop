@@ -5,6 +5,7 @@ import ScriptExtHtmlWebpackPlugin from 'script-ext-html-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
 import webpack from 'webpack';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 import paths from '../paths.mjs';
 
@@ -34,6 +35,12 @@ export const pluginsCommon = [
     extensions: ['vue', 'ts'],
     failOnError: false,
   }),
+
+  // new CopyWebpackPlugin({
+  //   patterns: [
+  //     { from: 'assets/img', to: 'dist' },
+  //   ],
+  // }),
 ];
 
 export const pluginsDevelopment = [

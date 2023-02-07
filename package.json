@@ -12,7 +12,8 @@
     "build": "node scripts/build.mjs",
     "analyze": "yarn build --presets analyze",
     "api": "node_modules/.bin/json-server --watch ./src/assets/json/db.json",
-    "lint": "eslint ./src/**/*.{ts,tsx,vue}"
+    "lint": "eslint ./src/**/*.{ts,tsx,vue}",
+    "test": "jest"
   },
   "config": {
     "commitizen": {
@@ -32,9 +33,12 @@
     "vue-router": "4.1.5"
   },
   "devDependencies": {
+    "@types/jest": "^29.4.0",
     "@typescript-eslint/eslint-plugin": "5.39.0",
     "@typescript-eslint/parser": "5.39.0",
     "@vue/compiler-sfc": "3.2.40",
+    "@vue/test-utils": "^2.2.10",
+    "@vue/vue3-jest": "^29.2.2",
     "add-asset-html-webpack-plugin": "5.0.2",
     "autoprefixer": "10.4.12",
     "chalk": "5.1.2",
@@ -47,7 +51,7 @@
     "cz-conventional-changelog": "3.3.0",
     "eslint": "8.25.0",
     "eslint-config-airbnb-base": "15.0.0",
-    "eslint-config-prettier": "8.5.0",
+    "eslint-config-prettier": "^8.6.0",
     "eslint-import-resolver-typescript": "3.5.1",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-vue": "9.6.0",
@@ -55,6 +59,8 @@
     "eslint-webpack-plugin": "3.2.0",
     "express": "4.18.2",
     "html-webpack-plugin": "5.5.0",
+    "jest": "^29.4.1",
+    "jest-environment-jsdom": "^29.4.1",
     "json-server": "0.17.0",
     "mini-css-extract-plugin": "2.6.1",
     "node-sass": "7.0.1",
@@ -69,6 +75,7 @@
     "script-ext-html-webpack-plugin": "2.1.5",
     "style-loader": "3.3.1",
     "tailwindcss": "3.1.8",
+    "ts-jest": "^29.0.5",
     "ts-loader": "9.4.1",
     "typescript": "4.8.4",
     "vue-eslint-parser": "9.1.0",

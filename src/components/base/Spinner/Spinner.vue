@@ -1,16 +1,3 @@
-<template>
-  <div
-    :style="{
-      height,
-      width,
-    }"
-    class="spinner"
-  >
-    <div class="spinner__outer-circle" />
-    <div class="spinner__inner-circle" />
-  </div>
-</template>
-
 <script lang="ts">
 import Vue from 'vue';
 
@@ -28,6 +15,19 @@ export default defineComponent({
   },
 });
 </script>
+
+<template>
+  <div
+    :style="{
+      height,
+      width,
+    }"
+    class="spinner"
+  >
+    <div class="spinner__outer-circle" />
+    <div class="spinner__inner-circle" />
+  </div>
+</template>
 
 <style lang="scss">
 @import '~styles/functions/px-to-rem';

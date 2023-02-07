@@ -1,3 +1,18 @@
+<script setup lang="ts">
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+import { useProductsStore } from '@/store/products/useProductsStore';
+
+const userStore = useProductsStore();
+
+const route = useRoute();
+
+userStore.fetchProduct(route.params.id as string);
+
+const product = computed(() => userStore.product);
+
+</script>
+
 <template>
   <aside class="product">
     <div class="product__row">
@@ -16,21 +31,6 @@
     </div>
   </aside>
 </template>
-
-<script setup lang="ts">
-import { computed } from 'vue';
-import { useRoute } from 'vue-router';
-import { useProductsStore } from '@/store/products/useProductsStore';
-
-const userStore = useProductsStore();
-
-const route = useRoute();
-
-userStore.fetchProduct(route.params.id as string);
-
-const product = computed(() => userStore.product);
-
-</script>
 
 <style>
 

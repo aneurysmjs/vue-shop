@@ -1,3 +1,25 @@
+<script setup lang="ts">
+
+const links = [
+  {
+    id: 'Home',
+    name: 'Home',
+    to: '/',
+  },
+  {
+    id: 'About',
+    name: 'About',
+    to: '/',
+  },
+  {
+    id: 'Shop',
+    name: 'Shop',
+    to: '/shop',
+  },
+];
+
+</script>
+
 <template>
   <nav class="navbar">
     <div class="navbar__navigation">
@@ -23,28 +45,6 @@
     </div>
   </nav>
 </template>
-
-<script setup lang="ts">
-
-const links = [
-  {
-    id: 'Home',
-    name: 'Home',
-    to: '/',
-  },
-  {
-    id: 'About',
-    name: 'About',
-    to: '/',
-  },
-  {
-    id: 'Shop',
-    name: 'Shop',
-    to: '/shop',
-  },
-];
-
-</script>
 
 <style>
 .navbar {

@@ -1,3 +1,19 @@
+<script setup lang="ts">
+import { onMounted, computed } from 'vue';
+
+import { useProductsStore } from '@/store/products/useProductsStore';
+import ProductCard from '@/modules/home/components/ProductCard.vue';
+
+const productStore = useProductsStore();
+
+onMounted(() => {
+  productStore.fetchProducts();
+});
+
+const products = computed(() => productStore.getProducts);
+
+</script>
+
 <template>
   <section>
     <p class="home__title">
@@ -18,22 +34,6 @@
     </div>
   </section>
 </template>
-
-<script setup lang="ts">
-import { onMounted, computed } from 'vue';
-
-import { useProductsStore } from '@/store/products/useProductsStore';
-import ProductCard from '@/modules/home/components/ProductCard.vue';
-
-const productStore = useProductsStore();
-
-onMounted(() => {
-  productStore.fetchProducts();
-});
-
-const products = computed(() => productStore.getProducts);
-
-</script>
 
 <style>
   .home__title {

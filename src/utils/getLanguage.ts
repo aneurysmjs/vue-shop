@@ -1,4 +1,4 @@
-const language = window.navigator.language;
+const { language } = window.navigator;
 
 const getLanguage = (): string => language.split('-')[0] || 'en';
 

@@ -1,3 +1,8 @@
+<script setup lang="ts">
+import BaseHeader from '@/components/core/BaseHeader.vue';
+import BaseFooter from '@/components/core/BaseFooter.vue';
+</script>
+
 <template>
   <main class="layout">
     <BaseHeader />
@@ -7,11 +12,6 @@
     <BaseFooter />
   </main>
 </template>
-
-<script setup lang="ts">
-import BaseHeader from '@/components/core/BaseHeader.vue';
-import BaseFooter from '@/components/core/BaseFooter.vue';
-</script>
 
 <style>
 .layout {

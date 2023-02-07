@@ -1,25 +1,3 @@
-<template>
-  <aside class="sidebar">
-    <header>
-      <h4 class="text-center">
-        {{ title }}
-      </h4>
-    </header>
-    <nav class="sidebar__links">
-      <router-link
-        v-for="link in links"
-        :key="link.path"
-        :to="link.path"
-        tag="button"
-        class="btn btn-link"
-        @click="handleClick(link)"
-      >
-        {{ link.text }}
-      </router-link>
-    </nav>
-  </aside>
-</template>
-
 <script lang="ts">
 import { defineComponent } from 'vue';
 
@@ -52,6 +30,28 @@ export default defineComponent({
   },
 });
 </script>
+
+<template>
+  <aside class="sidebar">
+    <header>
+      <h4 class="text-center">
+        {{ title }}
+      </h4>
+    </header>
+    <nav class="sidebar__links">
+      <router-link
+        v-for="link in links"
+        :key="link.path"
+        :to="link.path"
+        tag="button"
+        class="btn btn-link"
+        @click="handleClick(link)"
+      >
+        {{ link.text }}
+      </router-link>
+    </nav>
+  </aside>
+</template>
 
 <style lang="scss">
 @import '~styles/mixins';

@@ -1,18 +1,3 @@
-<template>
-  <section class="shop">
-    <Toolbar @on-click="handleToolbarClick" />
-    <div class="shop__products-row">
-      <ProductCard
-        v-for="product in products"
-        :key="product.id"
-        :width="gridValue"
-        :product="product"
-        :has-hover="true"
-      />
-    </div>
-  </section>
-</template>
-
 <script setup lang="ts">
 import { onMounted, computed, ref } from 'vue';
 
@@ -33,6 +18,21 @@ const handleToolbarClick = (filterValue: string): void => {
   gridValue.value = `${filterValue}%`;
 };
 </script>
+
+<template>
+  <section class="shop">
+    <Toolbar @on-click="handleToolbarClick" />
+    <div class="shop__products-row">
+      <ProductCard
+        v-for="product in products"
+        :key="product.id"
+        :width="gridValue"
+        :product="product"
+        :has-hover="true"
+      />
+    </div>
+  </section>
+</template>
 
 <style>
   .shop__products-row {

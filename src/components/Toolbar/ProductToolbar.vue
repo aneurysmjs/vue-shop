@@ -1,21 +1,3 @@
-<template>
-  <nav class="toolbar">
-    <div class="toolbar__filters">
-      <button
-        v-for="filter in filters"
-        :key="filter.id"
-        class="toolbar__button"
-        @click="handleFilterClick(filter)"
-      >
-        <font-awesome-icon
-          :icon="filter.icon"
-          class="toolbar__icon"
-        />
-      </button>
-    </div>
-  </nav>
-</template>
-
 <script setup lang="ts">
 import { ref } from 'vue';
 // import Icon from '@/components/base/Icon';
@@ -44,6 +26,24 @@ const handleFilterClick = (filter: Filter): void => {
   emit('on-click', filter.value);
 };
 </script>
+
+<template>
+  <nav class="toolbar">
+    <div class="toolbar__filters">
+      <button
+        v-for="filter in filters"
+        :key="filter.id"
+        class="toolbar__button"
+        @click="handleFilterClick(filter)"
+      >
+        <font-awesome-icon
+          :icon="filter.icon"
+          class="toolbar__icon"
+        />
+      </button>
+    </div>
+  </nav>
+</template>
 
 <style>
 

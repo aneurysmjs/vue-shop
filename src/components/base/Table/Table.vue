@@ -1,4 +1,4 @@
-<template functional>
+<template>
   <div class="table">
     <slot name="thead" />
     <slot name="tbody" />

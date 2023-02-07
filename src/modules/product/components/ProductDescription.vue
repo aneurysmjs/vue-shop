@@ -1,3 +1,16 @@
+<script setup lang="ts">
+import type { Product } from '@/store/products/productsTypes';
+
+import Button from '@/components/base/BaseButton';
+
+defineProps<{
+  product: Product;
+}>();
+
+const handleAddToCart = () => {};
+
+</script>
+
 <template>
   <article class="product-description">
     <header>
@@ -24,19 +37,6 @@
     </div>
   </article>
 </template>
-
-<script setup lang="ts">
-import type { Product } from '@/store/products/productsTypes';
-
-import Button from '@/components/base/Button';
-
-defineProps<{
-  product: Product;
-}>();
-
-const handleAddToCart = () => {};
-
-</script>
 
 <style>
 .product-description {

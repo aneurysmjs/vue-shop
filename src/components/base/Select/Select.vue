@@ -1,24 +1,3 @@
-<template>
-  <div role="listbox" class="select">
-    <div @click="handleClick" role="button" class="custom-select">
-      {{ buttonText }}
-    </div>
-    <div v-if="isOpen">
-      <div
-        v-for="item in items"
-        :key="item.id"
-        role="listbox"
-        aria-labelledby="selectBox"
-        class="select__items"
-      >
-        <div @click="handleSelect" role="option" class="select__item">
-          {{ item.text }}
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script lang="ts">
 import Vue from 'vue';
 
@@ -53,6 +32,38 @@ export default defineComponent({
   },
 });
 </script>
+
+<template>
+  <div
+    role="listbox"
+    class="select"
+  >
+    <div
+      role="button"
+      class="custom-select"
+      @click="handleClick"
+    >
+      {{ buttonText }}
+    </div>
+    <div v-if="isOpen">
+      <div
+        v-for="item in items"
+        :key="item.id"
+        role="listbox"
+        aria-labelledby="selectBox"
+        class="select__items"
+      >
+        <div
+          role="option"
+          class="select__item"
+          @click="handleSelect"
+        >
+          {{ item.text }}
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
 
 <style lang="scss" scope>
 @import '~styles/functions/px-to-rem';

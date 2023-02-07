@@ -1,12 +1,3 @@
-<template>
-  <input
-    :placeholder="placeholder"
-    :value="value"
-    @input="$emit('input', $event.target.value)"
-    class="input"
-  />
-</template>
-
 <script>
 export default {
   props: {
@@ -21,6 +12,15 @@ export default {
   },
 };
 </script>
+
+<template>
+  <input
+    :placeholder="placeholder"
+    :value="value"
+    class="input"
+    @input="$emit('input', $event.target.value)"
+  >
+</template>
 
 <style lang="scss">
 .input {

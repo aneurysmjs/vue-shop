@@ -1,31 +1,3 @@
-<template>
-  <figure
-    :class="[hasOverlay ? 'product-card--overlay' : 'product-card']"
-    :style="{
-      width,
-      margin: '0 auto',
-    }"
-  >
-    <div
-      v-if="hasOverlay"
-      class="product-card__overlay"
-    />
-    <img
-      :src="image"
-      :alt="product.name"
-      class="img-fluid product-card__image"
-      @click="handleClick"
-      @mouseover="handleMouseover"
-      @mouseleave="handleMouseleave"
-    >
-    <figcaption
-      :class="[hasOverlay ? 'product-card__description--overlay' : 'product-card__description']"
-    >
-      {{ product.name }}
-    </figcaption>
-  </figure>
-</template>
-
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
@@ -65,6 +37,34 @@ const handleMouseleave = (): void => {
   }
 };
 </script>
+
+<template>
+  <figure
+    :class="[hasOverlay ? 'product-card--overlay' : 'product-card']"
+    :style="{
+      width,
+      margin: '0 auto',
+    }"
+  >
+    <div
+      v-if="hasOverlay"
+      class="product-card__overlay"
+    />
+    <img
+      :src="image"
+      :alt="product.name"
+      class="img-fluid product-card__image"
+      @click="handleClick"
+      @mouseover="handleMouseover"
+      @mouseleave="handleMouseleave"
+    >
+    <figcaption
+      :class="[hasOverlay ? 'product-card__description--overlay' : 'product-card__description']"
+    >
+      {{ product.name }}
+    </figcaption>
+  </figure>
+</template>
 
 <style>
 .product-card {

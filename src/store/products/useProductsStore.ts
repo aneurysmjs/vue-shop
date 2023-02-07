@@ -12,6 +12,7 @@ const initialProduct: Product = {
   imgHovered: '',
   name: '',
   price: 0,
+  stock: 0,
   shop: '',
 };
 

@@ -4,6 +4,7 @@ export interface Product {
   img: string;
   imgHovered: string;
   price: number;
+  stock: number;
   description: string;
   shop: string;
 }

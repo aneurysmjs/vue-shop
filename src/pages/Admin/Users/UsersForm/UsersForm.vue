@@ -1,94 +1,75 @@
+<script setup lang="ts">
+import { reactive, computed } from 'vue';
+import Spinner from '@/components/base/Spinner';
+import Select from '@/components/base/Select';
+import Button from '@/components/base/BaseButton';
+
+const user = reactive({
+  firstName: '',
+  lastName: '',
+  email: '',
+});
+
+const isLoading = computed(() => 0);
+const error = computed(() => '');
+
+const handleSubmit = () => {
+  // createUser(user);
+};
+const handleChange = (evt) => {
+  const { target } = evt;
+  const { name, value } = target;
+  const userData = {
+    ...user,
+    [name]: value,
+  };
+};
+const handleSelect = (shop) => {};
+</script>
+
 <template>
-  <form @submit.prevent="handleSubmit" class="users-form">
+  <form class="users-form" @submit.prevent="handleSubmit">
     <div>
       <div class="form-group">
         <input
           :value="user.firstName"
-          @change="handleChange"
           type="text"
           name="firstName"
           class="form-control"
           placeholder="First name"
+          @change="handleChange"
         />
       </div>
       <div class="form-group">
         <input
           :value="user.lastName"
-          @change="handleChange"
           type="text"
           name="lastName"
           class="form-control"
           placeholder="Last name"
+          @change="handleChange"
         />
       </div>
       <div class="form-group">
         <input
           :value="user.email"
-          @change="handleChange"
           type="email"
           name="email"
           class="form-control"
           placeholder="Email"
+          @change="handleChange"
         />
       </div>
       <div class="form-group">
         <Select :items="[{ id: 0, text: 'Item' }]" @on-select="handleSelect" />
       </div>
-      <Button @click="handleSubmit" type="submit"> Create User </Button>
+      <Button type="submit" @click="handleSubmit"> Create User </Button>
       <div class="users-table__spinner">
         <Spinner v-if="isLoading" />
       </div>
     </div>
   </form>
 </template>
-
-<script>
-import { createNamespacedHelpers } from 'vuex';
-
-import Button from 'components/base/Button';
-import Spinner from 'components/base/Spinner';
-import Select from 'components/base/Select';
-
-const { mapState, mapActions } = createNamespacedHelpers('users');
-
-export default {
-  name: 'UsersForm',
-  components: {
-    Button,
-    Spinner,
-    Select,
-  },
-  data() {
-    return {
-      user: {
-        firstName: '',
-        lastName: '',
-        email: '',
-      },
-    };
-  },
-  computed: {
-    ...mapState(['isLoading', 'error']),
-  },
-  methods: {
-    handleSubmit() {
-      this.createUser(this.user);
-      this.user = {};
-    },
-    handleChange($event) {
-      const { target } = $event;
-      const { name, value } = target;
-      this.user = {
-        ...this.user,
-        [name]: value,
-      };
-    },
-    // eslint-disable-next-line
-    handleSelect(shop) {},
-    ...mapActions(['createUser']),
-  },
-};
-</script>
 
 <style lang="scss">
 .users-form {

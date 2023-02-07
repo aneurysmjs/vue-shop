@@ -1,3 +1,27 @@
+<script setup lang="ts">
+import { onMounted, computed, ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+import Button from '@/components/base/BaseButton';
+import Spinner from '@/components/base/Spinner';
+import Table, { Thead, Tbody, Tr, Th, Td } from '@/components/base/Table';
+import { useUsersStore } from '@/store/users/useUsersStore';
+
+const router = useRouter();
+const usersStore = useUsersStore();
+const isLoading = ref(false);
+
+onMounted(() => {
+  usersStore.fetchUsers();
+});
+
+const users = computed(() => usersStore.getUsers);
+
+const handleCreateUser = () => {
+  router.push('/admin/users/new');
+};
+</script>
+
 <template>
   <div>
     <nav v-if="!isLoading" :class="{ fadeIn: !isLoading }" class="animated">
@@ -12,14 +36,14 @@
           <Tr>
             <Th>First Name</Th>
             <Th>Last Name</Th>
-            <Th>Shop</Th>
+            <Th>Email</Th>
           </Tr>
         </Thead>
         <Tbody slot="tbody">
           <Tr v-for="user in users" :key="user.id">
             <Th>{{ user.firstName }}</Th>
             <Td>{{ user.lastName }}</Td>
-            <Td>{{ user.shop }}</Td>
+            <Td>{{ user.email }}</Td>
           </Tr>
         </Tbody>
       </Table>
@@ -27,48 +51,8 @@
   </div>
 </template>
 
-<script>
-import { createNamespacedHelpers } from 'vuex';
-
-import Button from 'components/base/Button';
-import Spinner from 'components/base/Spinner';
-
-import Table, { Thead, Tbody, Tr, Th, Td } from 'components/base/Table';
-
-const { mapState, mapActions } = createNamespacedHelpers('users');
-
-export default {
-  name: 'UsersTable',
-  components: {
-    Table,
-    Thead,
-    Tbody,
-    Th,
-    Tr,
-    Td,
-    Button,
-    Spinner,
-  },
-  computed: mapState(['users', 'isLoading']),
-  created() {
-    this.fetchUsers();
-  },
-  methods: {
-    handleCreateUser() {
-      this.$router.push('/admin/users/new');
-    },
-    ...mapActions(['fetchUsers']),
-  },
-};
-</script>
-
-<style lang="scss">
-@import '~styles/functions/px-to-rem';
-@import '~styles/mixins';
-
+<style>
 .users-table {
-  @include element(spinner) {
-    text-align: center;
-  }
+  @apply text-center;
 }
 </style>

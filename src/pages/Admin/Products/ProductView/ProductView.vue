@@ -1,10 +1,10 @@
 <script setup lang="ts">
-const name = 'Users';
+import ProductForm from '@/pages/Admin/Products/ProductForm';
+
 </script>
 
 <template>
   <section>
-    <h2>{{ name }}</h2>
-    <router-view />
+    <ProductForm />
   </section>
 </template>

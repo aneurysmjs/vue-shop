@@ -1,16 +1,14 @@
-const Admin = () => import('Admin/Admin.vue');
-const Dashboard = () => import('Admin/Dashboard.vue');
-const Products = () => import('Admin/Products/Products.vue');
-const ProductsTable = () => import('Admin/Products/ProductsTable/ProductsTable.vue');
-const Product = () => import('Admin/Products/Product/Product.vue');
-
-const Users = () => import('Admin/Users/Users.vue');
-const UsersTable = () => import('Admin/Users/UsersTable/UsersTable.vue');
-const UsersForm = () => import('Admin/Users/UsersForm/UsersForm.vue');
+const Admin = () => import('@/pages/Admin/AdminShop.vue');
+const Dashboard = () => import('@/pages/Admin/AdminDashboard.vue');
+const Products = () => import('@/pages/Admin/Products/Products.vue');
+const ProductsTable = () => import('@/pages/Admin/Products/ProductsTable/ProductsTable.vue');
+const ProductView = () => import('@/pages/Admin/Products/ProductView/ProductView.vue');
+const Users = () => import('@/pages/Admin/Users/Users.vue');
+const UsersTable = () => import('@/pages/Admin/Users/UsersTable/UsersTable.vue');
+const UsersForm = () => import('@/pages/Admin/Users/UsersForm/UsersForm.vue');
 
 export default {
   path: '/admin',
-  // name: 'admin',
   component: Admin,
   children: [
     {
@@ -28,7 +26,7 @@ export default {
         },
         {
           path: 'new',
-          component: Product,
+          component: ProductView,
         },
       ],
     },

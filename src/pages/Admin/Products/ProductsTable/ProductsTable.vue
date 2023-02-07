@@ -1,3 +1,26 @@
+<script setup lang="ts">
+import { onMounted, computed } from 'vue';
+import { useRouter } from 'vue-router';
+
+import Button from '@/components/base/BaseButton';
+import Table, { Thead, Tbody, Tr, Th, Td } from '@/components/base/Table';
+import { useProductsStore } from '@/store/products/useProductsStore';
+
+const router = useRouter();
+
+const productStore = useProductsStore();
+
+onMounted(() => {
+  productStore.fetchProducts();
+});
+
+const products = computed(() => productStore.getProducts);
+
+const handleCreateProduct = () => {
+  router.push('/admin/products/new');
+};
+</script>
+
 <template>
   <div>
     <nav>
@@ -23,37 +46,5 @@
     </Table>
   </div>
 </template>
-
-<script>
-import { createNamespacedHelpers } from 'vuex';
-
-import Button from 'components/base/Button';
-
-import Table, { Thead, Tbody, Tr, Th, Td } from 'components/base/Table';
-
-const { mapState, mapActions } = createNamespacedHelpers('products');
-
-export default {
-  components: {
-    Table,
-    Thead,
-    Tbody,
-    Th,
-    Tr,
-    Td,
-    Button,
-  },
-  computed: mapState(['products']),
-  created() {
-    this.fetchProducts();
-  },
-  methods: {
-    handleCreateProduct() {
-      this.$router.push('/admin/products/new');
-    },
-    ...mapActions(['fetchProducts']),
-  },
-};
-</script>
 
 <style></style>

@@ -1,44 +1,24 @@
 {
+  "extends": "@vue/tsconfig/tsconfig.json",
   "compilerOptions": {
-    "noImplicitThis": true,
-    "allowSyntheticDefaultImports": true,
-    // this aligns with Vue's browser support
-    "target": "es5",
-    // this enables stricter inference for data properties on `this`
-    "strict": true,
-    // if using webpack 2+ or rollup, to leverage tree shaking:
-    "module": "esNext",
-    "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ],
-      "api": [
-        "./src/api/api.ts"
-      ],
-      "@core/*": [
-        "./src/components/core/*"
-      ],
-      "@store": [
-        "./src/store"
-      ],
-      "components/*": [
-        "./src/components/*"
-      ],
-      "pages/*": [
-        "./src/pages/*"
-      ],
-      "Admin/*": [
-        "./src/pages/Admin*"
-      ]
+      "~/*": ["src/*"]
     },
-    "lib": [
-      "dom",
-      "es2015"
+    "types": [
+      "vite/client",
+      "vitest/globals",
+      "@testing-library/jest-dom",
+      "unplugin-vue-router/client",
+      "vite-plugin-vue-layouts/client"
     ]
   },
   "include": [
-    "./src/**/*"
-  ]
+    "./auto-imports.d.ts",
+    "./components.d.ts",
+    "./typed-router.d.ts",
+    "./src/**/*.ts",
+    "./src/**/*.vue"
+  ],
+  "exclude": ["dist", "node_modules"]
 }

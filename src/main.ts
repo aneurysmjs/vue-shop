@@ -1,16 +1,32 @@
-import Vue from 'vue';
-import App from '@core/App.vue';
+import { createApp } from 'vue'
+import { createRouter, createWebHistory } from 'vue-router/auto'
+import { VueQueryPlugin, type VueQueryPluginOptions } from '@tanstack/vue-query'
+import { setupLayouts } from 'virtual:generated-layouts'
 
-import store from '@store';
-import { router } from './router';
+import App from './App.vue'
 
-// eslint-disable-next-line no-new
-new Vue({
-  el: '#app',
-  components: {
-    App,
+import '@unocss/reset/tailwind.css'
+import './styles/main.css'
+import 'uno.css'
+
+const vueQueryPluginOptions: VueQueryPluginOptions = {
+  queryClientConfig: {
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false,
+        refetchOnMount: false,
+      },
+    },
   },
-  template: `<App />`,
-  router,
-  store,
-});
+}
+
+const app = createApp(App)
+const router = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
+
+  extendRoutes: routes => setupLayouts(routes),
+})
+
+app.use(router)
+app.use(VueQueryPlugin, vueQueryPluginOptions)
+app.mount('#app')

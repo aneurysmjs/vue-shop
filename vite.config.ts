@@ -41,12 +41,19 @@ export default defineConfig({
         'vue/macros',
         VueRouterAutoImports,
         '@vueuse/core',
+        {
+          axios: [
+            // default imports
+            ['default', 'axios'], // import { default as axios } from 'axios',
+          ],
+        },
       ],
       dts: true,
       dirs: [
-        './src/composables',
-        './src/utils',
+        './src/composables/**',
+        './src/utils/**',
       ],
+      // ignore
       vueTemplate: true,
     }),
 

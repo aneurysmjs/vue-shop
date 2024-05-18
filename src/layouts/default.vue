@@ -138,10 +138,16 @@ function handleOpen() {
 
       <!-- Navigation -->
       <Navigation
-        :navigation
+
         :currencies
-        @open-mobile-menu="handleOpen"
-      />
+      >
+        <template #secondaryNavigation>
+          <SecondaryNavigation
+            :navigation
+            @open-mobile-menu="handleOpen"
+          />
+        </template>
+      </Navigation>
 
       <!-- <div
         class="

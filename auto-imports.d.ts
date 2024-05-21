@@ -191,6 +191,7 @@ declare global {
   const useGamepad: typeof import('@vueuse/core')['useGamepad']
   const useGeolocation: typeof import('@vueuse/core')['useGeolocation']
   const useGetCategories: typeof import('./src/composables/queries/categoryQueries')['useGetCategories']
+  const useGetCategoriesProducts: typeof import('./src/composables/queries/categoryQueries')['useGetCategoriesProducts']
   const useIdle: typeof import('@vueuse/core')['useIdle']
   const useImage: typeof import('@vueuse/core')['useImage']
   const useInfiniteScroll: typeof import('@vueuse/core')['useInfiniteScroll']
@@ -500,6 +501,7 @@ declare module 'vue' {
     readonly useGamepad: UnwrapRef<typeof import('@vueuse/core')['useGamepad']>
     readonly useGeolocation: UnwrapRef<typeof import('@vueuse/core')['useGeolocation']>
     readonly useGetCategories: UnwrapRef<typeof import('./src/composables/queries/categoryQueries')['useGetCategories']>
+    readonly useGetCategoriesProducts: UnwrapRef<typeof import('./src/composables/queries/categoryQueries')['useGetCategoriesProducts']>
     readonly useIdle: UnwrapRef<typeof import('@vueuse/core')['useIdle']>
     readonly useImage: UnwrapRef<typeof import('@vueuse/core')['useImage']>
     readonly useInfiniteScroll: UnwrapRef<typeof import('@vueuse/core')['useInfiniteScroll']>
@@ -796,6 +798,7 @@ declare module '@vue/runtime-core' {
     readonly useGamepad: UnwrapRef<typeof import('@vueuse/core')['useGamepad']>
     readonly useGeolocation: UnwrapRef<typeof import('@vueuse/core')['useGeolocation']>
     readonly useGetCategories: UnwrapRef<typeof import('./src/composables/queries/categoryQueries')['useGetCategories']>
+    readonly useGetCategoriesProducts: UnwrapRef<typeof import('./src/composables/queries/categoryQueries')['useGetCategoriesProducts']>
     readonly useIdle: UnwrapRef<typeof import('@vueuse/core')['useIdle']>
     readonly useImage: UnwrapRef<typeof import('@vueuse/core')['useImage']>
     readonly useInfiniteScroll: UnwrapRef<typeof import('@vueuse/core')['useInfiniteScroll']>
